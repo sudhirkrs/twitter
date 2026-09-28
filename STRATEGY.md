@@ -86,7 +86,7 @@ These timelines are realistic with daily consistency. Accounts that skip the rep
 | **Momentum** | 3k → 10k | 16–36 | Weekly X Space or long post. Newsletter launch. Repurpose top threads into LinkedIn and Instagram carousels to pull followers back to X. |
 
 **Weekly targets to hit:**
-- 14+ original posts (automated from `content/queue.json`)
+- 14+ original posts (from `content/queue.json`, via the Posting Desk)
 - 70+ quality replies (10/day)
 - 1 thread that you promote in replies and quote-posts
 - Review analytics every Sunday (see §6)
@@ -95,15 +95,18 @@ These timelines are realistic with daily consistency. Accounts that skip the rep
 
 ## 5. Execution: what's automated vs. what's you
 
+The X API isn't available on the free tier, so posting is **one tap by you** and everything around it is prepared:
+
 | Task | Who / how |
 |---|---|
-| Scheduled posts (2/day, 08:30 & 19:30 IST) | **Automated**: GitHub Action → `poster.py` → X API. See `README.md` for setup. |
-| First 3 weeks of content (42 posts, 11 threads, 2 polls) | **Done**: `content/queue.json`. Review and edit before enabling. |
-| Replies, quote-posts, conversations | **You**, daily. This can't be automated, and automated replies violate X rules and get accounts limited. |
+| Daily reminder with that day's posts (07:45 IST) | **Automated**: a GitHub Action opens an issue with the text and one-tap "Open in X" links |
+| Posting (08:30 and 19:30 IST) | **You, about 1 minute each**: tap Open in X on the [Posting Desk](https://claude.ai/artifact/GMpn5mq6D3S7M4dX9MeD22), then Post. For threads, reply with each part. |
+| First 3 weeks of content (42 posts, 11 threads, 2 polls) | **Done**: `content/queue.json`. Review and edit before Day 1. |
+| Replies, quote-posts, conversations | **You**, daily. This can't be automated, and automated replies break X's rules. |
 | Weekly content refill | You + Claude: add the next 14 posts to the queue every Sunday, based on what performed. |
 | Tracking | `tracking/growth-log.csv`, updated every Sunday. |
 
----
+Avoid browser bots or "free auto-posters" that log in with your password. Non-API automation breaks X's rules and is a common cause of locked accounts.
 
 ## 6. Weekly review (every Sunday, 20 minutes)
 
