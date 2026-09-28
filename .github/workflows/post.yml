@@ -1,0 +1,51 @@
+name: Post to X
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # 08:30 IST (morning slot)
+    - cron: "0 14 * * *"  # 19:30 IST (evening slot)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (print, don't post)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: post-to-x
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    # Posting stays off until you set the repository variable X_POSTING_ENABLED=true.
+    if: vars.X_POSTING_ENABLED == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python poster.py --check
+      - name: Post due items
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            python poster.py --dry-run
+          else
+            python poster.py
+          fi
+      - name: Save posted state
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/
+          git diff --cached --quiet || (git commit -m "Record posted tweets" && git push)

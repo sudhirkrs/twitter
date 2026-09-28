@@ -1,0 +1,509 @@
+{
+  "start_date": "2026-10-01",
+  "timezone": "Asia/Kolkata",
+  "slots": {
+    "am": "08:30",
+    "pm": "19:30"
+  },
+  "posts": [
+    {
+      "id": "d01-am",
+      "day": 1,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "₹10,000 a month. That's it.\n\nInvested for 20 years at 12%, it becomes ~₹1 crore. You only put in ₹24 lakh.\n\nHere's the math most people never see, and the 3 mistakes that quietly cut it in half 🧵",
+        "The math (₹10k/month, 12% a year):\n\n10 yrs → ~₹23 L (invested ₹12 L)\n20 yrs → ~₹1 Cr (invested ₹24 L)\n30 yrs → ~₹3.5 Cr (invested ₹36 L)\n\nThe last 10 years add more than the first 20 combined. Compounding is back-loaded. Patience is the strategy.",
+        "Mistake 1: Starting late.\n\n₹5,000/month from 25 to 60 → ~₹3.2 Cr\n₹5,000/month from 35 to 60 → ~₹95 L\n\nWaiting 10 years \"saved\" you ₹6 L of contributions and cost you ~₹2.3 Cr.",
+        "Mistake 2: Never increasing the SIP.\n\n₹10,000 flat for 20 yrs → ~₹1 Cr\n₹10,000 + 10% step-up every year → ~₹2 Cr\n\nYour salary grows. Your SIP should too. Set an annual step-up once and forget it.",
+        "Mistake 3: Ignoring costs.\n\nA ~0.9% higher yearly cost (e.g. a regular plan instead of a direct plan) on a ₹10k SIP over 25 yrs:\n\n~₹1.86 Cr vs ~₹1.59 Cr\n\n~₹27 lakh gone. For a form you never read.",
+        "One honest caveat: 12% isn't guaranteed. Equity returns are lumpy, some years −20%, some +30%.\n\nThe math only works if you don't stop the SIP when markets fall. That part is behavioural, not mathematical, and it's the hardest part.",
+        "TL;DR\n\n• Start now, even small\n• Step up every year\n• Watch the costs\n• Don't stop in a crash\n\nI write about personal finance, payments, fintech, AI and books. Follow @Sudhirkrs17 for one useful money idea every day."
+      ]
+    },
+    {
+      "id": "d01-pm",
+      "day": 1,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Your emergency fund is not an investment.\n\nIt's insurance against having to sell your investments at the worst possible time.\n\n6 months of expenses. Boring place. Easy access.\n\nThat's the whole job."
+      ]
+    },
+    {
+      "id": "d02-am",
+      "day": 2,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "Pay ₹500 at a shop by UPI from your bank account and the merchant pays ₹0 in MDR.\n\nPay by credit card and they typically pay ~1–2%.\n\nThat one design choice explains why a UPI QR code sits on every chai stall in India, and a card machine doesn't."
+      ]
+    },
+    {
+      "id": "d02-pm",
+      "day": 2,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "Best line from The Psychology of Money by Morgan Housel:\n\n\"Spending money to show people how much money you have is the fastest way to have less money.\"\n\nWhat's one line from a book that changed how you handle money? 👇"
+      ]
+    },
+    {
+      "id": "d03-am",
+      "day": 3,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "thread",
+      "parts": [
+        "You tap \"Pay\" on UPI. 2 seconds later: ✅\n\nIn those 2 seconds, at least 4 systems talked to each other. Here's exactly what happens, and why \"money debited, payment failed\" occurs 🧵",
+        "1/ Your app (GPay, PhonePe, Paytm…) is just the front end, called a PSP.\n\nIt doesn't hold your money. It sends your request to NPCI, which runs the central UPI switch.",
+        "2/ NPCI resolves the UPI ID (name@bank) to the receiver's actual bank account.\n\nThat's why you can pay someone without ever knowing their account number or IFSC.",
+        "3/ NPCI asks YOUR bank to debit you.\n\nYour UPI PIN is verified by your bank, not by the app. It's encrypted on your phone, and the app never sees it in plain form.",
+        "4/ Your bank debits you and confirms to NPCI. NPCI tells the receiver's bank to credit. The receiver's bank credits and confirms.\n\n✅ appears on both phones.",
+        "5/ The actual money between the two banks moves later. NPCI nets out all transactions and settles them in cycles through the day via the banks' accounts at RBI.\n\nWhat you see in 2 seconds is a guaranteed promise. The settlement comes after.",
+        "6/ So \"money debited but payment failed\" means step 4 half-happened: your bank debited, but the credit leg didn't complete.\n\nRBI rules require an automatic reversal (for UPI, typically by the next working day), with compensation if the bank is late.",
+        "UPI feels like magic, but it's just very good plumbing.\n\nI write about how payments and money actually work. Follow @Sudhirkrs17 for more breakdowns like this."
+      ]
+    },
+    {
+      "id": "d03-pm",
+      "day": 3,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Credit card \"minimum due\" is one of the most expensive products in finance.\n\nInterest of ~3.5% a month ≈ 51% a year, compounded. And you lose the interest-free period on new spends.\n\nPay the full statement amount. Every month. No exceptions."
+      ]
+    },
+    {
+      "id": "d04-am",
+      "day": 4,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "Using AI for personal finance? One rule:\n\nIt's great at structure: budgets, comparisons, spreadsheets, explaining jargon.\n\nIt's bad at your assumptions: income stability, goals, risk appetite.\n\nLet it build the model. You own the inputs."
+      ]
+    },
+    {
+      "id": "d04-pm",
+      "day": 4,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "What's one money habit you wish you'd started at 22?\n\nMine: automate investing on salary day, before I get a chance to spend it.\n\nReply with yours 👇"
+      ]
+    },
+    {
+      "id": "d05-am",
+      "day": 5,
+      "slot": "am",
+      "pillar": "books",
+      "type": "thread",
+      "parts": [
+        "7 money books. One lesson from each that's worth more than the cover price 🧵📚",
+        "1. The Psychology of Money by Morgan Housel\n\nDoing well with money is less about what you know and more about how you behave. Staying invested beats being clever.",
+        "2. Let's Talk Money by Monika Halan\n\nGet the basics in order before chasing returns: emergency fund, insurance, then investing. Indian context, zero jargon.",
+        "3. The Richest Man in Babylon by George S. Clason\n\n\"A part of all you earn is yours to keep.\"\n\nPay yourself first. Written almost 100 years ago, still the #1 rule.",
+        "4. Die With Zero by Bill Perkins\n\nMoney is a tool for a good life, not a high score. Some experiences have an expiry date. Spend on them while you can enjoy them.",
+        "5. The Little Book of Common Sense Investing by John C. Bogle\n\nCosts compound against you. Own the whole market cheaply and hold it. Don't look for the needle, buy the haystack.",
+        "6. Coffee Can Investing by Saurabh Mukherjea and co-authors\n\nBuy high-quality businesses and then leave them alone. Most damage to returns comes from tinkering.",
+        "7. Your Money or Your Life by Vicki Robin and Joe Dominguez\n\nPrice things in hours of your life, not rupees. That ₹60k phone might be 3 weeks of work.\n\nWhich would you add? Follow @Sudhirkrs17 for a book lesson every week."
+      ]
+    },
+    {
+      "id": "d05-pm",
+      "day": 5,
+      "slot": "pm",
+      "pillar": "fintech",
+      "type": "tweet",
+      "parts": [
+        "Buy Now Pay Later is not free money. It's a loan with better UX.\n\nMiss a payment → late fees + a mark on your credit report.\n\nIf you can't pay for it today, you probably can't afford it in 3 instalments either."
+      ]
+    },
+    {
+      "id": "d06-am",
+      "day": 6,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "At 6% inflation, ₹1 lakh today buys only what ~₹31,000 buys today, 20 years from now.\n\nSpend ₹50,000/month today? You'll need ~₹1.6 lakh/month in 20 years for the same life.\n\nSavings that earn less than inflation aren't \"safe\". They're slowly shrinking."
+      ]
+    },
+    {
+      "id": "d06-pm",
+      "day": 6,
+      "slot": "pm",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "A card payment has 4 parties:\n\n1. You (cardholder)\n2. Your bank (issuer)\n3. The merchant's bank (acquirer)\n4. The network (Visa, Mastercard, RuPay)\n\nThe merchant's fee is split between them. The biggest chunk, interchange, goes to your bank. That's what pays for your rewards."
+      ]
+    },
+    {
+      "id": "d07-am",
+      "day": 7,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Most people start investing with \"which stock or fund should I buy?\"\n\nThat's actually step 5. Here's the order that protects you first 🧵",
+        "Step 1: Health insurance.\n\nOne hospital bill can wipe out years of savings. Have your own policy, not just your employer's. Change jobs and that cover is gone.",
+        "Step 2: Term life insurance, if anyone depends on your income.\n\nA common rule of thumb is cover of 10–15x your annual income. Pure term only, not a \"plan with returns\".",
+        "Step 3: Emergency fund.\n\n6 months of expenses in a savings account or liquid fund. This stops a job loss or an emergency from turning into debt.",
+        "Step 4: Kill high-interest debt.\n\nCredit cards, personal loans, app loans. Paying off a 36% loan is a guaranteed 36% return. No investment beats that.",
+        "Step 5: Now invest.\n\nAutomate a SIP into a low-cost index fund on salary day. Increase it every year.\n\nBoring order, great results. Follow @Sudhirkrs17 for one money idea every day."
+      ]
+    },
+    {
+      "id": "d07-pm",
+      "day": 7,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "poll",
+      "parts": [
+        "Quick poll: how do you pay for most things these days?"
+      ],
+      "poll": {
+        "options": [
+          "UPI",
+          "Credit card",
+          "Debit card",
+          "Cash"
+        ],
+        "duration_minutes": 1440
+      }
+    },
+    {
+      "id": "d08-am",
+      "day": 8,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "AI will change personal finance the way UPI changed payments: by making the right action the default, not by being clever.\n\nAuto-categorised spending. A nudge before you overspend. Every fee explained in plain language.\n\nThe boring stuff, done well, at scale."
+      ]
+    },
+    {
+      "id": "d08-pm",
+      "day": 8,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "The Rule of 72: divide 72 by your annual return to see how many years it takes your money to double.\n\n7% FD → ~10 years\n12% equity → ~6 years\n\nNow flip it: at 6% inflation, your money's value halves in ~12 years."
+      ]
+    },
+    {
+      "id": "d09-am",
+      "day": 9,
+      "slot": "am",
+      "pillar": "fintech",
+      "type": "thread",
+      "parts": [
+        "How does a \"zero-fee\" fintech app make money?\n\nNothing is free. The fee just moved somewhere you don't see it. 5 places it usually goes 🧵",
+        "1. Interchange\n\nEvery card swipe pays the issuing bank a cut. Co-branded card partners share it. Your \"free\" rewards card is funded by merchants.",
+        "2. Lending\n\nThe real business for many apps. You came for payments. You get offered personal loans, BNPL and credit lines, often at high rates.",
+        "3. Distribution commissions\n\nMutual funds (regular plans), insurance, digital gold. The app earns when you buy, and sometimes every year you stay invested.",
+        "4. Merchant services\n\nPayment gateway fees, POS machines, soundbox rentals, business loans. The merchant side often pays for the consumer side.",
+        "5. Ads and offers\n\nBrands pay for placement, cashback campaigns and your attention.\n\nLesson: when a financial product is free, look for where the fee moved. Usually a loan rate or an expense ratio.\n\nFollow @Sudhirkrs17 for more fintech breakdowns."
+      ]
+    },
+    {
+      "id": "d09-pm",
+      "day": 9,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "Die With Zero by Bill Perkins argues many people over-save for a future they'll be too old to enjoy.\n\nI don't fully agree. But one idea stuck: \"memory dividends\". Good experiences keep paying you back every time you remember them.\n\nSpend on the ones that compound."
+      ]
+    },
+    {
+      "id": "d10-am",
+      "day": 10,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Direct vs regular mutual fund plans: same fund, same manager, same portfolio.\n\nThe regular plan simply costs more every year, to pay a distributor's commission.\n\nOn a ₹10k SIP over 25 years, a ~0.9% cost gap can mean ~₹27 lakh less.\n\nCheck which one you own."
+      ]
+    },
+    {
+      "id": "d10-pm",
+      "day": 10,
+      "slot": "pm",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "UPI Lite. UPI AutoPay. Credit cards on UPI. UPI Circle. UPI 123PAY for feature phones.\n\nUPI isn't one product anymore. It's a platform.\n\nWhich of these have you actually used? 👇"
+      ]
+    },
+    {
+      "id": "d11-am",
+      "day": 11,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Willpower is a bad financial plan.\n\nHere's a salary-day system you set up once, in about 30 minutes, and never think about again 🧵",
+        "The idea: money leaves your account automatically on the day it arrives. Investments first, bills second, spending last.\n\nYou never \"decide\" to save. It just happens.",
+        "Transfer 1: Investments\n\nSet SIP dates 1–2 days after salary day. You invest first and spend what's left, not the other way round.",
+        "Transfer 2: Fixed bills\n\nRent, EMIs, insurance premiums, subscriptions, all on AutoPay or standing instructions around the same date. No late fees, no mental load.",
+        "Transfer 3: Emergency and goals\n\nA fixed amount to a separate account or liquid fund until you reach 6 months of expenses. Then point it at your next goal.",
+        "Whatever is left is guilt-free spending money. No budgeting app, no spreadsheet, no guilt.\n\nAutomate the good decisions once. Follow @Sudhirkrs17 for more simple money systems."
+      ]
+    },
+    {
+      "id": "d11-pm",
+      "day": 11,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "Hot take: a ₹1 crore net worth is not \"rich\" in an Indian metro in 2026.\n\nIt's a solid start.\n\nAgree or disagree? 👇"
+      ]
+    },
+    {
+      "id": "d12-am",
+      "day": 12,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "3 useful ways to use AI for your money:\n\n1. Paste a card statement (numbers masked) and ask for every fee and subscription\n2. Get an insurance policy's exclusions in plain language\n3. Build a SIP/goal calculator sheet\n\nNever share passwords, OTPs or account numbers."
+      ]
+    },
+    {
+      "id": "d12-pm",
+      "day": 12,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Your credit score is a reputation. It's built slowly:\n\n• Pay every EMI and card bill on time (the biggest factor)\n• Keep card usage under ~30% of the limit\n• Don't apply for many loans at once\n• Keep old cards open\n\nCheck your report at least once a year. Errors happen."
+      ]
+    },
+    {
+      "id": "d13-am",
+      "day": 13,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "thread",
+      "parts": [
+        "You paid $100 abroad with your Indian card. Your bill shows a lot more than $100 × today's rate.\n\nHere's where the extra goes, and how to avoid it 🧵",
+        "1. Forex markup\n\nMost cards add a markup, often ~2–3.5%, on every international transaction. It's in the fine print of your card's fee schedule.",
+        "2. GST on the markup\n\n18% GST applies on that markup fee. Small, but it adds up on a trip.",
+        "3. Dynamic Currency Conversion (DCC)\n\nThe card machine abroad asks: \"Pay in INR?\" It feels convenient. It's usually a worse exchange rate than your bank's.\n\nAlways choose to pay in the local currency.",
+        "How to pay less:\n\n• Use a low or zero forex-markup card\n• Consider a prepaid forex card for longer trips\n• Always decline DCC\n\nFollow @Sudhirkrs17 for more ways payments quietly cost you money."
+      ]
+    },
+    {
+      "id": "d13-pm",
+      "day": 13,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "The Richest Man in Babylon came out in 1926 and still has the best one-line finance rule ever written:\n\n\"A part of all you earn is yours to keep.\"\n\nPay yourself first. Almost everything else in personal finance is detail."
+      ]
+    },
+    {
+      "id": "d14-am",
+      "day": 14,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Lifestyle creep in one line:\n\nSalary +20% → rent +20%, car upgrade, more dinners out → savings +0%.\n\nA simple rule: every time you get a raise, send at least half of the increase straight to investments.\n\nYou still get to enjoy the other half."
+      ]
+    },
+    {
+      "id": "d14-pm",
+      "day": 14,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "poll",
+      "parts": [
+        "Where does most of your monthly saving go?"
+      ],
+      "poll": {
+        "options": [
+          "FD / RD",
+          "Mutual funds",
+          "Stocks",
+          "Gold"
+        ],
+        "duration_minutes": 1440
+      }
+    },
+    {
+      "id": "d15-am",
+      "day": 15,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "thread",
+      "parts": [
+        "AI is already inside your payments. You just don't see it.\n\n5 places it's working right now, and one risk it creates 🧵",
+        "1. Fraud detection\n\nModels score transactions in milliseconds using device, location, amount and your usual behaviour. That's why an unusual payment gets blocked or needs an extra check.",
+        "2. Credit decisions\n\nLenders increasingly use cash-flow data (shared with your consent, e.g. via Account Aggregators) to lend to people with little or no credit history.",
+        "3. Voice payments\n\nNPCI has launched voice-based UPI (\"Hello! UPI\"), so you can pay by talking, including in Indian languages. Huge for people who struggle with apps.",
+        "4. Support and disputes\n\nAI triages refunds and complaints, so a failed payment or chargeback gets routed and resolved faster.",
+        "The risk: scammers use AI too, with deepfake voices and very convincing messages.\n\nThe rule doesn't change: no genuine bank, app or officer will ever ask for your OTP or UPI PIN.\n\nFollow @Sudhirkrs17 for more on AI × money."
+      ]
+    },
+    {
+      "id": "d15-pm",
+      "day": 15,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "You never need a UPI PIN to RECEIVE money.\n\nIf someone says \"enter your PIN to receive your refund/prize/cashback\", it's a scam. The PIN is only ever for sending money.\n\nShare this with your parents."
+      ]
+    },
+    {
+      "id": "d16-am",
+      "day": 16,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "The \"I'll invest when I earn more\" trap:\n\nAt 25 you earn less but have 35 years.\nAt 35 you earn more but have 25.\n\n₹5,000/month from 25 → ~₹3.2 Cr at 60\nSame from 35 → ~₹95 L\n\n(Assuming 12% a year.) Time beats amount. Start with what you have."
+      ]
+    },
+    {
+      "id": "d16-pm",
+      "day": 16,
+      "slot": "pm",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "Money debited but the UPI/card payment failed?\n\nRBI rules require banks to auto-reverse failed transactions within fixed timelines, and to pay you ₹100 per day as compensation if they're late.\n\nMost people don't know this. Now you do."
+      ]
+    },
+    {
+      "id": "d17-am",
+      "day": 17,
+      "slot": "am",
+      "pillar": "books",
+      "type": "thread",
+      "parts": [
+        "Jack Bogle founded Vanguard and launched the first index fund for ordinary investors.\n\nHis book, The Little Book of Common Sense Investing, fits in one idea: in investing, you get what you don't pay for.\n\n5 lessons 🧵",
+        "1. Costs compound, against you.\n\nEvery 1% in fees is 1% of return lost every year, for decades. That gap turns into lakhs.",
+        "2. Most active funds trail their benchmark over long periods, after costs.\n\nPicking the future winners in advance is much harder than it looks.",
+        "3. \"Don't look for the needle in the haystack. Just buy the haystack.\"\n\nOwn the whole market through an index fund.",
+        "4. Time in the market beats timing the market.\n\nBuy, hold, rebalance occasionally. Stay out of the noise.",
+        "5. For Indian investors this is easy now: Nifty 50 and broader-market index funds are widely available.\n\nCompare expense ratio and tracking error, then stay put.\n\nFollow @Sudhirkrs17 for a book lesson every week."
+      ]
+    },
+    {
+      "id": "d17-pm",
+      "day": 17,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "Fintech people: what's the most underrated payments innovation in India in the last 10 years?\n\nMy pick: UPI AutoPay. Recurring payments without cards quietly changed subscriptions and SIPs.\n\nYours? 👇"
+      ]
+    },
+    {
+      "id": "d18-am",
+      "day": 18,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Term insurance vs \"insurance + returns\" plans:\n\nTerm: large cover, small premium, no returns.\nEndowment/money-back: small cover, large premium, returns often only ~4–6%.\n\nBuy term. Invest the difference. Don't mix insurance and investment."
+      ]
+    },
+    {
+      "id": "d18-pm",
+      "day": 18,
+      "slot": "pm",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "Prediction: in a few years, most people will ask an AI agent \"can I afford this?\" before a big purchase, and it will know their cash flow, EMIs and goals.\n\nThe hard part isn't the AI. It's trust, consent and data access.\n\nIndia's Account Aggregator rails are a head start."
+      ]
+    },
+    {
+      "id": "d19-am",
+      "day": 19,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Money mistakes I see again and again in people in their 20s.\n\nNone of them feel like mistakes at the time. That's the problem 🧵",
+        "1. A car on a 7-year loan with the first salary.\n\nYou pay interest for years on something that loses value every year.",
+        "2. Relying only on your employer's health insurance.\n\nLose the job, lose the cover, often exactly when you need it most.",
+        "3. Buying \"insurance plans with returns\" pitched by a relative or bank RM.\n\nLow cover, low returns, long lock-in. Term insurance + investing separately almost always wins.",
+        "4. Taking stock tips from Telegram and WhatsApp groups.\n\nIf someone had a sure-shot tip, they wouldn't be selling it to you.",
+        "5. F&O trading as a \"side income\".\n\nSEBI's own studies found about 9 in 10 individual F&O traders lose money.",
+        "6. No emergency fund, so every surprise becomes credit card debt.\n\nAvoid these six and you're ahead of most people. Follow @Sudhirkrs17 for one money idea every day."
+      ]
+    },
+    {
+      "id": "d19-pm",
+      "day": 19,
+      "slot": "pm",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "Tokenisation is why a merchant data breach is less scary than it used to be.\n\nSince October 2022, RBI rules stop most merchants from storing your actual card number. They store a token that only works for them.\n\nLeaked token ≠ leaked card."
+      ]
+    },
+    {
+      "id": "d20-am",
+      "day": 20,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Gold is not a get-rich asset. It's a sleep-well asset.\n\nA small allocation (many planners suggest 5–10%) tends to hold up when stocks and the rupee fall.\n\nBuy it through gold funds or ETFs, not jewellery with making charges."
+      ]
+    },
+    {
+      "id": "d20-pm",
+      "day": 20,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "Give me one book that genuinely changed how you think about money or work.\n\nI'm building a reading list for the next quarter and will share the most-recommended ones next week 📚👇"
+      ]
+    },
+    {
+      "id": "d21-am",
+      "day": 21,
+      "slot": "am",
+      "pillar": "fintech",
+      "type": "thread",
+      "parts": [
+        "How can a 22-year-old in India open a bank account, get a small loan and pay a street vendor, all from a phone, in under an hour?\n\nPublic digital rails. The \"India Stack\" in 7 tweets 🧵",
+        "1. Identity: Aadhaar + eKYC\n\nProve who you are digitally, in minutes, without paper forms.",
+        "2. Payments: UPI\n\nAny bank account can pay any other instantly, 24x7, free for the user. Apps compete on experience, not access.",
+        "3. Documents: DigiLocker\n\nGovernment-issued documents in digital form, shareable with consent. No photocopies, no attestation.",
+        "4. Data: Account Aggregator\n\nShare your financial data (like bank statements) with a lender, with consent, for a specific purpose, and revoke it later.",
+        "5. Commerce: ONDC\n\nAn open network so sellers aren't locked into one marketplace and buyers can find them from different apps.",
+        "The pattern: build public rails, let private companies build the apps on top. Competition happens on UX, not access.\n\nIt's a model other countries are now studying. Follow @Sudhirkrs17 for more on how money moves."
+      ]
+    },
+    {
+      "id": "d21-pm",
+      "day": 21,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "What should I go deeper on next?\n\n1. Tax planning\n2. Retirement math\n3. How payments work\n4. AI tools for money\n\nReply with a number 👇"
+      ]
+    }
+  ]
+}
