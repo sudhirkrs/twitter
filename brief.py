@@ -1,7 +1,9 @@
 """Build the daily posting brief (Markdown) for one date from content/queue.json.
 
-Each single tweet gets a one-tap link that opens the X composer pre-filled.
-Threads: the link fills the first part; reply to it with the remaining parts.
+The brief is the daily reminder. Posting happens from the Posting Desk page,
+whose "Open in X" buttons open the composer pre-filled (links inside the
+GitHub mobile app don't reliably hand off to X). The post text is included
+here too, so it can be copied as a fallback.
 
 Usage:
     python brief.py                 # today's brief (IST)
@@ -9,16 +11,11 @@ Usage:
 """
 import argparse
 from datetime import date, datetime
-from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
 from poster import load_queue, scheduled_at, tweet_weight
 
-INTENT = "https://twitter.com/intent/tweet?text="
-
-
-def intent_link(text):
-    return INTENT + quote(text, safe="")
+DESK_URL = "https://claude.ai/artifact/GMpn5mq6D3S7M4dX9MeD22"
 
 
 def build(queue, day):
@@ -29,8 +26,8 @@ def build(queue, day):
     start = date.fromisoformat(queue["start_date"])
     lines = [
         f"## Day {(day - start).days + 1}: {day:%A, %d %B %Y}", "",
-        "_If an Open in X link doesn't open: long-press it and choose \"Open in browser\", "
-        "or copy the text from the box and paste it into the X app._", "",
+        f"👉 **[Open today's posts in the Posting Desk]({DESK_URL})**, then tap **Open in X** on each post.", "",
+        "_Backup: long-press a text box below to copy it, then paste it into the X app._", "",
     ]
     if day < start:
         return f"Posting starts on {start:%A, %d %B %Y}. Use today to set up your profile (see STRATEGY.md §1).\n"
@@ -47,8 +44,6 @@ def build(queue, day):
                 label = "Post this first" if i == 1 else f"Then reply to part {i - 1} with"
                 lines.append(f"**{i}/{len(p['parts'])}**: {label} ({tweet_weight(part)} chars)")
             lines += ["```text", part, "```"]
-            if i == 1 and p["type"] != "poll":
-                lines.append(f"[➜ Open in X, pre-filled]({intent_link(part)})")
             lines.append("")
     lines += [
         "---",
