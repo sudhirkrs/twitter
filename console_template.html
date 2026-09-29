@@ -87,7 +87,7 @@ h1 span{color:var(--accent)}
       <li>Evening: 5–10 more replies, plus one quote-post with your take</li>
       <li>Engage with 5 accounts at your level (500–5k followers)</li>
     </ul>
-    <p class="help">Threads: tap “Open in X” for part 1 and post it. Then open that post, tap Reply, and paste each next part in order. “Posted” ticks are saved in this browser only.</p>
+    <p class="help">If “Open in X” shows a login page, use “Open X app” instead, or Copy and paste into X. Threads: tap “Open in X” for part 1 and post it. Then open that post, tap Reply, and paste each next part in order. “Posted” ticks are saved in this browser only.</p>
   </section>
 </div>
 
@@ -107,6 +107,8 @@ const save = () => { try { localStorage.setItem("posted", JSON.stringify([...pos
 
 let sel = todayNum >= 1 && todayNum <= maxDay ? todayNum : 1;
 try { const s = +localStorage.getItem("selDay"); if (s >= 1 && s <= maxDay && !(todayNum >= 1 && todayNum <= maxDay)) sel = s; } catch (e) {}
+const hashDay = /^#d(\d+)$/.exec(location.hash);
+if (hashDay && +hashDay[1] >= 1 && +hashDay[1] <= maxDay) sel = +hashDay[1];
 
 const el = (tag, attrs = {}, ...kids) => {
   const n = document.createElement(tag);
@@ -162,7 +164,10 @@ function renderPosts() {
       const txt = el("div", {class: "text"}, t);
       const cbtn = el("button", {class: "btn"}, "Copy"); cbtn.addEventListener("click", () => copy(cbtn, t, txt));
       const acts = el("div", {class: "actions"});
-      if (i === 0 && p.type !== "poll") acts.append(el("a", {class: "btn primary", href: "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t), target: "_blank", rel: "noopener"}, "Open in X"));
+      if (i === 0 && p.type !== "poll") {
+        acts.append(el("a", {class: "btn primary", href: "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t), target: "_blank", rel: "noopener"}, "Open in X"));
+        acts.append(el("a", {class: "btn", href: "twitter://post?message=" + encodeURIComponent(t)}, "Open X app"));
+      }
       acts.append(cbtn);
       const label = p.parts.length > 1 ? (i === 0 ? "Part 1 · post first" : "Part " + (i + 1) + " · reply to part " + i) : "Post";
       const part = el("div", {class: "part"}, el("div", {class: "plabel"}, el("span", {}, label), el("span", {class: "n"}, p.weights[i] + "/280")), txt);
