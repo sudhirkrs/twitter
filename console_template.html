@@ -1,0 +1,179 @@
+<title>Sudhir's Posting Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#F2F6F5; --surface:#FFFFFF; --sunk:#E9F0EE; --ink:#15222B; --muted:#5B6C73; --line:#D5E0DD;
+  --accent:#0E7A5C; --accent-soft:#DDF1EA; --on-accent:#FFFFFF; --warn:#9A5B00;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1416; --surface:#152024; --sunk:#10191C; --ink:#E2ECE9; --muted:#93A5AA; --line:#24343A;
+    --accent:#3DC29A; --accent-soft:#16352C; --on-accent:#06231A; --warn:#E0A54A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1416; --surface:#152024; --sunk:#10191C; --ink:#E2ECE9; --muted:#93A5AA; --line:#24343A;
+  --accent:#3DC29A; --accent-soft:#16352C; --on-accent:#06231A; --warn:#E0A54A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--ink); font:15px/1.5 var(--body); padding-inline:16px; padding-block:0 48px}
+.wrap{max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:20px}
+header{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; background:var(--bg); padding-block:16px 12px; display:flex; flex-direction:column; gap:12px; border-bottom:1px solid var(--line)}
+.top{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap}
+h1{font:800 clamp(22px,5vw,28px)/1.1 var(--display); margin:0; letter-spacing:-.01em; text-wrap:balance}
+h1 span{color:var(--accent)}
+.progress{font:500 13px var(--mono); color:var(--muted); font-variant-numeric:tabular-nums}
+.bar{height:4px; background:var(--sunk); border-radius:2px; overflow:hidden}
+.bar i{display:block; height:100%; background:var(--accent); transition:width .3s}
+.days{display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; scrollbar-width:thin}
+.day{flex:0 0 auto; display:flex; flex-direction:column; align-items:center; min-width:52px; padding:6px 8px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); font:inherit; cursor:pointer}
+.day b{font:600 15px var(--display); font-variant-numeric:tabular-nums}
+.day small{font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em}
+.day.today{border-color:var(--accent)}
+.day.sel{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+.day.sel small{color:var(--on-accent)}
+.day.done:not(.sel){background:var(--accent-soft)}
+.day:focus-visible,.btn:focus-visible,a.btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.dayhead{display:flex; flex-direction:column; gap:2px}
+.dayhead h2{font:600 20px/1.2 var(--display); margin:0}
+.dayhead p{margin:0; color:var(--muted); font-size:14px}
+.post{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:14px}
+.post.posted{opacity:.62}
+.meta{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.time{font:500 14px var(--mono); font-variant-numeric:tabular-nums}
+.chip{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.07em; padding:2px 8px; border-radius:99px; background:var(--sunk); color:var(--muted)}
+.chip.type{background:var(--accent-soft); color:var(--accent)}
+.meta .spacer{flex:1}
+.part{display:flex; flex-direction:column; gap:8px}
+.part + .part{border-top:1px dashed var(--line); padding-top:14px}
+.plabel{font-size:12px; color:var(--muted); display:flex; justify-content:space-between; gap:8px}
+.plabel .n{font-family:var(--mono); font-variant-numeric:tabular-nums}
+.text{white-space:pre-wrap; overflow-wrap:anywhere; background:var(--sunk); border-radius:8px; padding:12px; font-size:15px; line-height:1.55}
+.poll{font-size:14px; color:var(--warn)}
+.actions{display:flex; gap:8px; flex-wrap:wrap}
+.btn{appearance:none; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:600 14px var(--body); padding:8px 14px; border-radius:8px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:6px}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+.btn.ok{color:var(--accent); border-color:var(--accent)}
+.toggle{display:flex; align-items:center; gap:8px; font-size:14px; font-weight:500; cursor:pointer; user-select:none}
+.toggle input{width:18px; height:18px; accent-color:var(--accent)}
+.routine{border-top:1px solid var(--line); padding-top:16px; display:flex; flex-direction:column; gap:8px}
+.routine h3{font:600 16px var(--display); margin:0}
+.routine ul{margin:0; padding-left:20px; color:var(--muted); display:flex; flex-direction:column; gap:4px}
+.help{font-size:13px; color:var(--muted); margin:0}
+@media (prefers-reduced-motion: reduce){ .bar i{transition:none} }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="top">
+      <h1>Posting Desk <span>@Sudhirkrs17</span></h1>
+      <div class="progress" id="progress"></div>
+    </div>
+    <div class="bar"><i id="barfill"></i></div>
+    <nav class="days" id="days" aria-label="Choose a day"></nav>
+  </header>
+  <section class="dayhead" id="dayhead"></section>
+  <main id="posts" style="display:flex;flex-direction:column;gap:16px"></main>
+  <section class="routine">
+    <h3>Daily reply routine · 45 min</h3>
+    <ul>
+      <li>Morning: 5–10 value replies on fresh posts (under 30 min old) from bigger accounts</li>
+      <li>Reply to every comment on your own posts within the first hour</li>
+      <li>Evening: 5–10 more replies, plus one quote-post with your take</li>
+      <li>Engage with 5 accounts at your level (500–5k followers)</li>
+    </ul>
+    <p class="help">Threads: tap “Open in X” for part 1 and post it. Then open that post, tap Reply, and paste each next part in order. “Posted” ticks are saved in this browser only.</p>
+  </section>
+</div>
+
+<script>
+const Q = __QUEUE__;
+const TZ = Q.timezone;
+const start = Q.start_date;
+const addDays = (iso, n) => { const d = new Date(iso + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d; };
+const fmt = (d, o) => d.toLocaleDateString("en-IN", Object.assign({timeZone:"UTC"}, o));
+const todayIso = new Intl.DateTimeFormat("en-CA", {timeZone: TZ}).format(new Date());
+const todayNum = Math.round((new Date(todayIso + "T00:00:00Z") - new Date(start + "T00:00:00Z")) / 864e5) + 1;
+const maxDay = Math.max(...Q.posts.map(p => p.day));
+
+let posted = new Set();
+try { posted = new Set(JSON.parse(localStorage.getItem("posted") || "[]")); } catch (e) {}
+const save = () => { try { localStorage.setItem("posted", JSON.stringify([...posted])); } catch (e) {} };
+
+let sel = todayNum >= 1 && todayNum <= maxDay ? todayNum : 1;
+try { const s = +localStorage.getItem("selDay"); if (s >= 1 && s <= maxDay && !(todayNum >= 1 && todayNum <= maxDay)) sel = s; } catch (e) {}
+
+const el = (tag, attrs = {}, ...kids) => {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) k === "class" ? n.className = v : k.startsWith("on") ? n.addEventListener(k.slice(2), v) : n.setAttribute(k, v);
+  for (const k of kids) n.append(k);
+  return n;
+};
+
+function copy(btn, text, node) {
+  const done = () => { btn.textContent = "Copied"; btn.classList.add("ok"); setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("ok"); }, 1600); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(node); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, copy now"; };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+}
+
+function renderDays() {
+  const nav = document.getElementById("days"); nav.replaceChildren();
+  for (let d = 1; d <= maxDay; d++) {
+    const date = addDays(start, d - 1);
+    const ids = Q.posts.filter(p => p.day === d).map(p => p.id);
+    const cls = ["day", d === sel && "sel", d === todayNum && "today", ids.every(i => posted.has(i)) && "done"].filter(Boolean).join(" ");
+    const b = el("button", {class: cls, "aria-pressed": d === sel, title: "Day " + d, onclick: () => { sel = d; try { localStorage.setItem("selDay", d); } catch (e) {} render(); }},
+      el("small", {}, fmt(date, {weekday: "short"})), el("b", {}, fmt(date, {day: "numeric"})), el("small", {}, fmt(date, {month: "short"})));
+    nav.append(b);
+  }
+  const s = nav.querySelector(".sel"); if (s) s.scrollIntoView({block: "nearest", inline: "center"});
+}
+
+function renderProgress() {
+  const n = Q.posts.filter(p => posted.has(p.id)).length;
+  document.getElementById("progress").textContent = n + " / " + Q.posts.length + " posted";
+  document.getElementById("barfill").style.width = (100 * n / Q.posts.length) + "%";
+}
+
+function renderPosts() {
+  const date = addDays(start, sel - 1);
+  const rel = sel === todayNum ? "Today" : sel < todayNum ? "Past day" : todayNum < 1 && sel === 1 ? "Starts " + fmt(date, {weekday: "short", day: "numeric", month: "short"}) : "Upcoming";
+  document.getElementById("dayhead").replaceChildren(
+    el("h2", {}, "Day " + sel + " · " + fmt(date, {weekday: "long", day: "numeric", month: "long"})),
+    el("p", {}, rel + " · " + Q.posts.filter(p => p.day === sel).length + " posts"));
+  const main = document.getElementById("posts"); main.replaceChildren();
+  for (const p of Q.posts.filter(p => p.day === sel).sort((a, b) => Q.slots[a.slot].localeCompare(Q.slots[b.slot]))) {
+    const cb = el("input", {type: "checkbox", id: "done-" + p.id});
+    cb.checked = posted.has(p.id);
+    cb.addEventListener("change", () => { cb.checked ? posted.add(p.id) : posted.delete(p.id); save(); render(); });
+    const card = el("article", {class: "post" + (posted.has(p.id) ? " posted" : "")},
+      el("div", {class: "meta"},
+        el("span", {class: "time"}, Q.slots[p.slot] + " IST"),
+        el("span", {class: "chip type"}, p.type + (p.parts.length > 1 ? " · " + p.parts.length : "")),
+        el("span", {class: "chip"}, p.pillar.replace("-", " ")),
+        el("span", {class: "spacer"}),
+        el("label", {class: "toggle", for: "done-" + p.id}, cb, "Posted")));
+    p.parts.forEach((t, i) => {
+      const txt = el("div", {class: "text"}, t);
+      const cbtn = el("button", {class: "btn"}, "Copy"); cbtn.addEventListener("click", () => copy(cbtn, t, txt));
+      const acts = el("div", {class: "actions"});
+      if (i === 0 && p.type !== "poll") acts.append(el("a", {class: "btn primary", href: "https://x.com/intent/post?text=" + encodeURIComponent(t), target: "_blank", rel: "noopener"}, "Open in X"));
+      acts.append(cbtn);
+      const label = p.parts.length > 1 ? (i === 0 ? "Part 1 · post first" : "Part " + (i + 1) + " · reply to part " + i) : "Post";
+      const part = el("div", {class: "part"}, el("div", {class: "plabel"}, el("span", {}, label), el("span", {class: "n"}, p.weights[i] + "/280")), txt);
+      if (p.type === "poll") part.append(el("div", {class: "poll"}, "Create as a poll in X. Options: " + p.poll.options.join(" · ") + ". Length: 1 day."));
+      part.append(acts);
+      card.append(part);
+    });
+    main.append(card);
+  }
+}
+
+function render() { renderDays(); renderProgress(); renderPosts(); }
+render();
+</script>

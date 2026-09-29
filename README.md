@@ -1,44 +1,41 @@
 # @Sudhirkrs17 growth engine
 
-A plan and an automated posting pipeline to grow [@Sudhirkrs17](https://x.com/Sudhirkrs17) to 10,000+ followers.
+A plan and a daily posting routine to grow [@Sudhirkrs17](https://x.com/Sudhirkrs17) to 10,000+ followers. **No paid X API is needed.** You post with one tap each day, and everything else is prepared for you.
 
 | File | What it is |
 |---|---|
 | [`STRATEGY.md`](STRATEGY.md) | The full plan: positioning, profile, content pillars, the daily reply routine, milestones |
 | [`content/queue.json`](content/queue.json) | 21 days of ready-to-post content (42 posts: 11 threads, 2 polls), 2 posts a day |
-| [`poster.py`](poster.py) | Posts due items to X. Handles threads, polls, and resuming a half-posted thread. |
-| [`.github/workflows/post.yml`](.github/workflows/post.yml) | Runs the poster at 08:30 and 19:30 IST, every day |
+| **Posting Desk** ([open](https://claude.ai/artifact/GMpn5mq6D3S7M4dX9MeD22)) | Phone-friendly page: pick a day, tap **Open in X** (composer opens pre-filled), and **Copy** thread parts. Generated from the queue by `build_console.py`. |
+| [`.github/workflows/daily-brief.yml`](.github/workflows/daily-brief.yml) | Every day at 07:45 IST, opens a GitHub issue with that day's posts and one-tap links |
+| [`brief.py`](brief.py) | Builds that daily brief. `python brief.py --date 2026-10-01` previews any day. |
+| [`poster.py`](poster.py) | `--check` validates every post against X's 280-character weighting. It can also post through the X API if you ever get paid access. |
 | [`tracking/growth-log.csv`](tracking/growth-log.csv) | Weekly numbers. Fill it in every Sunday. |
 
-## Going live (about 20 minutes, one time)
+## Daily flow (about 5 minutes of posting)
 
-1. **Read and edit the content.** Open `content/queue.json` and make every post sound like you. Anything written as "I/my" is a draft opinion, so change it to your real view.
-2. **Set the start date.** In `content/queue.json`, set `"start_date"` (currently `2026-10-01`). Day 1 posts at 08:30 IST on that date.
-3. **Get X API keys.** At [developer.x.com](https://developer.x.com), create a project and app. Set **User authentication → App permissions → Read and write**, *then* generate the **Access Token and Secret**. Tokens made before you switch to read+write can't post. Check that your API tier allows about 60 posts a month (2/day plus thread parts); thread replies count as posts.
-4. **Add GitHub secrets.** In the repo, go to **Settings → Secrets and variables → Actions → Secrets** and add `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN` and `X_ACCESS_TOKEN_SECRET`.
-5. **Test.** Under **Actions → Post to X → Run workflow**, leave "Dry run" ticked. The log shows what would be posted. This only works once step 6 is done, because the job is gated.
-6. **Turn it on.** Go to **Settings → Secrets and variables → Actions → Variables** and add `X_POSTING_ENABLED` = `true`.
-7. **Merge this branch into `main`.** Scheduled workflows only run from the default branch.
+1. **07:45 IST**: a GitHub notification arrives: "Posts for Thu 01 Oct 2026".
+2. **08:30**: open the Posting Desk (or the issue) and tap **Open in X** on the morning post. The X app or website opens with the text filled in. Tap Post.
+   - **Threads**: post part 1, then open it, tap Reply, and paste part 2 (Copy button). Repeat for each part. In the X composer you can also tap **+** to add all parts before posting.
+   - **Polls**: X's share links can't carry poll options, so create the poll in the app using the options shown.
+3. **19:30**: same for the evening post.
+4. Tick **Posted** on the Posting Desk to track progress.
+5. Spend the rest of your 45 minutes on replies (see `STRATEGY.md` §3). That's where the growth comes from.
 
-To pause, set `X_POSTING_ENABLED` to `false`.
+**Batch option:** if your X composer shows a **Schedule** (calendar) icon, you can sit down on Sunday and schedule the whole week's single tweets from the Posting Desk in about 15 minutes. X decides which accounts get scheduling, so check whether yours has it.
 
-## How the poster behaves
+## One-time setup (2 minutes)
 
-- Each run posts **at most one** due item (`--max` changes this), so a delayed run never floods your timeline.
-- Items more than 36 hours overdue are **skipped**, not dumped all at once.
-- Posted tweet IDs are saved to `state/posted.json` and committed back, so nothing is posted twice.
-- If a thread fails halfway, the next run continues it from the last posted part.
-- `--check` rejects any post over 280 characters using X's weighting: emoji, `₹`, `•` and `→` count as 2.
-
-## Local use
-
-```bash
-pip install -r requirements.txt
-python poster.py --check                                  # validate all posts
-python poster.py --list                                   # full schedule, ✓ = posted
-python poster.py --dry-run --now 2026-10-01T03:05:00+00:00  # preview a given moment
-```
+1. **Set the start date** in `content/queue.json` (`"start_date"`, currently `2026-10-01`). Then run `python build_console.py` and republish the page, or ask Claude to.
+2. **Merge this branch into `main`.** Scheduled workflows only run from the default branch.
+3. **Get the notifications**: on the repo page, set **Watch → All Activity**, and install the GitHub mobile app for push notifications. The issue is also assigned to you.
+4. Optional: run **Actions → Daily posting brief → Run workflow** once to see a sample issue.
 
 ## Adding more content
 
-Add entries to `posts` in `content/queue.json`, continuing the day numbers (22, 23, …). Use `"slot": "am"` or `"pm"` and `"type"` set to `tweet`, `thread` or `poll`. Each string in `parts` is one tweet, and a thread is several parts. Run `python poster.py --check` before committing.
+Add entries to `posts` in `content/queue.json`, continuing the day numbers (22, 23, …). Use `"slot": "am"` or `"pm"` and `"type"` set to `tweet`, `thread` or `poll`. Each string in `parts` is one tweet. Then run:
+
+```bash
+python poster.py --check      # every post under 280 weighted chars
+python build_console.py       # regenerate the Posting Desk page
+```
