@@ -1,9 +1,8 @@
 """Build the daily posting brief (Markdown) for one date from content/queue.json.
 
-The brief is the daily reminder. Posting happens from the Posting Desk page,
-whose "Open in X" buttons open the composer pre-filled (links inside the
-GitHub mobile app don't reliably hand off to X). The post text is included
-here too, so it can be copied as a fallback.
+The brief is the daily reminder. Its link opens that day on the Posting Desk
+(GitHub Pages), whose buttons open the X composer pre-filled. The post text
+is included here too, so it can be copied as a fallback.
 
 Usage:
     python brief.py                 # today's brief (IST)
@@ -15,7 +14,7 @@ from zoneinfo import ZoneInfo
 
 from poster import load_queue, scheduled_at, tweet_weight
 
-DESK_URL = "https://claude.ai/artifact/GMpn5mq6D3S7M4dX9MeD22"
+DESK_URL = "https://sudhirkrs.github.io/twitter/"
 
 
 def build(queue, day):
@@ -26,7 +25,7 @@ def build(queue, day):
     start = date.fromisoformat(queue["start_date"])
     lines = [
         f"## Day {(day - start).days + 1}: {day:%A, %d %B %Y}", "",
-        f"👉 **[Open today's posts in the Posting Desk]({DESK_URL})**, then tap **Open in X** on each post.", "",
+        f"👉 **[Open today's posts]({DESK_URL}#d{(day - start).days + 1})**, then tap **Open X app** (or **Open in X**) on each post.", "",
         "_Backup: long-press a text box below to copy it, then paste it into the X app._", "",
     ]
     if day < start:
