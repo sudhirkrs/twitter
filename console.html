@@ -162,7 +162,7 @@ function renderPosts() {
       const txt = el("div", {class: "text"}, t);
       const cbtn = el("button", {class: "btn"}, "Copy"); cbtn.addEventListener("click", () => copy(cbtn, t, txt));
       const acts = el("div", {class: "actions"});
-      if (i === 0 && p.type !== "poll") acts.append(el("a", {class: "btn primary", href: "https://x.com/intent/post?text=" + encodeURIComponent(t), target: "_blank", rel: "noopener"}, "Open in X"));
+      if (i === 0 && p.type !== "poll") acts.append(el("a", {class: "btn primary", href: "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t), target: "_blank", rel: "noopener"}, "Open in X"));
       acts.append(cbtn);
       const label = p.parts.length > 1 ? (i === 0 ? "Part 1 · post first" : "Part " + (i + 1) + " · reply to part " + i) : "Post";
       const part = el("div", {class: "part"}, el("div", {class: "plabel"}, el("span", {}, label), el("span", {class: "n"}, p.weights[i] + "/280")), txt);
