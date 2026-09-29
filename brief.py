@@ -14,7 +14,7 @@ from zoneinfo import ZoneInfo
 
 from poster import load_queue, scheduled_at, tweet_weight
 
-INTENT = "https://x.com/intent/post?text="
+INTENT = "https://twitter.com/intent/tweet?text="
 
 
 def intent_link(text):
@@ -27,7 +27,11 @@ def build(queue, day):
         key=lambda p: scheduled_at(queue, p),
     )
     start = date.fromisoformat(queue["start_date"])
-    lines = [f"## Day {(day - start).days + 1}: {day:%A, %d %B %Y}", ""]
+    lines = [
+        f"## Day {(day - start).days + 1}: {day:%A, %d %B %Y}", "",
+        "_If an Open in X link doesn't open: long-press it and choose \"Open in browser\", "
+        "or copy the text from the box and paste it into the X app._", "",
+    ]
     if day < start:
         return f"Posting starts on {start:%A, %d %B %Y}. Use today to set up your profile (see STRATEGY.md §1).\n"
     if not posts:
