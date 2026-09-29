@@ -1,8 +1,9 @@
 """Build the daily posting brief (Markdown) for one date from content/queue.json.
 
 Each post gets an "Open in X" link that opens the X composer pre-filled,
-so posting works straight from the issue. The post text is shown for
-copying, and a link to that day on the Posting Desk (GitHub Pages) is a backup.
+so posting works straight from the issue. GitHub strips links longer than
+~140 characters, so the link goes to a short page on GitHub Pages
+(site/p/<id>.html) that forwards to X. The post text is shown for copying.
 
 Usage:
     python brief.py                 # today's brief (IST)
@@ -10,17 +11,15 @@ Usage:
 """
 import argparse
 from datetime import date, datetime
-from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
 from poster import load_queue, scheduled_at, tweet_weight
 
 DESK_URL = "https://sudhirkrs.github.io/twitter/"
-INTENT = "https://twitter.com/intent/tweet?text="
 
 
-def intent_link(text):
-    return INTENT + quote(text, safe="")
+def open_link(post):
+    return f"{DESK_URL}p/{post['id']}.html"
 
 
 def build(queue, day):
@@ -51,7 +50,7 @@ def build(queue, day):
                 lines.append(f"**{i}/{len(p['parts'])}**: {label} ({tweet_weight(part)} chars)")
             lines += ["```text", part, "```"]
             if i == 1 and p["type"] != "poll":
-                lines.append(f"**[➜ Open in X]({intent_link(part)})**")
+                lines.append(f"**[➜ Open in X]({open_link(p)})**")
             lines.append("")
     lines += [
         "---",
