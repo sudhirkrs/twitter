@@ -1,8 +1,8 @@
 """Build the daily posting brief (Markdown) for one date from content/queue.json.
 
-The brief is the daily reminder. Its link opens that day on the Posting Desk
-(GitHub Pages), whose buttons open the X composer pre-filled. The post text
-is included here too, so it can be copied as a fallback.
+Each post gets an "Open in X" link that opens the X composer pre-filled,
+so posting works straight from the issue. The post text is shown for
+copying, and a link to that day on the Posting Desk (GitHub Pages) is a backup.
 
 Usage:
     python brief.py                 # today's brief (IST)
@@ -10,11 +10,17 @@ Usage:
 """
 import argparse
 from datetime import date, datetime
+from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
 from poster import load_queue, scheduled_at, tweet_weight
 
 DESK_URL = "https://sudhirkrs.github.io/twitter/"
+INTENT = "https://twitter.com/intent/tweet?text="
+
+
+def intent_link(text):
+    return INTENT + quote(text, safe="")
 
 
 def build(queue, day):
@@ -25,8 +31,9 @@ def build(queue, day):
     start = date.fromisoformat(queue["start_date"])
     lines = [
         f"## Day {(day - start).days + 1}: {day:%A, %d %B %Y}", "",
-        f"👉 **[Open today's posts]({DESK_URL}#d{(day - start).days + 1})**, then tap **Open X app** (or **Open in X**) on each post.", "",
-        "_Backup: long-press a text box below to copy it, then paste it into the X app._", "",
+        "Tap **Open in X** under a post: X opens with the text filled in, then tap Post.", "",
+        f"_Backup: if a link doesn't open X, long-press it and choose \"Open in browser\", use the "
+        f"[Posting Desk]({DESK_URL}#d{(day - start).days + 1}), or copy the text from the box._", "",
     ]
     if day < start:
         return f"Posting starts on {start:%A, %d %B %Y}. Use today to set up your profile (see STRATEGY.md §1).\n"
@@ -43,6 +50,8 @@ def build(queue, day):
                 label = "Post this first" if i == 1 else f"Then reply to part {i - 1} with"
                 lines.append(f"**{i}/{len(p['parts'])}**: {label} ({tweet_weight(part)} chars)")
             lines += ["```text", part, "```"]
+            if i == 1 and p["type"] != "poll":
+                lines.append(f"**[➜ Open in X]({intent_link(part)})**")
             lines.append("")
     lines += [
         "---",
