@@ -5,7 +5,7 @@ A plan and a daily posting routine to grow [@Sudhirkrs17](https://x.com/Sudhirkr
 | File | What it is |
 |---|---|
 | [`STRATEGY.md`](STRATEGY.md) | The full plan: positioning, profile, content pillars, the daily reply routine, milestones |
-| [`content/queue.json`](content/queue.json) | 21 days of ready-to-post content (42 posts: 11 threads, 2 polls), 2 posts a day |
+| [`content/queue.json`](content/queue.json) | 28 days of ready-to-post content (56 posts: 15 threads, 3 polls), 2 posts a day, through Wed 28 Oct |
 | **Posting Desk** ([GitHub Pages](https://sudhirkrs.github.io/twitter/), also as a [Claude artifact](https://claude.ai/artifact/GMpn5mq6D3S7M4dX9MeD22)) | Phone-friendly page: pick a day, tap **Open X app** or **Open in X** (composer opens pre-filled), and **Copy** thread parts. Built from the queue by `build_console.py` and deployed by `.github/workflows/pages.yml`. |
 | [`.github/workflows/daily-brief.yml`](.github/workflows/daily-brief.yml) | Every day at 07:45 IST, opens a GitHub issue with that day's posts and an **Open in X** link under each one (plus a Posting Desk link as backup) |
 | [`brief.py`](brief.py) | Builds that daily brief. `python brief.py --date 2026-10-01` previews any day. |
@@ -34,7 +34,7 @@ A plan and a daily posting routine to grow [@Sudhirkrs17](https://x.com/Sudhirkr
 
 ## Adding more content
 
-Add entries to `posts` in `content/queue.json`, continuing the day numbers (22, 23, …). Use `"slot": "am"` or `"pm"` and `"type"` set to `tweet`, `thread` or `poll`. Each string in `parts` is one tweet. Then run:
+Add entries to `posts` in `content/queue.json`, continuing the day numbers (29, 30, …). Use `"slot": "am"` or `"pm"` and `"type"` set to `tweet`, `thread` or `poll`. Each string in `parts` is one tweet. Then run:
 
 ```bash
 python poster.py --check      # every post under 280 weighted chars

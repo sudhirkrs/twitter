@@ -504,6 +504,176 @@
       "parts": [
         "What should I go deeper on next?\n\n1. Tax planning\n2. Retirement math\n3. How payments work\n4. AI tools for money\n\nReply with a number 👇"
       ]
+    },
+    {
+      "id": "d22-am",
+      "day": 22,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "How much money do you actually need to retire?\n\nMost people guess ₹1–2 crore. For many salaried Indians the real number is much higher.\n\nHere's the math, step by step 🧵",
+        "Step 1: Today's expenses.\n\nSay your household spends ₹50,000 a month today. You're 30 and want to stop working at 60.",
+        "Step 2: Inflate them.\n\nAt 6% inflation for 30 years, ₹50,000 a month becomes ~₹2.87 lakh a month.\n\nThat's ~₹34 lakh a year, just to live the same life you live today.",
+        "Step 3: Multiply.\n\nA common rule: you need 25x your yearly expenses (the \"4% rule\"). Many Indian planners suggest 30x or more, because our inflation is higher.\n\n25x → ~₹8.6 Cr\n30x → ~₹10.3 Cr",
+        "Step 4: Work backwards.\n\nAt 12% a year, a ~₹30,000/month SIP for 30 years gets you to ~₹10.6 Cr.\n\nWith a 10% yearly step-up, you can start with much less.\n\nThese are assumptions, not promises. Returns vary and costs matter.",
+        "The takeaway isn't \"₹10 crore or bust\".\n\nIt's that retirement is an inflation problem. Know your number, start early, step up yearly.\n\nWant me to share a simple calculator sheet? Reply \"sheet\". Follow @Sudhirkrs17 for more money math."
+      ]
+    },
+    {
+      "id": "d22-pm",
+      "day": 22,
+      "slot": "pm",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "NEFT vs RTGS vs IMPS vs UPI in one post:\n\nNEFT: 24x7, settles in half-hourly batches, any amount\nRTGS: 24x7, real-time, ₹2 lakh minimum\nIMPS: instant, 24x7, up to ₹5 lakh\nUPI: instant, 24x7, usually up to ₹1 lakh\n\nSave this for the next time a bank form asks."
+      ]
+    },
+    {
+      "id": "d23-am",
+      "day": 23,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Festive sale tip: \"No-cost EMI\" is rarely no-cost.\n\nThe interest is usually offset by a discount you'd have got anyway for paying upfront. And you still pay GST on the interest part, plus any processing fee.\n\nCompare the full-payment price first."
+      ]
+    },
+    {
+      "id": "d23-pm",
+      "day": 23,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "poll",
+      "parts": [
+        "Honest poll: what share of your monthly income do you save or invest?"
+      ],
+      "poll": {
+        "options": [
+          "Under 10%",
+          "10–20%",
+          "20–40%",
+          "Over 40%"
+        ],
+        "duration_minutes": 1440
+      }
+    },
+    {
+      "id": "d24-am",
+      "day": 24,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "thread",
+      "parts": [
+        "You click \"Pay\" on a shopping site. Who touches your money before the merchant gets it?\n\nPayment gateways, explained simply 🧵",
+        "1. The checkout page\n\nWhen you pay on a website or app, a payment gateway (PG) collects your card or UPI details securely. The merchant never sees your full card number.",
+        "2. The route\n\nThe PG passes the request to the merchant's bank (acquirer), which sends it through the network (Visa, Mastercard, RuPay or NPCI for UPI) to your bank for approval.",
+        "3. The money doesn't go straight to the merchant\n\nIt usually sits with a payment aggregator and is settled to the merchant later, often T+1 or T+2. That's why refunds sometimes take days.",
+        "4. The fees\n\nMerchants typically pay around 2% on cards and wallets. UPI from bank accounts is largely zero-MDR, so the gateway earns elsewhere.",
+        "5. The rules\n\nIn India, payment aggregators need RBI authorisation and must keep customer money in escrow accounts.\n\nFollow @Sudhirkrs17 for more on how payments really work."
+      ]
+    },
+    {
+      "id": "d24-pm",
+      "day": 24,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "The most useful money idea in Atomic Habits by James Clear isn't about money:\n\n\"You do not rise to the level of your goals. You fall to the level of your systems.\"\n\nA savings goal is a wish. An automatic SIP on salary day is a system."
+      ]
+    },
+    {
+      "id": "d25-am",
+      "day": 25,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "A ₹50 lakh home loan at 8.5% for 20 years:\n\nEMI: ~₹43,400\nTotal interest: ~₹54 lakh\n\nYou pay back more in interest than you borrowed.\n\nEven small extra payments early in the loan cut this sharply, because early EMIs are mostly interest."
+      ]
+    },
+    {
+      "id": "d25-pm",
+      "day": 25,
+      "slot": "pm",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "There is no such thing as a \"digital arrest\" in Indian law.\n\nNo police, CBI, customs or RBI officer will keep you on a video call, threaten arrest, or ask you to transfer money to \"verify\" it.\n\nScammers now use AI voices and fake uniforms. Hang up. Call 1930."
+      ]
+    },
+    {
+      "id": "d26-am",
+      "day": 26,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Your health insurance policy has fine print that decides how much you actually get when you claim.\n\n7 things to check before you buy or renew 🧵",
+        "1. Room rent limit\n\nIf your policy caps room rent (say 1% of cover per day) and you take a bigger room, many other charges get cut in proportion too. Prefer \"no room rent capping\".",
+        "2. Co-payment\n\nA 20% co-pay means you pay 20% of every claim yourself. Common in senior citizen plans. Know it before you need it.",
+        "3. Waiting periods\n\nPre-existing diseases and specific illnesses have waiting periods. Under current IRDAI rules, pre-existing disease waiting can't exceed 3 years. Shorter is better.",
+        "4. Sub-limits\n\nSome policies cap specific treatments (cataract, knee replacement etc.) well below your cover. Look for plans without them.",
+        "5. Restoration and no-claim bonus\n\nRestoration refills your cover if it's used up in a year. A no-claim bonus grows your cover for every claim-free year.",
+        "6. Network hospitals\n\nCheck that the hospitals near you are in the insurer's cashless network.\n\n7. Claim settlement record\n\nLook at how reliably the insurer settles claims, not just the premium.\n\nFollow @Sudhirkrs17 for more money checklists."
+      ]
+    },
+    {
+      "id": "d26-pm",
+      "day": 26,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "Old tax regime or new tax regime: which are you on this year, and why?\n\nI'll collect the best reasons into a thread 👇"
+      ]
+    },
+    {
+      "id": "d27-am",
+      "day": 27,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "A chargeback is not a refund.\n\nRefund: the merchant sends your money back.\nChargeback: your bank forcibly reverses the payment after you dispute it, and the merchant has to prove it was valid.\n\nCard payment gone wrong? Dispute it with your bank early. Time limits apply."
+      ]
+    },
+    {
+      "id": "d27-pm",
+      "day": 27,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "The famous \"4% rule\" comes from US data: withdraw 4% of your corpus in year one, adjust for inflation, and it historically lasted ~30 years.\n\nIndian inflation has been higher, so many planners here suggest starting nearer 3%.\n\nThat means ~33x your annual expenses, not 25x."
+      ]
+    },
+    {
+      "id": "d28-am",
+      "day": 28,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "thread",
+      "parts": [
+        "5 AI prompts that make you better with money.\n\nCopy them, fill in your numbers, and never share account numbers, passwords or OTPs 🧵",
+        "1. The subscription hunt\n\n\"Here is my card statement with account numbers removed. List every recurring charge and subscription, with the monthly total.\"",
+        "2. The plain-language policy\n\n\"Explain this health insurance policy's exclusions, waiting periods and sub-limits in simple words. What would NOT be covered?\"",
+        "3. The goal planner\n\n\"I'm [age], earn ₹[X]/month and spend ₹[Y]. Build a table showing the monthly SIP needed for [goal] in [N] years at 10% and 12% returns.\"",
+        "4. The loan comparison\n\n\"Compare these two loan offers: total interest, processing fees, EMI and prepayment charges. Which is cheaper overall?\"",
+        "5. The devil's advocate\n\n\"I'm about to [buy X / invest in Y]. Give me the 5 strongest reasons not to.\"\n\nAI is a great analyst. You're still the decision-maker. Follow @Sudhirkrs17 for more."
+      ]
+    },
+    {
+      "id": "d28-pm",
+      "day": 28,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "One line from The Almanack of Naval Ravikant (compiled by Eric Jorgenson) that reframes money:\n\n\"Seek wealth, not money or status. Wealth is having assets that earn while you sleep.\"\n\nSalary pays for today. Assets pay for your freedom."
+      ]
     }
   ]
 }
