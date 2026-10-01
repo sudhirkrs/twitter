@@ -7,14 +7,14 @@ A plan and a daily posting routine to grow [@Sudhirkrs17](https://x.com/Sudhirkr
 | [`STRATEGY.md`](STRATEGY.md) | The full plan: positioning, profile, content pillars, the daily reply routine, milestones |
 | [`content/queue.json`](content/queue.json) | 28 days of ready-to-post content (56 posts: 15 threads, 3 polls), 2 posts a day, through Wed 28 Oct |
 | **Posting Desk** ([GitHub Pages](https://sudhirkrs.github.io/twitter/), also as a [Claude artifact](https://claude.ai/artifact/GMpn5mq6D3S7M4dX9MeD22)) | Phone-friendly page: pick a day, tap **Open X app** or **Open in X** (composer opens pre-filled), and **Copy** thread parts. Built from the queue by `build_console.py` and deployed by `.github/workflows/pages.yml`. |
-| [`.github/workflows/daily-brief.yml`](.github/workflows/daily-brief.yml) | Every day at 07:45 IST, opens a GitHub issue with that day's posts and an **Open in X** link under each one (plus a Posting Desk link as backup) |
+| [`.github/workflows/daily-brief.yml`](.github/workflows/daily-brief.yml) | Every morning (tries 06:00, 06:45, 07:30 IST), opens one GitHub issue with that day's posts and an **Open in X** link under each one (plus a Posting Desk link as backup) |
 | [`brief.py`](brief.py) | Builds that daily brief. `python brief.py --date 2026-10-01` previews any day. |
 | [`poster.py`](poster.py) | `--check` validates every post against X's 280-character weighting. It can also post through the X API if you ever get paid access. |
 | [`tracking/growth-log.csv`](tracking/growth-log.csv) | Weekly numbers. Fill it in every Sunday. |
 
 ## Daily flow (about 5 minutes of posting)
 
-1. **07:45 IST**: a GitHub notification arrives: "Posts for Thu 01 Oct 2026".
+1. **By about 07:30 IST**: a GitHub notification arrives: "Posts for Thu 01 Oct 2026". (The job tries at 06:00, 06:45 and 07:30 because GitHub often starts scheduled jobs late.)
 2. **08:30**: in the issue, tap **➜ Open in X** under the morning post. X opens with the text filled in. Tap Post. (Backup: the issue also links to that day on the Posting Desk.)
    - **Threads**: post part 1, then open it, tap Reply, and paste part 2 (Copy button). Repeat for each part. In the X composer you can also tap **+** to add all parts before posting.
    - **Polls**: X's share links can't carry poll options, so create the poll in the app using the options shown.

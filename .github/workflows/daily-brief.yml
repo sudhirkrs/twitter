@@ -4,8 +4,12 @@ name: Daily posting brief
 # "Open in X" links. Watch this repo (or install the GitHub mobile app)
 # to get it as a notification. No X API needed.
 on:
+  # GitHub often starts scheduled runs late (sometimes by hours), so try
+  # three times before the 08:30 post. Only the first run creates the issue.
   schedule:
-    - cron: "15 2 * * *"  # 07:45 IST
+    - cron: "30 0 * * *"  # 06:00 IST
+    - cron: "15 1 * * *"  # 06:45 IST
+    - cron: "0 2 * * *"   # 07:30 IST
   workflow_dispatch:
 
 permissions:
@@ -25,8 +29,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python brief.py > brief.md
           title="Posts for $(TZ=Asia/Kolkata date +'%a %d %b %Y')"
+          if gh issue list --label daily-posts --state all --limit 5 --json title --jq '.[].title' | grep -Fxq "$title"; then
+            echo "Today's issue already exists; nothing to do."
+            exit 0
+          fi
+          python brief.py > brief.md
           gh label create daily-posts --color 0F7B5F --force >/dev/null
           for n in $(gh issue list --label daily-posts --state open --json number --jq '.[].number'); do
             gh issue close "$n" --comment "Closed by the next day's brief."
