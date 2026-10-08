@@ -1,15 +1,18 @@
 name: Daily posting brief
 
-# Opens a GitHub issue every morning with the day's posts and one-tap
-# "Open in X" links. Watch this repo (or install the GitHub mobile app)
-# to get it as a notification. No X API needed.
+# Opens a GitHub issue with a day's posts and one-tap "Open in X" links.
+# Watch this repo (or install the GitHub mobile app) to get it as a
+# notification. No X API needed.
+#
+# GitHub has been starting this repo's scheduled runs 5-6 hours late, so
+# the issue for a day is created the EVENING BEFORE. The target day is
+# "IST now + 6 hours": a run at 19:00 IST, or one delayed until the small
+# hours, both prepare the next day. Only the first run creates the issue.
 on:
-  # GitHub often starts scheduled runs late (sometimes by hours), so try
-  # three times before the 08:30 post. Only the first run creates the issue.
   schedule:
-    - cron: "30 0 * * *"  # 06:00 IST
-    - cron: "15 1 * * *"  # 06:45 IST
-    - cron: "0 2 * * *"   # 07:30 IST
+    - cron: "30 13 * * *"  # 19:00 IST, prepares tomorrow
+    - cron: "0 15 * * *"   # 20:30 IST, retry
+    - cron: "30 0 * * *"   # 06:00 IST, last-chance fallback for today
   workflow_dispatch:
 
 permissions:
@@ -25,18 +28,22 @@ jobs:
         with:
           python-version: "3.11"
       - run: python poster.py --check
-      - name: Open today's issue, close yesterday's
+      - name: Open the next day's issue
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          title="Posts for $(TZ=Asia/Kolkata date +'%a %d %b %Y')"
+          target=$(TZ=Asia/Kolkata date -d '+6 hours' +%F)
+          title="Posts for $(date -d "$target" +'%a %d %b %Y')"
+          echo "Target day: $target"
           if gh issue list --label daily-posts --state all --limit 5 --json title --jq '.[].title' | grep -Fxq "$title"; then
-            echo "Today's issue already exists; nothing to do."
+            echo "Issue for $target already exists; nothing to do."
             exit 0
           fi
-          python brief.py > brief.md
+          python brief.py --date "$target" > brief.md
           gh label create daily-posts --color 0F7B5F --force >/dev/null
-          for n in $(gh issue list --label daily-posts --state open --json number --jq '.[].number'); do
-            gh issue close "$n" --comment "Closed by the next day's brief."
+          # Keep the newest open issue (today's, still needed for the 19:30
+          # post) and close anything older.
+          for n in $(gh issue list --label daily-posts --state open --json number --jq 'sort_by(.number) | reverse | .[1:] | .[].number'); do
+            gh issue close "$n" --comment "Closed: a newer day's brief is out."
           done
           gh issue create --title "$title" --body-file brief.md --label daily-posts --assignee "${{ github.repository_owner }}"
