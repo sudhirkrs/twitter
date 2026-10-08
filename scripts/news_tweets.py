@@ -1,13 +1,13 @@
-"""Turn fresh news into tweet drafts.
+"""Turn fresh news into ready-to-post tweets.
 
 Reads Google News RSS searches for each topic (no key needed), picks the
-freshest stories not used before, and asks an AI model (any OpenAI-compatible
-API, same LLM_* settings as the weekly drafter) to write one tweet per story.
-The tweets are saved to content/news.json, which the Posting Desk build turns
-into short "Open in X" pages, and a Markdown issue body is written for review.
-
-Without the LLM_* settings it still lists the stories, so you can write the
-tweets yourself.
+freshest stories not used before, and writes one tweet per story:
+- with an AI model (any OpenAI-compatible API, same LLM_* settings as the
+  weekly drafter) when those settings exist;
+- otherwise from built-in templates around the headline.
+The tweets are saved to content/news.json (with their sources, for your
+records), which the Posting Desk build turns into short "Open in X" pages.
+The issue shows only the tweets and their Open in X links.
 
 Usage:
     python scripts/news_tweets.py --topic all --count 3 --out issue.md
@@ -38,10 +38,31 @@ ATTEMPTS = 3
 
 # Google News searches per topic. Edit freely; "when:2d" keeps results fresh.
 TOPICS = {
-    "personal-finance": ["personal finance India", "mutual funds SEBI", "income tax India", "RBI repo rate"],
-    "stocks": ["Sensex Nifty market", "Indian stock market"],
-    "payments": ["UPI NPCI", "RBI payments", "fintech India"],
-    "ai": ["AI banking India", "artificial intelligence finance"],
+    "personal-finance": ["RBI repo rate", "income tax India", "SEBI mutual funds", "EPFO PPF interest rate", "home loan EMI India"],
+    "stocks": ["Sensex Nifty", "SEBI stock market India", "IPO India"],
+    "payments": ["UPI NPCI", "RBI digital payments", "India fintech"],
+    "ai": ["AI India banks", "AI fintech India", "AI jobs India"],
+}
+
+# Used when no AI key is set: the headline plus a topic line and a question.
+# {t} is the headline. Keep them factual: they add no claims of their own.
+TEMPLATES = {
+    "personal-finance": [
+        "{t}\n\nIf you have a loan, an FD or a SIP, this is worth two minutes of your attention.\n\nWill this change any money decision for you? 👇",
+        "{t}\n\nSmall changes like this quietly add up in your savings, EMIs and taxes over the years.\n\nWhat's your take? 👇",
+    ],
+    "stocks": [
+        "{t}\n\nMarkets move every day. A long-term plan shouldn't move with every headline.\n\nAre you changing anything, or staying the course? 👇",
+        "{t}\n\nWorth knowing, but for a 10-year investor most daily moves are noise.\n\nHow are you reading this one? 👇",
+    ],
+    "payments": [
+        "{t}\n\nThe way India pays keeps changing, and it usually reaches your phone sooner than you think.\n\nGood news or bad news for you? 👇",
+        "{t}\n\nPayments news like this ends up in the apps you use every day.\n\nWhat's your take? 👇",
+    ],
+    "ai": [
+        "{t}\n\nAI is changing how money works faster than most people notice.\n\nExcited or worried? 👇",
+        "{t}\n\nThis is where AI and your money meet.\n\nWould you trust AI with this? 👇",
+    ],
 }
 
 SYSTEM_PROMPT = """You write X (Twitter) posts for @Sudhirkrs17, an Indian creator who explains how money
@@ -53,7 +74,7 @@ For each news story you are given, write ONE tweet that:
 - uses ONLY facts present in the story's title and summary. Do not add numbers, dates, names or
   claims that are not there. If the summary is thin, keep the tweet general and say "reportedly".
 - never gives buy/sell advice or price targets for any stock, fund or coin.
-- has no links and no hashtags (the source link is added separately as a reply).
+- has no links, no hashtags and no source credits. It must read as your own post, not a headline repost.
 - is at most 260 characters. Emoji, ₹, •, → count double, so use them sparingly.
 
 Return ONLY JSON: {"tweets": [{"story": <story number>, "text": "<tweet>"}, ...]}"""
@@ -174,6 +195,18 @@ def write_tweets(stories):
     sys.exit("The model did not return valid tweets after several attempts.")
 
 
+def template_tweet(story, k):
+    title = story["title"].strip()
+    if title[-1:] not in ".?!":
+        title += "."
+    options = TEMPLATES[story["topic"]]
+    text = options[k % len(options)].format(t=title)
+    while x_weight(text) > 280 and len(title) > 40:  # very long headline: shorten it
+        title = title[: len(title) - 10].rsplit(" ", 1)[0] + "…"
+        text = options[k % len(options)].format(t=title)
+    return text
+
+
 def load_news():
     if NEWS_FILE.exists():
         return json.loads(NEWS_FILE.read_text(encoding="utf-8"))
@@ -182,22 +215,15 @@ def load_news():
 
 def issue_body(items, have_llm):
     now = datetime.now(ZoneInfo("Asia/Kolkata"))
-    out = [f"## News tweets, {now:%a %d %b %Y, %H:%M} IST", ""]
+    out = [f"## News tweets, {now:%a %d %b %Y, %H:%M} IST", "",
+           "Tap **Open in X** under a tweet, then Post. The links start working about 2 minutes after this issue appears.", ""]
     if have_llm:
-        out += ["Check each tweet against its source before posting: AI can get details wrong. "
-                "Tap **Open in X**, post, then **reply to your own tweet** with the source line (links in the "
-                "main tweet reduce reach). Open in X links start working about 2 minutes after this issue appears.", ""]
+        out += ["_Written by AI from today's news: read each one before posting, AI can get details wrong._", ""]
     else:
-        out += ["_No AI key is set (LLM_* secrets), so these are headlines only. Write your own take on one._", ""]
+        out += ["_Written from templates around the headline. Add the LLM_* secrets for AI-written tweets._", ""]
     for i, it in enumerate(items, 1):
-        when = datetime.fromisoformat(it["published"]).astimezone(ZoneInfo("Asia/Kolkata"))
-        out += [f"### {i}. {it['title']}", f"_{it['source'] or 'source'} · {when:%d %b, %H:%M} IST · {it['topic']}_", ""]
-        if it.get("text"):
-            out += ["**Tweet** (" + str(x_weight(it["text"])) + " chars)", "```text", it["text"], "```",
-                    f"**[➜ Open in X]({DESK_URL}p/{it['id']}.html)**", "",
-                    "**Reply with**", "```text", f"Source: {it['url']}", "```", ""]
-        else:
-            out += ["Source:", "```text", it["url"], "```", ""]
+        out += [f"### Tweet {i} · {it['topic']} ({x_weight(it['text'])} chars)", "```text", it["text"], "```",
+                f"**[➜ Open in X]({DESK_URL}p/{it['id']}.html)**", ""]
     return "\n".join(out) + "\n"
 
 
@@ -219,14 +245,12 @@ def main():
         return
 
     have_llm = all(os.environ.get(k) for k in ("LLM_API_KEY", "LLM_BASE_URL", "LLM_MODEL"))
-    texts = write_tweets(stories) if have_llm else [None] * len(stories)
+    texts = write_tweets(stories) if have_llm else [template_tweet(s, k) for k, s in enumerate(stories)]
     stamp = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y%m%d%H%M")
     items = []
     for k, (s, text) in enumerate(zip(stories, texts), 1):
-        item = {"id": f"n{stamp}-{k}", "created": datetime.now(timezone.utc).isoformat(timespec="minutes"), **s}
-        if text:
-            item["text"] = text
-        items.append(item)
+        items.append({"id": f"n{stamp}-{k}", "created": datetime.now(timezone.utc).isoformat(timespec="minutes"),
+                      **s, "text": text, "writer": "ai" if have_llm else "template"})
     news["items"] = (news["items"] + items)[-KEEP_ITEMS:]
     NEWS_FILE.write_text(json.dumps(news, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     Path(args.out).write_text(issue_body(items, have_llm), encoding="utf-8")
