@@ -1,10 +1,10 @@
 name: News tweets
 
 # Run it from the Actions tab (or the Control Panel): reads the latest news
-# for the chosen topics, has the AI write one tweet per story, and opens an
-# issue with the tweets, "Open in X" links and the source to reply with.
-# Uses the same LLM_* secrets as the weekly drafter; without them it lists
-# headlines only.
+# for the chosen topics, turns each story into a ready tweet, and opens an
+# issue with the tweets and their "Open in X" links. Uses the same LLM_*
+# secrets as the weekly drafter for AI-written tweets; without them it uses
+# templates around each headline.
 on:
   workflow_dispatch:
     inputs:
