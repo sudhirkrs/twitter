@@ -1,0 +1,31 @@
+name: Weekly report
+
+# Every Sunday evening, posts a growth and post-performance summary as an
+# issue, from the numbers logged in the Control Panel.
+on:
+  schedule:
+    - cron: "30 12 * * 0"  # Sunday 18:00 IST (GitHub may start it hours late)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Post the report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/weekly_report.py > report.md
+          gh label create weekly-report --color 3B5B7A --force >/dev/null
+          for n in $(gh issue list --label weekly-report --state open --json number --jq '.[].number'); do
+            gh issue close "$n" --comment "Superseded by this week's report."
+          done
+          gh issue create --title "Weekly report: $(TZ=Asia/Kolkata date +'%d %b %Y')" --body-file report.md --label weekly-report --assignee "${{ github.repository_owner }}"

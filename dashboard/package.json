@@ -1,0 +1,6 @@
+{
+  "name": "twitter-control-panel",
+  "private": true,
+  "description": "Control Panel for the @Sudhirkrs17 posting queue. Deploy on Vercel with Root Directory = dashboard.",
+  "engines": { "node": ">=18" }
+}

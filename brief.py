@@ -10,10 +10,10 @@ Usage:
     python brief.py --date 2026-10-01
 """
 import argparse
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
-from poster import load_queue, scheduled_at, tweet_weight
+from poster import is_approved, load_queue, scheduled_at, tweet_weight
 
 DESK_URL = "https://sudhirkrs.github.io/twitter/"
 
@@ -37,10 +37,17 @@ def build(queue, day):
     if day < start:
         return f"Posting starts on {start:%A, %d %B %Y}. Use today to set up your profile (see STRATEGY.md §1).\n"
     if not posts:
-        lines.append("_No posts scheduled today. Add more to `content/queue.json`._")
+        lines.append("_No posts scheduled today. Add more in the Control Panel or run the \"Draft next week\" workflow._")
+    last_day = start + timedelta(days=max(p["day"] for p in queue["posts"]) - 1)
+    if (last_day - day).days < 5:
+        lines += [f"> ⚠️ **Content runs out on {last_day:%a %d %b}.** Draft and approve more posts in the Control Panel.", ""]
+    if any(not is_approved(p) for p in posts):
+        lines += ["> ⚠️ **Some posts below are unapproved AI drafts.** Review and approve them in the Control Panel; "
+                  "drafts have no Open in X link until approved.", ""]
     for p in posts:
         when = scheduled_at(queue, p)
-        lines += [f"### {when:%H:%M} IST: {p['type']} ({p['pillar']})", ""]
+        flag = "" if is_approved(p) else " · ⚠️ DRAFT, not approved"
+        lines += [f"### {when:%H:%M} IST: {p['type']} ({p['pillar']}){flag}", ""]
         if p["type"] == "poll":
             opts = ", ".join(p["poll"]["options"])
             lines += [f"Poll (create it in the X app). Options: **{opts}**. Duration: 1 day.", ""]
@@ -49,7 +56,7 @@ def build(queue, day):
                 label = "Post this first" if i == 1 else f"Then reply to part {i - 1} with"
                 lines.append(f"**{i}/{len(p['parts'])}**: {label} ({tweet_weight(part)} chars)")
             lines += ["```text", part, "```"]
-            if i == 1 and p["type"] != "poll":
+            if i == 1 and p["type"] != "poll" and is_approved(p):
                 lines.append(f"**[➜ Open in X]({open_link(p)})**")
             lines.append("")
     lines += [

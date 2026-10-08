@@ -1,8 +1,8 @@
 """Generate the Posting Desk page from content/queue.json.
 
 Writes:
-  console.html          the page body, published as a Claude artifact
-  site/index.html       the same page as a standalone site, deployed to GitHub Pages
+  console.html          the page body (kept for local preview)
+  site/index.html       the Posting Desk, deployed to GitHub Pages
   site/p/<post id>.html short links that forward to X with the post pre-filled.
                         GitHub strips links longer than ~140 characters from issues,
                         so the daily brief links to these instead of X directly.
@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 from urllib.parse import quote
 
-from poster import load_queue, tweet_weight
+from poster import is_approved, load_queue, tweet_weight
 
 ROOT = Path(__file__).resolve().parent
 
@@ -56,7 +56,7 @@ a{{color:#0E7A5C;font-weight:600}}pre{{white-space:pre-wrap;background:#EEF3F1;p
 short = site / "p"
 short.mkdir(exist_ok=True)
 for p in queue["posts"]:
-    if p["type"] == "poll":
+    if p["type"] == "poll" or not is_approved(p):
         continue
     url = "https://twitter.com/intent/tweet?text=" + quote(p["parts"][0], safe="")
     (short / f"{p['id']}.html").write_text(

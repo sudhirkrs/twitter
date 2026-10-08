@@ -1,0 +1,67 @@
+name: Draft next week
+
+# Every Sunday, asks an AI model (your own key, any OpenAI-compatible
+# provider) to draft the next 7 days of posts when fewer than 14 days are
+# queued. Drafts are committed as "status": "draft" and must be approved
+# in the Control Panel before they get Open in X links.
+#
+# Needs repository secrets LLM_API_KEY, LLM_BASE_URL and LLM_MODEL.
+on:
+  schedule:
+    - cron: "30 3 * * 0"  # Sunday 09:00 IST (GitHub may start it hours late)
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Draft 7 more days even if 14+ days are already queued"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: content-queue
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Draft posts
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: |
+          if [ "${{ inputs.force }}" = "true" ]; then
+            python scripts/draft_week.py --force | tee draft.log
+          else
+            python scripts/draft_week.py | tee draft.log
+          fi
+      - name: Commit drafts and notify
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PANEL: ${{ vars.CONTROL_PANEL_URL }}
+        run: |
+          git diff --quiet content/queue.json && { echo "No new drafts."; exit 0; }
+          python poster.py --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/queue.json
+          git commit -m "Add AI-drafted posts for review"
+          git pull --rebase origin main   # in case posts were saved from the Control Panel meanwhile
+          python poster.py --check
+          git push
+          gh label create drafts --color C27C0E --force >/dev/null
+          {
+            echo "$(tail -n 1 draft.log)"
+            echo
+            echo "Review, edit and approve them in the Control Panel${PANEL:+: $PANEL}."
+            echo "Drafts get no Open in X link until approved."
+          } > note.md
+          gh issue create --title "New AI drafts ready for review" --body-file note.md --label drafts --assignee "${{ github.repository_owner }}"
