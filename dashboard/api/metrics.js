@@ -20,6 +20,17 @@ async function readText(path, cols) {
   }
 }
 
+async function appendLines(f, lines, message) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const cur = await readText(f.path, f.cols);
+    try {
+      return await putFile(f.path, cur.text.replace(/\n*$/, "\n") + lines.join("\n") + "\n", cur.sha, message);
+    } catch (e) {
+      if (e.status !== 409 || attempt) throw e; // someone else saved first: re-read and retry once
+    }
+  }
+}
+
 module.exports = handler(async (req, res) => {
   if (req.method === "GET") {
     const [post, week] = await Promise.all([
@@ -29,7 +40,14 @@ module.exports = handler(async (req, res) => {
     return send(res, 200, { posts: post.text, growth: week.text });
   }
   if (req.method === "POST") {
-    const { kind, row } = await readJson(req);
+    const body = await readJson(req);
+    if (body.kind === "batch") {
+      const rows = Array.isArray(body.rows) ? body.rows.slice(0, 200) : [];
+      if (rows.length) await appendLines(FILES.post, rows.map((r) => FILES.post.cols.map((c) => cell(r[c])).join(",")), "Import post numbers read from X");
+      if (body.week) await appendLines(FILES.week, [FILES.week.cols.map((c) => cell(body.week[c])).join(",")], "Log follower count read from X");
+      return send(res, 200, { ok: true, saved: rows.length });
+    }
+    const { kind, row } = body;
     const f = FILES[kind];
     if (!f || !row) return send(res, 400, { error: "kind must be post or week, with a row" });
     const line = f.cols.map((c) => cell(row[c])).join(",");

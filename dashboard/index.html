@@ -87,6 +87,7 @@ td.num,th.num{text-align:right; font-variant-numeric:tabular-nums; font-family:v
       <nav role="tablist">
         <button class="btn tab" role="tab" data-tab="queue" aria-selected="true">Posts</button>
         <button class="btn tab" role="tab" data-tab="log" aria-selected="false">Log numbers</button>
+        <button class="btn tab" role="tab" data-tab="import" aria-selected="false">Import from X</button>
         <button class="btn tab" role="tab" data-tab="insights" aria-selected="false">Insights</button>
         <button class="btn tab" role="tab" data-tab="auto" aria-selected="false">Automation</button>
       </nav>
@@ -131,6 +132,33 @@ td.num,th.num{text-align:right; font-variant-numeric:tabular-nums; font-family:v
       </form>
     </section>
 
+    <section data-panel="import" hidden class="day" style="margin-top:16px">
+      <div class="card" id="pending" hidden>
+        <h2>Review numbers from X</h2>
+        <p class="muted" id="pendingInfo"></p>
+        <div id="pendingTable"></div>
+        <div class="row"><button class="btn primary" id="savePending">Save these numbers</button><button class="btn" id="dropPending">Discard</button></div>
+      </div>
+      <div class="card">
+        <h2>Read your numbers straight from X</h2>
+        <p class="muted">A bookmark that reads the views, likes, replies, reposts and bookmarks shown under your posts, plus your follower count, while you're signed in to X in your own browser. It only reads what's on screen. Nothing is posted, and your X password never leaves your browser.</p>
+        <h3>On a computer (Chrome, Safari, Edge)</h3>
+        <ol class="muted">
+          <li>Show your bookmarks bar, then drag this button onto it: <a class="btn primary" id="bookmarklet" href="#" title="Drag me to your bookmarks bar">X numbers</a></li>
+          <li>Open <b>x.com/Sudhirkrs17</b> (your profile, Posts tab), signed in.</li>
+          <li>Click the <b>X numbers</b> bookmark. Wait about 20 seconds while it scrolls.</li>
+          <li>Click <b>Review and save in Control Panel</b>, check the numbers, then <b>Save</b>.</li>
+        </ol>
+        <h3>On iPhone or Android</h3>
+        <ol class="muted">
+          <li>Tap <b>Copy bookmark code</b>: <button class="btn small" id="copyBm">Copy bookmark code</button></li>
+          <li>Bookmark any page in Safari or Chrome, then edit that bookmark: name it <b>X numbers</b> and paste the code as its address.</li>
+          <li>Open x.com/Sudhirkrs17 in that browser (not the X app), signed in. Then open the bookmark: in Safari from the bookmarks list; in Chrome by typing "X numbers" in the address bar and tapping the bookmark suggestion.</li>
+        </ol>
+        <p class="muted">Run it weekly, before reading Insights. If X changes its page design and the bookmark finds no numbers, log them by hand under Log numbers.</p>
+      </div>
+    </section>
+
     <section data-panel="insights" hidden class="day" style="margin-top:16px" id="insights"></section>
 
     <section data-panel="auto" hidden class="day" style="margin-top:16px">
@@ -139,6 +167,15 @@ td.num,th.num{text-align:right; font-variant-numeric:tabular-nums; font-family:v
         <p class="muted">Runs automatically every Sunday when fewer than 14 days are queued. Drafts appear under Posts for you to edit and approve. Needs the LLM_* secrets in GitHub.</p>
         <label class="row" style="flex-direction:row;gap:6px"><input type="checkbox" id="force" style="width:auto"> Draft 7 more days even if plenty are queued</label>
         <div class="row"><button class="btn primary" data-run="draft-week.yml">Draft now</button></div>
+      </div>
+      <div class="card">
+        <h2>News tweets</h2>
+        <p class="muted">Finds today's news on your topics, writes one tweet per story, and opens an issue with Open in X links and the source to reply with. Check every tweet against its source before posting.</p>
+        <div class="row">
+          <label>Topic <select id="newsTopic"><option>all</option><option>personal-finance</option><option>stocks</option><option>payments</option><option>ai</option></select></label>
+          <label>Tweets <select id="newsCount"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
+        </div>
+        <div class="row"><button class="btn primary" data-run="news-tweets.yml">Get news tweets</button></div>
       </div>
       <div class="card">
         <h2>Other jobs</h2>
@@ -332,6 +369,7 @@ function renderInsights() {
   } else fol.append(h("p", { class: "muted" }, "No weekly numbers yet. Add them under Log numbers."));
   box.append(fol);
 
+  for (const r of S.metrics.posts) if (!byId[r.post_id] && r.post_id) byId[r.post_id] = { day: null, slot: "", pillar: r.post_id.startsWith("n") ? "news" : "other", type: "post", parts: [r.notes || r.post_id] };
   const latest = {}; for (const r of S.metrics.posts) if (byId[r.post_id]) latest[r.post_id] = r;
   const rows = Object.values(latest).filter((r) => rate(r) !== null).sort((a, b) => rate(b) - rate(a));
   const top = h("div", { class: "card" }, h("h2", {}, "Best posts"), h("p", { class: "muted" }, "Engagement = (likes + 2 × (replies + reposts + bookmarks)) ÷ views. The weekly AI drafter copies the style of your top posts."));
@@ -339,7 +377,7 @@ function renderInsights() {
     const max = rate(rows[0]);
     top.append(table(["Post", "Pillar", "Views", "Engagement", ""], rows.slice(0, 8).map((r) => {
       const p = byId[r.post_id];
-      return [`${fmt(dayDate(p.day), { day: "numeric", month: "short" })} ${p.slot} · ${p.parts[0].split("\n")[0].slice(0, 48)}`, p.pillar, (+r.views).toLocaleString("en-IN"), pct(rate(r)), h("div", { class: "bar", style: `width:${Math.round((rate(r) / max) * 80)}px` })];
+      return [`${p.day ? fmt(dayDate(p.day), { day: "numeric", month: "short" }) + " " + p.slot + " · " : ""}${p.parts[0].split("\n")[0].slice(0, 48)}`, p.pillar, (+r.views).toLocaleString("en-IN"), pct(rate(r)), h("div", { class: "bar", style: `width:${Math.round((rate(r) / max) * 80)}px` })];
     }), [2, 3]));
     for (const [key, label] of [["pillar", "By topic"], ["type", "By format"]]) {
       const groups = {}; for (const r of rows) (groups[byId[r.post_id][key]] ||= []).push(r);
@@ -350,6 +388,49 @@ function renderInsights() {
   box.append(top);
 }
 
+// ---------- Import from X ----------
+const normText = (t) => String(t).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().slice(0, 60);
+function matchPost(text) {
+  const key = normText(text);
+  if (key.length < 12) return null;
+  const hit = S.queue.posts.find((p) => { const k = normText(p.parts[0]); return k.startsWith(key.slice(0, 40)) || key.startsWith(k.slice(0, 40)); });
+  return hit ? hit.id : null;
+}
+function readImportHash() {
+  if (!location.hash.startsWith("#import=")) return null;
+  try { return JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(location.hash.slice(8)))))); }
+  catch (e) { toast("Couldn't read the numbers from X. Run the bookmark again."); return null; }
+}
+function showPending() {
+  const d = S.pending; if (!d) return;
+  d.rows = d.posts.map((p) => ({ ...p, post_id: matchPost(p.text) || "x-" + p.id }));
+  $("#pending").hidden = false;
+  const matched = d.rows.filter((r) => !r.post_id.startsWith("x-")).length;
+  $("#pendingInfo").textContent = `Read from @${d.handle} on ${new Date(d.at).toLocaleString("en-IN")}: ${d.followers ? d.followers.toLocaleString("en-IN") + " followers, " : ""}${d.rows.length} posts (${matched} matched to your scheduled posts).`;
+  $("#pendingTable").replaceChildren(table(["Post", "Views", "Likes", "Replies", "Reposts", "Bookmarks"],
+    d.rows.map((r) => [(r.post_id.startsWith("x-") ? "" : r.post_id + " · ") + r.text.slice(0, 60), String(r.views), String(r.likes), String(r.replies), String(r.reposts), String(r.bookmarks)]), [1, 2, 3, 4, 5]));
+  document.querySelector('[data-tab="import"]').click();
+}
+async function savePending() {
+  const d = S.pending, today = todayIso();
+  const rows = d.rows.map((r) => ({ date_logged: today, post_id: r.post_id, views: r.views, likes: r.likes, replies: r.replies, reposts: r.reposts, bookmarks: r.bookmarks, notes: r.post_id.startsWith("x-") ? r.text.slice(0, 80) : "" }));
+  const week = d.followers ? { week_ending: today, followers: d.followers, notes: "read from X" } : null;
+  $("#savePending").disabled = true;
+  try {
+    await api("/api/metrics", { method: "POST", body: JSON.stringify({ kind: "batch", rows, week }) });
+    toast(`Saved numbers for ${rows.length} posts.`); S.pending = null; $("#pending").hidden = true;
+    history.replaceState(null, "", location.pathname); await loadMetrics(); renderInsights();
+  } catch (e) { if (e.message !== "locked") toast("Couldn't save: " + e.message); }
+  finally { $("#savePending").disabled = false; }
+}
+async function setupBookmarklet() {
+  try {
+    const src = await (await fetch("x-reader.js", { cache: "no-store" })).text();
+    S.bookmarklet = "javascript:" + encodeURIComponent(src.replaceAll("__PANEL__", location.origin + location.pathname));
+    $("#bookmarklet").href = S.bookmarklet;
+  } catch (e) { $("#bookmarklet").textContent = "Couldn't load the bookmark"; }
+}
+
 // ---------- wiring ----------
 async function loadAll() {
   const d = await api("/api/queue");
@@ -357,6 +438,7 @@ async function loadAll() {
   try { await loadMetrics(); } catch (e) { if (e.message !== "locked") toast("Couldn't load numbers: " + e.message); }
   $("#login").hidden = true; $("#app").hidden = false;
   renderQueue(); fillPostSelect(); renderInsights(); markDirty();
+  if (S.pending) showPending();
 }
 function lock(msg) { S.key = ""; store("cp_key", null); $("#app").hidden = true; $("#savebar").hidden = true; $("#login").hidden = false; $("#loginMsg").textContent = msg || ""; }
 
@@ -369,6 +451,13 @@ document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () 
   if (b.dataset.tab === "log") fillPostSelect();
 }));
 $("#showPast").addEventListener("change", renderQueue);
+$("#savePending").addEventListener("click", savePending);
+$("#dropPending").addEventListener("click", () => { S.pending = null; $("#pending").hidden = true; history.replaceState(null, "", location.pathname); });
+$("#bookmarklet").addEventListener("click", (e) => { e.preventDefault(); toast("Drag this button to your bookmarks bar instead of clicking it."); });
+$("#copyBm").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(S.bookmarklet || ""); toast("Copied. Paste it as the bookmark's address."); }
+  catch (e) { prompt("Copy this bookmark code:", S.bookmarklet || ""); }
+});
 $("#addDay").addEventListener("click", () => {
   const d = Math.max(0, ...S.queue.posts.map((p) => p.day)) + 1;
   for (const slot of Object.keys(S.queue.slots)) S.queue.posts.push({ id: `d${String(d).padStart(2, "0")}-${slot}`, day: d, slot, pillar: "personal-finance", type: "tweet", parts: [""], status: "draft" });
@@ -404,7 +493,8 @@ $("#weekForm").addEventListener("submit", async (e) => {
   catch (err) { if (err.message !== "locked") toast("Couldn't save: " + err.message); }
 });
 document.querySelectorAll("[data-run]").forEach((b) => b.addEventListener("click", async () => {
-  const inputs = b.dataset.run === "draft-week.yml" ? { force: $("#force").checked } : {};
+  const inputs = b.dataset.run === "draft-week.yml" ? { force: $("#force").checked }
+    : b.dataset.run === "news-tweets.yml" ? { topic: $("#newsTopic").value, count: $("#newsCount").value } : {};
   b.disabled = true;
   try { await api("/api/dispatch", { method: "POST", body: JSON.stringify({ workflow: b.dataset.run, inputs }) }); toast("Started. Check GitHub Actions in a minute or two."); }
   catch (err) { if (err.message !== "locked") toast("Couldn't start: " + err.message); }
@@ -417,6 +507,8 @@ $("#links").append(
   h("a", { class: "btn", href: "https://github.com/sudhirkrs/twitter/issues", target: "_blank", rel: "noopener" }, "Daily briefs"),
   h("a", { class: "btn", href: "https://sudhirkrs.github.io/twitter/", target: "_blank", rel: "noopener" }, "Posting Desk"),
   h("a", { class: "btn", href: "https://github.com/sudhirkrs/twitter/actions", target: "_blank", rel: "noopener" }, "GitHub Actions"));
+S.pending = readImportHash();
+setupBookmarklet();
 const saved = load("cp_key");
 if (saved) { S.key = saved; loadAll().catch((e) => { if (e.message !== "locked") lock("Couldn't load: " + e.message); }); }
 </script>

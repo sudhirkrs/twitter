@@ -63,4 +63,13 @@ for p in queue["posts"]:
         REDIRECT.format(url=html.escape(url), url_js=json.dumps(url), text=html.escape(p["parts"][0])),
         encoding="utf-8",
     )
+news_file = ROOT / "content" / "news.json"
+if news_file.exists():
+    for item in json.loads(news_file.read_text(encoding="utf-8"))["items"]:
+        if item.get("text"):
+            url = "https://twitter.com/intent/tweet?text=" + quote(item["text"], safe="")
+            (short / f"{item['id']}.html").write_text(
+                REDIRECT.format(url=html.escape(url), url_js=json.dumps(url), text=html.escape(item["text"])),
+                encoding="utf-8",
+            )
 print("wrote console.html, site/index.html and site/p/*.html")
