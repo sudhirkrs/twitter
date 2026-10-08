@@ -95,26 +95,25 @@ These timelines are realistic with daily consistency. Accounts that skip the rep
 
 ## 5. Execution: what's automated vs. what's you
 
-The X API isn't available on the free tier, so posting is **one tap by you** and everything around it is prepared:
+The system runs on GitHub and Vercel alone. Posting is **one tap by you** (the X API isn't available on the free tier), and everything around it is automated:
 
 | Task | Who / how |
 |---|---|
-| Daily reminder with that day's posts (07:45 IST) | **Automated**: a GitHub Action opens an issue with the text and one-tap "Open in X" links |
-| Posting (08:30 and 19:30 IST) | **You, about 1 minute each**: tap Open in X on the [Posting Desk](https://claude.ai/artifact/GMpn5mq6D3S7M4dX9MeD22), then Post. For threads, reply with each part. |
-| First 3 weeks of content (42 posts, 11 threads, 2 polls) | **Done**: `content/queue.json`. Review and edit before Day 1. |
+| Daily brief with the next day's posts | **Automated**: a GitHub Action opens an issue each evening with the text and one-tap "Open in X" links |
+| Posting (08:30 and 19:30 IST) | **You, about 1 minute each**: tap Open in X in the issue or on the [Posting Desk](https://sudhirkrs.github.io/twitter/), then Post. For threads, reply with each part. |
+| Weekly content refill | **Automated draft, you approve**: every Sunday an AI model (your own API key) drafts the next 7 days. You edit and approve them in the Control Panel. |
+| Editing posts | **You**, in the Control Panel (Vercel), from your phone |
+| Tracking | **You log, it calculates**: enter numbers in the Control Panel → Log numbers. Insights and a Sunday report issue rank what works. |
 | Replies, quote-posts, conversations | **You**, daily. This can't be automated, and automated replies break X's rules. |
-| Weekly content refill | You + Claude: add the next 14 posts to the queue every Sunday, based on what performed. |
-| Tracking | `tracking/growth-log.csv`, updated every Sunday. |
 
 Avoid browser bots or "free auto-posters" that log in with your password. Non-API automation breaks X's rules and is a common cause of locked accounts.
 
 ## 6. Weekly review (every Sunday, 20 minutes)
 
-1. Log followers, impressions and profile visits in `tracking/growth-log.csv`.
-2. Find the top 3 posts by **engagement rate** and **follows generated**.
-3. Ask what they had in common (topic, hook type, format), then write 2 more posts like them for next week.
-4. Cut the format that performed worst.
-5. Pin the best thread of the month.
+1. Control Panel → **Log numbers**: enter followers (and impressions and profile visits if X shows them), plus the numbers under each of the week's posts.
+2. Read the **Weekly report** issue (Sunday evening) or the **Insights** tab: best posts, best topics, best formats.
+3. Control Panel → **Posts**: review the AI drafts for the coming week. Fix facts and tone, cut anything you wouldn't say, add 2 posts in the style of your best performers, then **Approve**.
+4. Pin the best thread of the month.
 
 **Metrics that matter** (in order): follows per post, profile visits, replies, bookmarks, impressions. Likes are a vanity metric. Bookmarks mean people found the post useful, and useful content is what earns follows in finance.
 

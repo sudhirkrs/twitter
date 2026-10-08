@@ -62,6 +62,11 @@ def scheduled_at(queue, post):
     return datetime(day.year, day.month, day.day, hh, mm, tzinfo=tz)
 
 
+def is_approved(post):
+    """Posts drafted automatically carry "status": "draft" until approved."""
+    return post.get("status", "approved") == "approved"
+
+
 def is_done(state, post):
     entry = state.get(post["id"])
     return bool(entry) and len(entry.get("tweet_ids", [])) >= len(post["parts"])
@@ -79,6 +84,10 @@ def check(queue):
             errors.append(f"{pid}: unknown slot {post['slot']!r}")
         if not post["parts"]:
             errors.append(f"{pid}: no parts")
+        if post.get("status", "approved") not in ("approved", "draft"):
+            errors.append(f"{pid}: status must be 'approved' or 'draft'")
+        if post.get("type") not in ("tweet", "thread", "poll"):
+            errors.append(f"{pid}: type must be tweet, thread or poll")
         for i, part in enumerate(post["parts"], 1):
             w = tweet_weight(part)
             if w > MAX_WEIGHT:
@@ -154,7 +163,7 @@ def main():
             print(f"[{mark}] {scheduled_at(queue, p):%a %d %b %H:%M}  {p['id']:<8} {p['type']:<6} {first}")
         return
 
-    due = [p for p in posts if not is_done(state, p) and scheduled_at(queue, p) <= now]
+    due = [p for p in posts if is_approved(p) and not is_done(state, p) and scheduled_at(queue, p) <= now]
     stale = [p for p in due if now - scheduled_at(queue, p) > STALE_AFTER]
     due = [p for p in due if p not in stale][: args.max]
     for p in stale:

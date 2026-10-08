@@ -48,6 +48,7 @@ h1 span{color:var(--accent)}
 .time{font:500 14px var(--mono); font-variant-numeric:tabular-nums}
 .chip{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.07em; padding:2px 8px; border-radius:99px; background:var(--sunk); color:var(--muted)}
 .chip.type{background:var(--accent-soft); color:var(--accent)}
+.chip.draft{background:transparent; color:var(--warn); border:1px solid var(--warn)}
 .meta .spacer{flex:1}
 .part{display:flex; flex-direction:column; gap:8px}
 .part + .part{border-top:1px dashed var(--line); padding-top:14px}
@@ -158,13 +159,14 @@ function renderPosts() {
         el("span", {class: "time"}, Q.slots[p.slot] + " IST"),
         el("span", {class: "chip type"}, p.type + (p.parts.length > 1 ? " · " + p.parts.length : "")),
         el("span", {class: "chip"}, p.pillar.replace("-", " ")),
+        p.status === "draft" ? el("span", {class: "chip draft"}, "draft, approve first") : "",
         el("span", {class: "spacer"}),
         el("label", {class: "toggle", for: "done-" + p.id}, cb, "Posted")));
     p.parts.forEach((t, i) => {
       const txt = el("div", {class: "text"}, t);
       const cbtn = el("button", {class: "btn"}, "Copy"); cbtn.addEventListener("click", () => copy(cbtn, t, txt));
       const acts = el("div", {class: "actions"});
-      if (i === 0 && p.type !== "poll") {
+      if (i === 0 && p.type !== "poll" && p.status !== "draft") {
         acts.append(el("a", {class: "btn primary", href: "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t), target: "_blank", rel: "noopener"}, "Open in X"));
         acts.append(el("a", {class: "btn", href: "twitter://post?message=" + encodeURIComponent(t)}, "Open X app"));
       }
