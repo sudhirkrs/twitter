@@ -6,6 +6,7 @@ const ALLOWED = {
   "daily-brief.yml": [],
   "weekly-report.yml": [],
   "pages.yml": [],
+  "news-tweets.yml": ["topic", "count"],
 };
 
 module.exports = handler(async (req, res) => {

@@ -1,0 +1,59 @@
+name: News tweets
+
+# Run it from the Actions tab (or the Control Panel): reads the latest news
+# for the chosen topics, has the AI write one tweet per story, and opens an
+# issue with the tweets, "Open in X" links and the source to reply with.
+# Uses the same LLM_* secrets as the weekly drafter; without them it lists
+# headlines only.
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Topic"
+        type: choice
+        options: [all, personal-finance, stocks, payments, ai]
+        default: all
+      count:
+        description: "How many tweets"
+        type: choice
+        options: ["1", "2", "3", "4", "5"]
+        default: "3"
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: content-queue
+  cancel-in-progress: false
+
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Find stories and write tweets
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: python scripts/news_tweets.py --topic "${{ inputs.topic }}" --count "${{ inputs.count }}" --out issue.md
+      - name: Save, publish links, open the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -n "$(git status --porcelain content/news.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add content/news.json
+            git commit -m "Add news tweet drafts"
+            git pull --rebase origin main
+            git push
+            gh workflow run pages.yml --ref main   # builds the short Open in X pages
+          fi
+          gh label create news --color 1F6FEB --force >/dev/null
+          gh issue create --title "News tweets: ${{ inputs.topic }} ($(TZ=Asia/Kolkata date +'%d %b %H:%M'))" --body-file issue.md --label news --assignee "${{ github.repository_owner }}"

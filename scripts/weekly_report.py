@@ -77,6 +77,10 @@ def build():
         out.append("_No follower numbers logged yet. Add them in the Control Panel → Log numbers._")
     out.append("")
 
+    for r in rows(METRICS):  # posts read from X that aren't in the schedule (news tweets, your own posts)
+        if r.get("post_id") and r["post_id"] not in by_id:
+            by_id[r["post_id"]] = {"pillar": "news" if r["post_id"].startswith("n") else "other",
+                                   "type": "post", "parts": [r.get("notes") or r["post_id"]]}
     posts = [r for r in latest_per_post(rows(METRICS)) if r["post_id"] in by_id and rate(r) is not None]
     out.append("## Best posts by engagement rate")
     if posts:
