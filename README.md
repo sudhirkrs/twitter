@@ -55,21 +55,20 @@ GitHub Pages and the daily brief are already running. Two things remain.
 
 Vercel redeploys only when something in `dashboard/` changes. Saving posts doesn't trigger a Vercel build.
 
-### 2. Weekly AI drafts (about 5 minutes)
+### 2. AI key: Google Gemini, free tier (about 5 minutes)
 
-The drafter works with any **OpenAI-compatible** AI service, so you choose the provider. For example, Google's Gemini API has a free tier: create a key at Google AI Studio, then use its OpenAI-compatible address. Check your provider's current free limits and model names; they change often.
+The same key writes the News tweets and the weekly drafts. Any OpenAI-compatible provider works; these steps use Google Gemini's free tier. Free tiers have daily limits, which are plenty for a few runs a day. Google may use free-tier prompts to improve its products, but your prompts are only public news and your own tweets.
 
-Add three **repository secrets** (Settings → Secrets and variables → Actions → Secrets):
+1. **Get the key:** open **aistudio.google.com** in a browser, sign in with your Google account, tap **Get API key** → **Create API key**, and copy it. Treat it like a password.
+2. **Add three secrets on GitHub** in a browser (the GitHub app can't do this): github.com/sudhirkrs/twitter → **Settings → Secrets and variables → Actions → New repository secret**:
 
-| Secret | Example (Google Gemini) |
-|---|---|
-| `LLM_API_KEY` | your API key |
-| `LLM_BASE_URL` | `https://generativelanguage.googleapis.com/v1beta/openai` |
-| `LLM_MODEL` | a model name listed in your provider's docs |
+   | Name | Value |
+   |---|---|
+   | `LLM_API_KEY` | the key you copied |
+   | `LLM_BASE_URL` | `https://generativelanguage.googleapis.com/v1beta/openai` |
+   | `LLM_MODEL` | leave for step 3 |
 
-The same secrets power **News tweets**. Without them, News tweets writes simpler template tweets around each headline.
-
-Test it: Control Panel → **Automation** → tick "Draft 7 more days" → **Draft now**. After a minute or two, a "New AI drafts ready for review" issue appears and the drafts show under **Posts**.
+3. **Find the model name:** **Actions → Test AI key → Run workflow**. Open the finished run: its summary lists the models your key can use, with good choices marked. Add the `LLM_MODEL` secret with one of those names (a "flash" model is fast and well within the free tier), then run **Test AI key** again. When it shows ✅ and a test sentence, you're done.
 
 Without these secrets, everything else keeps working: the weekly drafts are skipped, News tweets uses templates, and you add posts yourself in the Control Panel.
 
@@ -86,5 +85,6 @@ Control Panel → **Import from X** has the bookmark and step-by-step instructio
 | `build_console.py` | Builds the Posting Desk and the short Open-in-X pages into `site/` |
 | `scripts/draft_week.py` | The AI drafter. `--dry-run` prints the prompt; `--force` drafts regardless of runway. |
 | `scripts/weekly_report.py` | The weekly report |
-| `scripts/news_tweets.py` | News tweets. Topics and searches are in `TOPICS` at the top; edit them freely. Used stories are remembered in `content/news.json` so they aren't repeated. |
+| `scripts/news_tweets.py` | News tweets. Searches are in `TOPICS` and the guide/listicle filter in `NOT_NEWS`; edit both freely. Used stories are remembered in `content/news.json` so they aren't repeated. |
+| `scripts/check_llm.py` | Behind the **Test AI key** workflow |
 | `dashboard/` | The Vercel Control Panel: `index.html` plus API functions in `api/` (no dependencies) |
