@@ -14,6 +14,7 @@ Usage:
     python scripts/news_tweets.py --feed-file sample.xml ...   # offline test
 """
 import argparse
+import base64
 import email.utils
 import html
 import json
@@ -75,11 +76,13 @@ For each news story you are given, write ONE tweet that:
   claims that are not there. If the summary is thin, keep the tweet general and say "reportedly".
 - never gives buy/sell advice or price targets for any stock, fund or coin.
 - has no links, no hashtags and no source credits. It must read as your own post, not a headline repost.
-- is at most 260 characters. Emoji, ₹, •, → count double, so use them sparingly.
+- is at most 240 characters (the article link is added after it). Emoji, ₹, •, → count double, so use them sparingly.
 
 Return ONLY JSON: {"tweets": [{"story": <story number>, "text": "<tweet>"}, ...]}"""
 
 URL_RE = re.compile(r"https?://\S+")
+LINK_COST = 2 + 23          # blank line + any link (X counts every link as 23)
+BODY_MAX = 280 - LINK_COST  # room left for the tweet text
 
 
 def x_weight(text):
@@ -120,6 +123,46 @@ def parse_feed(xml_bytes, topic):
                           "published": published.astimezone(timezone.utc).isoformat(timespec="minutes"),
                           "summary": strip_html(it.findtext("description"))[:500]})
     return items
+
+
+def resolve_link(url):
+    """Turn a news.google.com redirect into the publisher's article URL, so the
+    tweet's preview card shows the real source. Falls back to the original."""
+    if "news.google.com" not in url:
+        return url
+    art_id = urllib.parse.urlparse(url).path.rstrip("/").rsplit("/", 1)[-1]
+    # Older IDs carry the article URL inside their base64 payload.
+    try:
+        raw = base64.urlsafe_b64decode(art_id + "=" * (-len(art_id) % 4))
+        m = re.search(rb"https?://[\x21-\x7e]+", raw)
+        if m and b"AU_yqL" not in raw[:8]:
+            return m.group(0).decode()
+    except (ValueError, TypeError):
+        pass
+    # Newer IDs need Google's own lookup (signature + timestamp from the article page).
+    try:
+        page = fetch(f"https://news.google.com/articles/{art_id}").decode("utf-8", "replace")
+        sig = re.search(r'data-n-a-sg="([^"]+)"', page).group(1)
+        ts = re.search(r'data-n-a-ts="([^"]+)"', page).group(1)
+        inner = json.dumps(["garturlreq", [["X", "X", ["X", "X"], None, None, 1, 1, "US:en", None, 1, None, None, None,
+                                              None, None, 0, 1], "X", "X", 1, [1, 1, 1], 1, 1, None, 0, 0, None, 0],
+                            art_id, int(ts), sig])
+        body = urllib.parse.urlencode({"f.req": json.dumps([[["Fbv4je", inner, None, "generic"]]])}).encode()
+        req = urllib.request.Request("https://news.google.com/_/DotsSplashUi/data/batchexecute", data=body,
+                                     headers={"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+                                              "User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            text = r.read().decode("utf-8", "replace")
+        m = re.search(r'garturlres\\",\\"(https?://[^\\"]+)', text)
+        if m:
+            return m.group(1)
+    except Exception as e:  # keep the Google News link if the lookup fails
+        print(f"Couldn't resolve {url[:60]}…: {e}", file=sys.stderr)
+    return url
+
+
+def with_link(text, link):
+    return f"{text}\n\n{link}"
 
 
 def norm(title):
@@ -207,8 +250,8 @@ def write_tweets(stories):
         for i in range(1, len(stories) + 1):
             if i not in texts:
                 problems.append(f"story {i}: missing tweet")
-            elif x_weight(texts[i]) > 280:
-                problems.append(f"story {i}: {x_weight(texts[i])} characters, max 280")
+            elif x_weight(texts[i]) > BODY_MAX:
+                problems.append(f"story {i}: {x_weight(texts[i])} characters, max {BODY_MAX}")
             elif URL_RE.search(texts[i]):
                 problems.append(f"story {i}: remove the link")
         if not problems:
@@ -225,7 +268,7 @@ def template_tweet(story, k):
         title += "."
     options = TEMPLATES[story["topic"]]
     text = options[k % len(options)].format(t=title)
-    while x_weight(text) > 280 and len(title) > 40:  # very long headline: shorten it
+    while x_weight(text) > BODY_MAX and len(title) > 40:  # very long headline: shorten it
         title = title[: len(title) - 10].rsplit(" ", 1)[0] + "…"
         text = options[k % len(options)].format(t=title)
     return text
@@ -270,11 +313,12 @@ def main():
 
     have_llm = all(os.environ.get(k) for k in ("LLM_API_KEY", "LLM_BASE_URL", "LLM_MODEL"))
     texts = write_tweets(stories) if have_llm else [template_tweet(s, k) for k, s in enumerate(stories)]
+    links = [resolve_link(s["url"]) for s in stories]
     stamp = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y%m%d%H%M")
     items = []
-    for k, (s, text) in enumerate(zip(stories, texts), 1):
+    for k, (s, text, link) in enumerate(zip(stories, texts, links), 1):
         items.append({"id": f"n{stamp}-{k}", "created": datetime.now(timezone.utc).isoformat(timespec="minutes"),
-                      **s, "text": text, "writer": "ai" if have_llm else "template"})
+                      **s, "link": link, "text": with_link(text, link), "writer": "ai" if have_llm else "template"})
     news["items"] = (news["items"] + items)[-KEEP_ITEMS:]
     NEWS_FILE.write_text(json.dumps(news, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     Path(args.out).write_text(issue_body(items, have_llm), encoding="utf-8")
