@@ -110,7 +110,7 @@ def build_messages(queue, first_day):
 
 def call_llm(messages):
     base = os.environ["LLM_BASE_URL"].rstrip("/")
-    body = json.dumps({"model": os.environ["LLM_MODEL"], "messages": messages, "temperature": 0.8}).encode()
+    body = json.dumps({"model": os.environ["LLM_MODEL"].strip().removeprefix("models/"), "messages": messages, "temperature": 0.8}).encode()
     req = urllib.request.Request(
         base + "/chat/completions", data=body, method="POST",
         headers={"Authorization": "Bearer " + os.environ["LLM_API_KEY"], "Content-Type": "application/json"},

@@ -68,7 +68,7 @@ The same key writes the News tweets and the weekly drafts. Any OpenAI-compatible
    | `LLM_BASE_URL` | `https://generativelanguage.googleapis.com/v1beta/openai` |
    | `LLM_MODEL` | leave for step 3 |
 
-3. **Find the model name:** **Actions → Test AI key → Run workflow**. Open the finished run: its summary lists the models your key can use, with good choices marked. Add the `LLM_MODEL` secret with one of those names (a "flash" model is fast and well within the free tier), then run **Test AI key** again. When it shows ✅ and a test sentence, you're done.
+3. **Find the model name:** **Actions → Test AI key → Run workflow**. Open the finished run: its summary tries the fast models your key lists and names one that **actually answered** (Google keeps old models in its list that new accounts can't use). Add the `LLM_MODEL` secret with that exact name, then run **Test AI key** again. When it shows ✅ and a test sentence, you're done.
 
 Without these secrets, everything else keeps working: the weekly drafts are skipped, News tweets uses templates, and you add posts yourself in the Control Panel.
 

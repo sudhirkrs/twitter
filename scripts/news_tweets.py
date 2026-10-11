@@ -183,7 +183,7 @@ def pick(stories, used, count):
 
 
 def call_llm(messages):
-    body = json.dumps({"model": os.environ["LLM_MODEL"], "messages": messages, "temperature": 0.7}).encode()
+    body = json.dumps({"model": os.environ["LLM_MODEL"].strip().removeprefix("models/"), "messages": messages, "temperature": 0.7}).encode()
     req = urllib.request.Request(
         os.environ["LLM_BASE_URL"].rstrip("/") + "/chat/completions", data=body, method="POST",
         headers={"Authorization": "Bearer " + os.environ["LLM_API_KEY"], "Content-Type": "application/json"})
