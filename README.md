@@ -53,7 +53,7 @@ GitHub Pages and the daily brief are already running. Two things remain.
    - Click **Deploy**. Vercel gives you an address like `https://twitter-xxxx.vercel.app`.
 3. **Tell GitHub where the panel is:** repo **Settings → Secrets and variables → Actions → Variables** → add `CONTROL_PANEL_URL` = your Vercel address. The "drafts ready" notification links to it.
 
-Vercel redeploys only when something in `dashboard/` changes. Saving posts doesn't trigger a Vercel build.
+After changing a Vercel environment variable, use **Deployments → ⋯ → Redeploy** so the panel picks it up.
 
 ### 2. AI key: Google Gemini, free tier (about 5 minutes)
 
