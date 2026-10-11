@@ -674,6 +674,183 @@
       "parts": [
         "One line from The Almanack of Naval Ravikant (compiled by Eric Jorgenson) that reframes money:\n\n\"Seek wealth, not money or status. Wealth is having assets that earn while you sleep.\"\n\nSalary pays for today. Assets pay for your freedom."
       ]
+    },
+    {
+      "id": "d29-am",
+      "day": 29,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "6 months of expenses in a savings account sounds boring. Until you actually need it.\n\nHere is how to calculate and store your emergency fund without overthinking it:",
+        "1. Know your real monthly burn.\n\nDo not count investments or discretionary shopping. Count only non-negotiables: rent, EMIs, utilities, groceries, school fees, and essential insurance premiums.",
+        "2. Aim for 3 to 6 months of that number.\n\nIf you have a stable job and multiple earners at home, 3 months might be enough.\n\nIf you are a single earner, freelancer, or have high EMIs, aim for 6 to 9 months.",
+        "3. Where to park the cash?\n\nNever put emergency money in equity or locked fixed deposits with heavy penalties.\n\nSplit it:\n- 1 month in your primary savings account\n- The rest across auto-sweep FDs or liquid funds.",
+        "4. Treat it as insurance, not an investment.\n\nIts job is not to beat inflation or generate high returns. Its only job is to be liquid and available within hours when life goes off script.",
+        "An emergency fund buys you calm, dignity, and negotiation power during tough times.\n\nFollow @Sudhirkrs17 for practical frameworks on managing money."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d29-pm",
+      "day": 29,
+      "slot": "pm",
+      "pillar": "fintech",
+      "type": "tweet",
+      "parts": [
+        "MDR stands for Merchant Discount Rate, and it explains why small shops love UPI but hate credit cards.\n\nEvery time you swipe a card, the shop pays roughly 1% to 2% to the payment network and banks. UPI P2M has zero MDR for normal transactions. That cut adds up fast."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d30-am",
+      "day": 30,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "A 10% annual step-up changes your SIP math completely.\n\nIf you start investing 10,000 every month for 15 years, you invest 18 lakh.\n\nIf you simply increase that SIP by 10% each year as your salary grows, you invest nearly 38 lakh. Match your investing to your raises."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d30-pm",
+      "day": 30,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "The sharpest line in The Psychology of Money by Morgan Housel:\n\n\"Spending money to show people how much money you have is the fastest way to have less money.\"\n\nTrue wealth is the options you did not spend, the cars you did not buy, and the freedom to control your time."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d31-am",
+      "day": 31,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "thread",
+      "parts": [
+        "\"Up to 50 days of interest-free credit\" on credit cards is true, but most people misunderstand how it works.\n\nHere is how the billing cycle actually operates so you never pay 40%+ annual interest:",
+        "Your card does not count 50 days from the day you swipe.\n\nIt runs on a fixed 30-day billing cycle. Say your statement generates on the 1st of every month. The due date is usually 15 to 20 days after that statement date.",
+        "A purchase made on day 2 of the cycle gets nearly 50 days of grace.\n\nBut a purchase made on day 29 gets only around 20 days before payment is due.\n\nTiming large planned expenses right after your statement date maximizes your cash flow window.",
+        "The critical rule: always pay the total amount due, never the minimum amount due.\n\nIf you pay only the minimum, interest is charged on the entire balance retroactively, and your interest-free grace period vanishes on all new swipes.",
+        "Credit cards are an incredible payment tool if you use them like debit cards.\n\nFollow @Sudhirkrs17 for clear breakdowns of payments, credit, and personal finance."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d31-pm",
+      "day": 31,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "poll",
+      "parts": [
+        "If your income stopped tomorrow, how many months of basic living expenses could you cover right now?"
+      ],
+      "status": "draft",
+      "poll": {
+        "options": [
+          "Less than 1 month",
+          "1 to 3 months",
+          "3 to 6 months",
+          "6+ months"
+        ],
+        "duration_minutes": 1440
+      }
+    },
+    {
+      "id": "d32-am",
+      "day": 32,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "One safe way to use AI for money: auditing recurring expenses.\n\nDownload your last 3 bank statements as CSVs. Strip out your name, account numbers, and addresses. Ask Claude or ChatGPT to cluster recurring charges. You will spot forgotten annual subscriptions instantly."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d32-pm",
+      "day": 32,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Prepaying just one extra EMI per year can cut years off a 20-year home loan.\n\nBecause home loan interest is front-loaded, early principal prepayments bypass decades of compound interest. Even rounding up your monthly EMI by a few thousand rupees makes a massive dent."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d33-am",
+      "day": 33,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Asset allocation sounds like wealth manager speak. For an Indian in their 20s or 30s, it comes down to 4 simple buckets.\n\nHere is how to think about dividing your money without overcomplicating it:",
+        "Bucket 1: Cash and safety.\n\nThis holds your emergency fund and any money you need within the next 1 to 2 years (like a wedding, vacation, or down payment).\n\nKeep it in bank accounts or fixed deposits. Return does not matter here; capital protection does.",
+        "Bucket 2: Growth (Equity).\n\nThis is money you will not touch for 7 to 10+ years.\n\nNifty index funds or broad mutual funds belong here. It will fluctuate wildly in the short term, but historically drives the compound growth needed to beat lifestyle inflation.",
+        "Bucket 3: Stability (Debt).\n\nInstruments like EPF, PPF, or high-quality debt funds.\n\nThey cushion your portfolio when the equity market drops by 20% or 30%, preventing panic selling and giving you peace of mind during downturns.",
+        "Bucket 4: Insurance (Gold / Sovereign Gold Bonds).\n\nAllocating 5% to 10% in gold acts as a hedge against extreme currency depreciation or geopolitical shocks. It is not for getting rich quick, but for weathering crises.",
+        "Rebalance once a year to keep your chosen ratios steady.\n\nFollow @Sudhirkrs17 for practical frameworks on building wealth calmly."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d33-pm",
+      "day": 33,
+      "slot": "pm",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "Be very cautious using general AI models to calculate your income tax liability.\n\nTax rules change every budget. AI frequently hallucinates old deduction limits or mixes up old and new tax regime rules. Use AI to understand terms, but rely on updated calculators for numbers."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d34-am",
+      "day": 34,
+      "slot": "am",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "The core lesson from Ramit Sethi's book I Will Teach You To Be Rich:\n\nSpend extravagantly on the things you love, and cut costs mercilessly on the things you do not.\n\nStop obsessing over a 20 rupee cutting chai. Fix big expenses: your rent, car EMI, and automated savings rate."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d34-pm",
+      "day": 34,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "What was your first monthly salary, and what is the very first thing you bought with that money?"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d35-am",
+      "day": 35,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Never co-sign a loan or become a loan guarantor unless you are prepared to pay 100% of it yourself.\n\nIf the primary borrower defaults, banks hold you equally liable. It damages your credit score immediately and limits your own loan eligibility for years."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d35-pm",
+      "day": 35,
+      "slot": "pm",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "Why do Indian bank accounts get frozen suddenly?\n\nOften it is chain contamination from peer-to-peer crypto trades or cyber fraud complaints. If illicit money passes through an account and touches yours via UPI, cyber police can freeze every account along that trail."
+      ],
+      "status": "draft"
     }
   ]
 }
