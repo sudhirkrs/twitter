@@ -138,19 +138,43 @@ def gather(topics, feed_file=None):
     return stories
 
 
+# Headlines that are guides, listicles, price pages or live blogs rather than
+# news. Matched case-insensitively against the title.
+NOT_NEWS = re.compile("|".join([
+    r"\bhow to\b", r"\bhow (do|does|can|much|many)\b", r"\bwhat is\b", r"\bwhat are\b", r"\bexplained\b",
+    r"\bexplainer\b", r"\bguide\b", r"\bfaqs?\b", r"\beverything you need to know\b", r"\bstep[- ]by[- ]step\b",
+    r"\breview\b", r"\ballotment\b", r"\bgmp\b", r"\bsubscription status\b", r"\bkey dates\b", r"\bdetails\b",
+    r"\brules?\s*(&|and)\s*rates?\b", r"\bcalculator\b", r"\btips\b", r"\btop \d+\b",
+    r"\b\d+ (ways|things|tips|reasons|mistakes|stocks|funds|best)\b", r"\bbest\b.*\b(to buy|to invest|for \d{4})\b",
+    r"\bstocks? to (buy|watch|sell)\b", r"\b(price|rate)s? today\b", r"\btoday'?s (gold|silver|petrol|diesel) (price|rate)\b",
+    r"\bshare price (live|today|target)\b", r"\btarget price\b", r"\blive( updates?| blog)?\s*[:|]", r"\bhighlights\b",
+    r"\bhoroscope\b", r"\bquiz\b", r"\bsponsored\b", r"\bin pics\b", r"\bwatch:", r"\bvideo\b",
+]), re.I)
+
+
+def is_news(title):
+    return not NOT_NEWS.search(title)
+
+
 def pick(stories, used, count):
-    """Freshest unused stories, spread across topics."""
+    """Freshest unused real-news stories, spread across topics."""
     seen_titles = set()
     fresh = []
+    skipped = 0
     for s in sorted(stories, key=lambda s: s["published"], reverse=True):
         key = norm(s["title"])
         if s["url"] in used["urls"] or key in used["titles"] or key in seen_titles:
+            continue
+        if not is_news(s["title"]):
+            skipped += 1
             continue
         seen_titles.add(key)
         fresh.append(s)
     chosen, by_topic = [], {}
     for s in fresh:  # round-robin over topics
         by_topic.setdefault(s["topic"], []).append(s)
+    if skipped:
+        print(f"Skipped {skipped} guide/listicle headline(s).", file=sys.stderr)
     while len(chosen) < count and any(by_topic.values()):
         for t in list(by_topic):
             if by_topic[t] and len(chosen) < count:
