@@ -21,6 +21,8 @@ import json
 import os
 import re
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -225,13 +227,32 @@ def pick(stories, used, count):
     return chosen
 
 
+class AIUnavailable(Exception):
+    """The AI service failed in a way retrying inside this run won't fix."""
+
+
 def call_llm(messages):
     body = json.dumps({"model": os.environ["LLM_MODEL"].strip().removeprefix("models/"), "messages": messages, "temperature": 0.7}).encode()
-    req = urllib.request.Request(
-        os.environ["LLM_BASE_URL"].rstrip("/") + "/chat/completions", data=body, method="POST",
-        headers={"Authorization": "Bearer " + os.environ["LLM_API_KEY"], "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=180) as r:
-        return json.load(r)["choices"][0]["message"]["content"]
+    for attempt in range(3):
+        req = urllib.request.Request(
+            os.environ["LLM_BASE_URL"].rstrip("/") + "/chat/completions", data=body, method="POST",
+            headers={"Authorization": "Bearer " + os.environ["LLM_API_KEY"], "Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=180) as r:
+                return json.load(r)["choices"][0]["message"]["content"]
+        except urllib.error.HTTPError as e:
+            detail = e.read().decode(errors="replace")[:300].replace("\n", " ")
+            if e.code in (429, 500, 502, 503, 504) and attempt < 2:
+                time.sleep(float(os.environ.get("LLM_RETRY_WAIT", 15)) * (attempt + 1))  # busy or rate-limited: wait and try again
+                continue
+            reasons = {401: "the API key was rejected", 403: "the API key isn't allowed to do this",
+                       404: "the model name isn't available (run Test AI key)", 429: "the free daily limit is used up or the service is busy"}
+            raise AIUnavailable(f"HTTP {e.code}: {reasons.get(e.code, 'the AI service returned an error')}. {detail}")
+        except (urllib.error.URLError, TimeoutError, KeyError, IndexError, ValueError) as e:
+            if attempt < 2:
+                time.sleep(float(os.environ.get("LLM_RETRY_WAIT", 10)))
+                continue
+            raise AIUnavailable(f"could not get an answer from the AI service: {e}")
 
 
 def write_tweets(stories):
@@ -243,7 +264,10 @@ def write_tweets(stories):
         reply = call_llm(messages)
         problems, texts = [], {}
         try:
-            for t in json.loads(re.search(r"\{.*\}", reply, re.S).group(0))["tweets"]:
+            match = re.search(r"\{.*\}", reply or "", re.S)
+            if not match:
+                raise ValueError("no JSON in the reply")
+            for t in json.loads(match.group(0))["tweets"]:
                 texts[int(t["story"])] = t["text"].strip()
         except Exception as e:
             problems.append(f"could not read the JSON: {e}")
@@ -280,12 +304,15 @@ def load_news():
     return {"items": []}
 
 
-def issue_body(items, have_llm):
+def issue_body(items, have_llm, ai_problem=None):
     now = datetime.now(ZoneInfo("Asia/Kolkata"))
     out = [f"## News tweets, {now:%a %d %b %Y, %H:%M} IST", "",
            "Tap **Open in X** under a tweet, then Post. The links start working about 2 minutes after this issue appears.", ""]
     if have_llm:
         out += ["_Written by AI from today's news: read each one before posting, AI can get details wrong._", ""]
+    elif ai_problem:
+        out += [f"> ⚠️ **The AI step failed, so these are simpler template tweets.** Reason: {ai_problem}",
+                "> Run **Actions → Test AI key** to check the key and model. Tweets from this run are usable but plainer.", ""]
     else:
         out += ["_Written from templates around the headline. Add the LLM_* secrets for AI-written tweets._", ""]
     for i, it in enumerate(items, 1):
@@ -312,7 +339,16 @@ def main():
         return
 
     have_llm = all(os.environ.get(k) for k in ("LLM_API_KEY", "LLM_BASE_URL", "LLM_MODEL"))
-    texts = write_tweets(stories) if have_llm else [template_tweet(s, k) for k, s in enumerate(stories)]
+    ai_problem = None
+    if have_llm:
+        try:
+            texts = write_tweets(stories)
+        except (AIUnavailable, SystemExit) as e:
+            ai_problem = str(e) or "the AI didn't return usable tweets"
+            print(f"AI step failed, using templates instead: {ai_problem}", file=sys.stderr)
+            have_llm = False
+    if not have_llm:
+        texts = [template_tweet(s, k) for k, s in enumerate(stories)]
     links = [resolve_link(s["url"]) for s in stories]
     stamp = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y%m%d%H%M")
     items = []
@@ -321,7 +357,7 @@ def main():
                       **s, "link": link, "text": with_link(text, link), "writer": "ai" if have_llm else "template"})
     news["items"] = (news["items"] + items)[-KEEP_ITEMS:]
     NEWS_FILE.write_text(json.dumps(news, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    Path(args.out).write_text(issue_body(items, have_llm), encoding="utf-8")
+    Path(args.out).write_text(issue_body(items, have_llm, ai_problem), encoding="utf-8")
     print(f"Wrote {len(items)} news item(s).")
 
 
