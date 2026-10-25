@@ -866,7 +866,7 @@
         "Why this works so well:\n\n1. It caps UPI fraud or card skimming risk to only Account 2.\n2. You never accidentally spend rent money on a Friday night.\n3. Saving happens first, not from whatever is left over.",
         "Follow @Sudhirkrs17 for practical breakdowns on money, investing, and financial habits."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d36-pm",
@@ -877,7 +877,7 @@
       "parts": [
         "When an unexpected annual bonus hits your account, what usually happens to it?"
       ],
-      "status": "draft",
+      "status": "approved",
       "poll": {
         "options": [
           "100% saved or invested",
@@ -901,7 +901,7 @@
         "Why this matters for your daily life:\n\n1. Near-zero transaction failure rates at tea stalls or tolls.\n2. Payment completes in under 2 seconds.\n3. Your bank statement stays clean instead of showing 90 micro-entries.",
         "If you make multiple small transactions every single day, turning on UPI Lite on your primary app will save you dozens of failed payments a year.\n\nFollow @Sudhirkrs17 for practical fintech and payment breakdowns."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d37-pm",
@@ -912,7 +912,7 @@
       "parts": [
         "Dying with ₹5 crore at age 80 means you spent years working for money you never enjoyed.\n\nThat is the core thesis of Die With Zero by Bill Perkins.\n\nMoney can buy experiences, but only if you spend it while you still have the health and energy to enjoy them."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d38-am",
@@ -923,7 +923,7 @@
       "parts": [
         "30% of employees never understand deductions on their salary slip.\n\nPaste your salary slip line items into ChatGPT (remove name and PAN).\n\nAsk: \"Explain each allowance, tax deduction, and EPF contribution in plain English.\"\n\nYou will understand your pay in 2 minutes."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d38-pm",
@@ -934,7 +934,7 @@
       "parts": [
         "What is one purchase under ₹5,000 that genuinely upgraded your daily quality of life?\n\nNo courses or gadgets hype, just everyday useful things."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d39-am",
@@ -949,7 +949,7 @@
         "With an index fund, you never have to worry if the star fund manager quit, lost their edge, or took bad bets.\n\nThe index automatically removes losers and adds rising winners over time. It is self-cleaning.",
         "For your core long-term equity portfolio, a broad market index fund removes manager risk, slashes fees, and beats most active funds with zero effort.\n\nFollow @Sudhirkrs17 for clear personal finance insights without the hype."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d39-pm",
@@ -960,7 +960,7 @@
       "parts": [
         "\"Checking your credit score lowers it\" is false.\n\nChecking your own score on an app counts as a \"soft inquiry\". It impacts your score by zero.\n\nOnly when a lender checks your report for a loan or card application does it count as a hard inquiry that may nudge it down."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d40-am",
@@ -971,7 +971,7 @@
       "parts": [
         "Ever wonder why OTT subscriptions ask you to approve an e-mandate via OTP?\n\nUnder RBI rules, automatic recurring card debits above ₹15,000 require an explicit pre-debit notice and OTP step.\n\nIt put an end to sneaky gym and software renewals that quietly charged cards."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d40-pm",
@@ -982,7 +982,7 @@
       "parts": [
         "Role-playing salary talks with an AI chatbot can make you lakhs richer.\n\nTell the AI: \"Act as a tough manager. I am negotiating my hike from 18 LPA to 22 LPA. Challenge my achievements and push back on budget.\"\n\nPractice handling pushback before stepping into the room."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d41-am",
@@ -993,7 +993,7 @@
       "parts": [
         "Starting an SIP at 25 vs 30 costs you crores at retirement.\n\nA 10,000 monthly SIP at 12%:\n35 years (start at 25): ~6.5 crore\n30 years (start at 30): ~3.5 crore\n\nThose first 5 years alone create a 3 crore difference. Time in the market beats timing the market."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d41-pm",
@@ -1004,7 +1004,7 @@
       "parts": [
         "The smartest lesson from The Simple Path to Wealth by JL Collins:\n\nComplex investments exist only to make the people selling them rich.\n\nThe simpler your portfolio is, the harder it is to make costly mistakes. Low-cost index funds, debt for safety, and patience."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d42-am",
@@ -1015,7 +1015,7 @@
       "parts": [
         "8.25% interest backed by the government, compounding tax-free. That is your EPF.\n\nMany salaried employees treat their EPF contribution like a painful deduction.\n\nIn reality, your employer matches your 12% contribution. It is an instant 100% guaranteed return on day one."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d42-pm",
@@ -1026,7 +1026,7 @@
       "parts": [
         "What is one piece of money advice your parents gave you that turned out to be completely outdated today?"
       ],
-      "status": "draft"
+      "status": "approved"
     }
   ]
 }
