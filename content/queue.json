@@ -851,6 +851,182 @@
         "Why do Indian bank accounts get frozen suddenly?\n\nOften it is chain contamination from peer-to-peer crypto trades or cyber fraud complaints. If illicit money passes through an account and touches yours via UPI, cyber police can freeze every account along that trail."
       ],
       "status": "approved"
+    },
+    {
+      "id": "d36-am",
+      "day": 36,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Keeping all your money in one bank account is asking for trouble.\n\nHere is the simple 3-account system that automates your savings and stops accidental overspending 🧵",
+        "Account 1: The Salary Hub.\n\nYour employer pays you here. Zero money stays here by the 5th of the month.\n\nOn salary day, standing instructions move money instantly into Account 2, Account 3, and your investment SIPs.",
+        "Account 2: Daily Expenses.\n\nTransfer exactly your monthly budget here for groceries, fuel, dining, and bills.\n\nThis is the ONLY account linked to your UPI apps and debit card. If balance hits zero on the 24th, you stop spending.",
+        "Account 3: Emergency and Sinking Fund.\n\nKeep 3 to 6 months of basic living costs here, plus savings for planned annual bills (insurance, gifts).\n\nKeep this in a solid bank. Do not link it to UPI. No debit card in your wallet.",
+        "Why this works so well:\n\n1. It caps UPI fraud or card skimming risk to only Account 2.\n2. You never accidentally spend rent money on a Friday night.\n3. Saving happens first, not from whatever is left over.",
+        "Follow @Sudhirkrs17 for practical breakdowns on money, investing, and financial habits."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d36-pm",
+      "day": 36,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "poll",
+      "parts": [
+        "When an unexpected annual bonus hits your account, what usually happens to it?"
+      ],
+      "status": "draft",
+      "poll": {
+        "options": [
+          "100% saved or invested",
+          "Split 50-50 spend/save",
+          "Spent on big purchases",
+          "Clearing debt or EMIs"
+        ],
+        "duration_minutes": 1440
+      }
+    },
+    {
+      "id": "d37-am",
+      "day": 37,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "thread",
+      "parts": [
+        "Over 75% of retail UPI payments in India are for amounts under ₹500.\n\nYet running every ₹20 chai transaction through bank core servers causes peak-hour server jams.\n\nHere is how UPI Lite quietly fixes that 🧵",
+        "The normal UPI route has too many hops:\n\nYour app talks to NPCI, NPCI checks your bank core system, gets your PIN verification, debits, credits the seller bank.\n\nIf any one server blinks or times out, your payment fails.",
+        "UPI Lite changes the game:\n\nYou load up to ₹2,000 into a local on-device balance from your bank.\n\nWhen you pay under ₹500, no bank core system is queried in real time. No UPI PIN is needed. The debit happens instantly on your phone.",
+        "Why this matters for your daily life:\n\n1. Near-zero transaction failure rates at tea stalls or tolls.\n2. Payment completes in under 2 seconds.\n3. Your bank statement stays clean instead of showing 90 micro-entries.",
+        "If you make multiple small transactions every single day, turning on UPI Lite on your primary app will save you dozens of failed payments a year.\n\nFollow @Sudhirkrs17 for practical fintech and payment breakdowns."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d37-pm",
+      "day": 37,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "Dying with ₹5 crore at age 80 means you spent years working for money you never enjoyed.\n\nThat is the core thesis of Die With Zero by Bill Perkins.\n\nMoney can buy experiences, but only if you spend it while you still have the health and energy to enjoy them."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d38-am",
+      "day": 38,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "30% of employees never understand deductions on their salary slip.\n\nPaste your salary slip line items into ChatGPT (remove name and PAN).\n\nAsk: \"Explain each allowance, tax deduction, and EPF contribution in plain English.\"\n\nYou will understand your pay in 2 minutes."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d38-pm",
+      "day": 38,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "What is one purchase under ₹5,000 that genuinely upgraded your daily quality of life?\n\nNo courses or gadgets hype, just everyday useful things."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d39-am",
+      "day": 39,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "More than 70% of large-cap mutual fund managers in India fail to beat the Nifty 50 index over a 5-year period.\n\nYou pay them active management fees to underperform a simple computer code.\n\nHere is why low-cost index funds win 🧵",
+        "An active fund manager charges around 1% to 1.5% in expense ratio to pick stocks.\n\nA Nifty 50 index fund charges around 0.1% to 0.2% because it simply buys the top 50 companies by market weight.\n\nThat 1% gap compounds against you year after year.",
+        "Markets are competitive.\n\nInformation travels instantly. Fund managers are competing against thousands of brilliant analysts watching the exact same blue-chip companies.\n\nFinding consistent \"alpha\" after deducting fund costs is mathematically brutal.",
+        "With an index fund, you never have to worry if the star fund manager quit, lost their edge, or took bad bets.\n\nThe index automatically removes losers and adds rising winners over time. It is self-cleaning.",
+        "For your core long-term equity portfolio, a broad market index fund removes manager risk, slashes fees, and beats most active funds with zero effort.\n\nFollow @Sudhirkrs17 for clear personal finance insights without the hype."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d39-pm",
+      "day": 39,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "\"Checking your credit score lowers it\" is false.\n\nChecking your own score on an app counts as a \"soft inquiry\". It impacts your score by zero.\n\nOnly when a lender checks your report for a loan or card application does it count as a hard inquiry that may nudge it down."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d40-am",
+      "day": 40,
+      "slot": "am",
+      "pillar": "fintech",
+      "type": "tweet",
+      "parts": [
+        "Ever wonder why OTT subscriptions ask you to approve an e-mandate via OTP?\n\nUnder RBI rules, automatic recurring card debits above ₹15,000 require an explicit pre-debit notice and OTP step.\n\nIt put an end to sneaky gym and software renewals that quietly charged cards."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d40-pm",
+      "day": 40,
+      "slot": "pm",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "Role-playing salary talks with an AI chatbot can make you lakhs richer.\n\nTell the AI: \"Act as a tough manager. I am negotiating my hike from 18 LPA to 22 LPA. Challenge my achievements and push back on budget.\"\n\nPractice handling pushback before stepping into the room."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d41-am",
+      "day": 41,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Starting an SIP at 25 vs 30 costs you crores at retirement.\n\nA 10,000 monthly SIP at 12%:\n35 years (start at 25): ~6.5 crore\n30 years (start at 30): ~3.5 crore\n\nThose first 5 years alone create a 3 crore difference. Time in the market beats timing the market."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d41-pm",
+      "day": 41,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "The smartest lesson from The Simple Path to Wealth by JL Collins:\n\nComplex investments exist only to make the people selling them rich.\n\nThe simpler your portfolio is, the harder it is to make costly mistakes. Low-cost index funds, debt for safety, and patience."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d42-am",
+      "day": 42,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "8.25% interest backed by the government, compounding tax-free. That is your EPF.\n\nMany salaried employees treat their EPF contribution like a painful deduction.\n\nIn reality, your employer matches your 12% contribution. It is an instant 100% guaranteed return on day one."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d42-pm",
+      "day": 42,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "What is one piece of money advice your parents gave you that turned out to be completely outdated today?"
+      ],
+      "status": "draft"
     }
   ]
 }
