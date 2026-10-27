@@ -119,6 +119,15 @@ Avoid browser bots or "free auto-posters" that log in with your password. Non-AP
 
 ---
 
+## Hashtags and keywords
+
+- **Keywords:** put the plain search word in the first line of every post (UPI, SIP, repo rate, home loan EMI), not a vague teaser. X search matches the words in your post.
+- **Hashtags:** none by default. They add little on X now and stuffed posts look spammy. The only exception is a major national event (an RBI rate decision, the Union Budget, a new SEBI or NPCI rule): one hashtag at most, from #RBI #UPI #SEBI #Budget2027 #Sensex #Nifty #IncomeTax.
+- **Check it with data:** compare news posts with and without a hashtag or link in the weekly report before adding more.
+- **SEO and AEO:** not yet. A simple blog or newsletter becomes worth it around 1,000 followers.
+
+---
+
 ## 7. Things not to do
 
 - Buying followers or using follow/unfollow bots. X detects these, they kill reach, and they can get the account suspended.

@@ -72,17 +72,29 @@ SYSTEM_PROMPT = """You write X (Twitter) posts for @Sudhirkrs17, an Indian creat
 works for salaried Indians aged 22-40. Voice: clear, practical, friendly, no jargon, no hype.
 
 For each news story you are given, write ONE tweet that:
-- starts with a hook line, then explains in plain words what happened and why it matters to an
-  ordinary Indian's money (savings, loans, payments, investing, jobs).
+- starts with a hook line that names the topic in the plain words people search for (RBI, UPI, SEBI,
+  Sensex, SIP, income tax, EPF, home loan, AI jobs...), then explains in plain words what happened and
+  why it matters to an ordinary Indian's money (savings, loans, payments, investing, jobs).
 - uses ONLY facts present in the story's title and summary. Do not add numbers, dates, names or
   claims that are not there. If the summary is thin, keep the tweet general and say "reportedly".
 - never gives buy/sell advice or price targets for any stock, fund or coin.
-- has no links, no hashtags and no source credits. It must read as your own post, not a headline repost.
+- has no links and no source credits. It must read as your own post, not a headline repost.
+- has no hashtags, with one exception: for a major national event (an RBI rate decision, the Union
+  Budget, a new SEBI or NPCI rule) you may end the text with ONE hashtag from this list: #RBI #UPI #SEBI
+  #Budget2027 #Sensex #Nifty #IncomeTax. Never use more than one, and never in an ordinary story.
 - is at most 240 characters (the article link is added after it). Emoji, ₹, •, → count double, so use them sparingly.
 
 Return ONLY JSON: {"tweets": [{"story": <story number>, "text": "<tweet>"}, ...]}"""
 
 URL_RE = re.compile(r"https?://\S+")
+HASHTAG_RE = re.compile(r"(?<!\w)#[A-Za-z]\w*")
+ALLOWED_HASHTAGS = {"#RBI", "#UPI", "#SEBI", "#Budget2027", "#Sensex", "#Nifty", "#IncomeTax"}
+# Words people actually search for. The first line of a news tweet should contain one.
+KEYWORDS = re.compile(
+    r"\b(RBI|UPI|NPCI|SEBI|Sensex|Nifty|SIP|mutual funds?|income tax|ITR|GST|EPF|EPFO|PPF|NPS|FD|"
+    r"home loan|loan|EMI|repo rate|interest rates?|inflation|credit cards?|credit score|insurance|"
+    r"IPO|stocks?|shares?|market|budget|tax|rupee|gold|AI|fintech|payments?|bank(s|ing)?|crypto|salary|jobs?)\b",
+    re.I)
 LINK_COST = 2 + 23          # blank line + any link (X counts every link as 23)
 BODY_MAX = 280 - LINK_COST  # room left for the tweet text
 
@@ -278,6 +290,12 @@ def write_tweets(stories):
                 problems.append(f"story {i}: {x_weight(texts[i])} characters, max {BODY_MAX}")
             elif URL_RE.search(texts[i]):
                 problems.append(f"story {i}: remove the link")
+            else:
+                tags = HASHTAG_RE.findall(texts[i])
+                if len(tags) > 1 or any(t not in ALLOWED_HASHTAGS for t in tags):
+                    problems.append(f"story {i}: use no hashtag, or at most one from {sorted(ALLOWED_HASHTAGS)}")
+                elif not KEYWORDS.search(texts[i].split("\n", 1)[0]) and attempt < ATTEMPTS:
+                    problems.append(f"story {i}: the first line should name the topic in a plain search word (RBI, UPI, SEBI, loan, tax...)")
         if not problems:
             return [texts[i + 1] for i in range(len(stories))]
         print(f"Attempt {attempt}: {problems}", file=sys.stderr)

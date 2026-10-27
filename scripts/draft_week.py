@@ -42,12 +42,13 @@ Audience: salaried Indians aged 22-40. Voice: clear, practical, friendly, no jar
 Hard rules:
 - Every tweet (each thread part, each poll question) must be at most 270 characters.
   Emoji, ₹, •, → count double, so use them sparingly.
-- Line 1 is a hook: a number, a surprise or a stake.
+- Line 1 is a hook: a number, a surprise or a stake. Where it fits, it also names the topic in the plain
+  word people search for (UPI, SIP, repo rate, home loan EMI, credit card...), not a vague teaser.
 - Use specific numbers only when they are simple, well-known or computable from the post
   itself (e.g. SIP or EMI maths). Never invent statistics, dates, rules or quotes. If unsure
   of a regulation's current details, describe it generally.
 - No stock tips, no "guaranteed returns", no investment recommendations for specific securities.
-- No links. No hashtags.
+- No links. No hashtags, not even one.
 - Do not repeat topics or hooks from the recent posts you are given.
 - Thread final parts end with: Follow @Sudhirkrs17 for ...
 
@@ -139,6 +140,8 @@ def validate(queue, posts, days):
             errors.append(f"duplicate day/slot {key}")
         got.add(key)
         for i, part in enumerate(p.get("parts") or [], 1):
+            if re.search(r"(?<!\w)#[A-Za-z]", part):
+                errors.append(f"day {key[0]} {key[1]} part {i}: remove the hashtag")
             if tweet_weight(part) > 280:
                 errors.append(f"day {key[0]} {key[1]} part {i} is {tweet_weight(part)} weighted chars (max 280)")
     missing = want - got
