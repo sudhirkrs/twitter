@@ -34,6 +34,7 @@ METRICS_FILE = ROOT / "tracking" / "post-metrics.csv"
 DAYS_PER_DRAFT = 7
 MAX_AHEAD = 14
 ATTEMPTS = 3
+BOOKS_FILE = ROOT / "content" / "books.json"
 
 SYSTEM_PROMPT = """You write X (Twitter) posts for @Sudhirkrs17, an Indian creator who explains
 how money works: personal finance first, then payments and fintech, AI and money, and books.
@@ -50,6 +51,10 @@ Hard rules:
 - No stock tips, no "guaranteed returns", no investment recommendations for specific securities.
 - No links. No hashtags, not even one.
 - Do not repeat topics or hooks from the recent posts you are given.
+- Book posts (pillar "books") use ONLY the "books" list you are given, never a book that isn't in it.
+  Share one idea from the book in your own words (use its "idea" as the source). You may put text in
+  quotation marks ONLY if it is the exact "quote" text of that book, copied word for word. Never invent,
+  shorten or reword a quote. Name the book and author. No quotation marks if the book has no quote.
 - Thread final parts end with: Follow @Sudhirkrs17 for ...
 
 Mix for the 14 posts (7 days x am/pm):
@@ -93,6 +98,27 @@ def top_posts(queue, n=5):
     return out
 
 
+def load_books():
+    if not BOOKS_FILE.exists():
+        return []
+    return json.loads(BOOKS_FILE.read_text(encoding="utf-8")).get("books", [])
+
+
+def short_title(title):
+    return re.split(r"[:(,]", title)[0].strip().lower()
+
+
+def unused_books(queue, books):
+    """Books not yet mentioned in any scheduled post, so book posts don't repeat."""
+    text = " ".join(" ".join(p["parts"]) for p in queue["posts"]).lower()
+    fresh = [b for b in books if short_title(b["title"]) not in text]
+    return fresh if len(fresh) >= 4 else books
+
+
+def squash(text):
+    return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+
 def build_messages(queue, first_day):
     days = list(range(first_day, first_day + DAYS_PER_DRAFT))
     recent = [p["parts"][0].splitlines()[0] for p in queue["posts"][-40:]]
@@ -103,6 +129,9 @@ def build_messages(queue, first_day):
         "recent_hooks_do_not_repeat": recent,
         "best_performing_posts_write_more_like_these": best or "no metrics yet",
     }
+    books = unused_books(queue, load_books())
+    if books:
+        user["books"] = [{k: b[k] for k in ("title", "author", "idea", "quote") if k in b} for b in books]
     return [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": "Write the posts for these days.\n" + json.dumps(user, ensure_ascii=False, indent=1)},
@@ -140,6 +169,12 @@ def validate(queue, posts, days):
             errors.append(f"duplicate day/slot {key}")
         got.add(key)
         for i, part in enumerate(p.get("parts") or [], 1):
+            if p.get("pillar") == "books":
+                allowed = [squash(b["quote"]) for b in load_books() if b.get("quote")]
+                for span in re.findall(r'[“"]([^”"]{20,})[”"]', part):
+                    if not any(squash(span) in q for q in allowed):
+                        errors.append(f"day {key[0]} {key[1]} part {i}: the quoted text isn't an exact quote from the books list; "
+                                      "paraphrase it without quotation marks or use the book's exact quote")
             if re.search(r"(?<!\w)#[A-Za-z]", part):
                 errors.append(f"day {key[0]} {key[1]} part {i}: remove the hashtag")
             if tweet_weight(part) > 280:

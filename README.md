@@ -87,4 +87,5 @@ Control Panel → **Import from X** has the bookmark and step-by-step instructio
 | `scripts/weekly_report.py` | The weekly report |
 | `scripts/news_tweets.py` | News tweets. Searches are in `TOPICS` and the guide/listicle filter in `NOT_NEWS`; edit both freely. Used stories are remembered in `content/news.json` so they aren't repeated. |
 | `scripts/check_llm.py` | Behind the **Test AI key** workflow |
+| `content/books.json` | Books you've read, with each book's idea and any exact quotes. The weekly drafter writes book posts only from this list, and may put quotation marks only around a quote listed here. Add your own Kindle highlights as `"quote"` values. |
 | `dashboard/` | The Vercel Control Panel: `index.html` plus API functions in `api/` (no dependencies) |
