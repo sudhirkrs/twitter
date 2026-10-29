@@ -1,0 +1,170 @@
+{
+  "_note": "Books the author has read. Posts may quote ONLY text in a book's 'quote' field (verbatim); otherwise paraphrase the 'idea'. Check each quote against your Kindle copy before approving a post that uses it. Add your own Kindle highlights as 'quote' values.",
+  "books": [
+    {
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "topic": "payments",
+      "idea": "Money works because strangers trust it. A rupee note is paper; what makes it useful is that everyone believes everyone else will accept it. UPI is the same idea in digital form.",
+      "quote": "Money is the most universal and most efficient system of mutual trust ever devised."
+    },
+    {
+      "title": "Man's Search for Meaning",
+      "author": "Viktor Frankl",
+      "topic": "personal-finance",
+      "idea": "In any situation you can't control, you still choose your response. Useful when markets fall or income drops: the decision about what to do next is yours.",
+      "quote": "Everything can be taken from a man but one thing: the last of the human freedoms—to choose one's attitude in any given set of circumstances, to choose one's own way."
+    },
+    {
+      "title": "Letters from a Stoic",
+      "author": "Seneca",
+      "topic": "personal-finance",
+      "idea": "Most of what we dread never happens, and fear is often worse than the event. Good for investing: much market panic is imagined risk, not realised loss.",
+      "quote": "We suffer more often in imagination than in reality."
+    },
+    {
+      "title": "Reminiscences of a Stock Operator",
+      "author": "Edwin Lefèvre",
+      "topic": "personal-finance",
+      "idea": "Markets repeat because human nature repeats: greed, fear and hope. The same mistakes show up in every era, which is why knowing market history helps.",
+      "quote": "There is nothing new in Wall Street. There can't be, because speculation is as old as the hills. Whatever happens in the stock market today has happened before and will happen again."
+    },
+    {
+      "title": "Think and Grow Rich",
+      "author": "Napoleon Hill",
+      "topic": "personal-finance",
+      "idea": "A clear, written goal with a plan and a deadline beats vague wishing. Turn 'I want to be rich' into a number, a date and a monthly amount.",
+      "quote": "Whatever the mind of man can conceive and believe, it can achieve."
+    },
+    {
+      "title": "Principles: Life and Work",
+      "author": "Ray Dalio",
+      "topic": "personal-finance",
+      "idea": "Treat mistakes as data. Write down what went wrong, find the root cause, and change the process. Applies to a bad investment as much as a bad hire.",
+      "quote": "Pain + Reflection = Progress."
+    },
+    {
+      "title": "One Up On Wall Street",
+      "author": "Peter Lynch",
+      "topic": "personal-finance",
+      "idea": "Ordinary people can spot good businesses in daily life before professionals do, but only invest in what you can explain simply.",
+      "quote": "Know what you own, and know why you own it."
+    },
+    {
+      "title": "Essentialism",
+      "author": "Greg McKeown",
+      "topic": "personal-finance",
+      "idea": "Doing fewer things better beats doing everything. For money: a few automated habits (SIP, insurance, emergency fund) matter more than chasing every tip.",
+      "quote": "If you don't prioritize your life, someone else will."
+    },
+    {
+      "title": "The Great Mental Models, Volume 1",
+      "author": "Shane Parrish",
+      "topic": "personal-finance",
+      "idea": "Keep a small toolkit of thinking models. One is that your picture of a situation is not the situation itself, so check the real numbers before deciding.",
+      "quote": "The map is not the territory."
+    },
+    {
+      "title": "Thinking in Bets",
+      "author": "Annie Duke",
+      "topic": "personal-finance",
+      "idea": "Judge a decision by the quality of the thinking, not by how it turned out. A good decision can lose and a bad one can win. This is called resulting."
+    },
+    {
+      "title": "Superforecasting",
+      "author": "Philip Tetlock and Dan Gardner",
+      "topic": "personal-finance",
+      "idea": "The best forecasters break big questions into small parts, update when facts change, and keep score of their own predictions. Confident pundits usually do worse."
+    },
+    {
+      "title": "The Art of Thinking Clearly",
+      "author": "Rolf Dobelli",
+      "topic": "personal-finance",
+      "idea": "Learn the common thinking traps. Two that cost investors money: the sunk-cost fallacy (holding on because you've already lost) and survivorship bias (only seeing winners)."
+    },
+    {
+      "title": "The Behavioral Investor",
+      "author": "Daniel Crosby",
+      "topic": "personal-finance",
+      "idea": "Your biggest investing risk is your own behaviour: chasing trends, panic selling, overconfidence. A written plan and automation protect you from yourself."
+    },
+    {
+      "title": "Factfulness",
+      "author": "Hans Rosling",
+      "topic": "personal-finance",
+      "idea": "Most people are more pessimistic about the world than the data supports. Rosling's quiz showed even experts did worse than chance. Check the numbers before you panic."
+    },
+    {
+      "title": "An Economist Walks into a Brothel",
+      "author": "Allison Schrager",
+      "topic": "personal-finance",
+      "idea": "Risk is not something to avoid but to choose and manage. Decide how much risk you're being paid to take, and protect yourself against the rest."
+    },
+    {
+      "title": "Capital Returns",
+      "author": "Edward Chancellor (editor)",
+      "topic": "personal-finance",
+      "idea": "The capital cycle: when an industry earns high returns, money floods in, supply grows, and returns fall. Follow where capital is leaving as well as where it's going."
+    },
+    {
+      "title": "The Checklist Manifesto",
+      "author": "Atul Gawande",
+      "topic": "personal-finance",
+      "idea": "Checklists catch errors that experts miss in complex tasks. A short yearly money checklist (insurance, nominees, SIP step-up, emergency fund) does the same for your finances."
+    },
+    {
+      "title": "Profit First",
+      "author": "Mike Michalowicz",
+      "topic": "personal-finance",
+      "idea": "For small businesses: take your profit first, then run the business on what's left, instead of hoping profit remains after expenses."
+    },
+    {
+      "title": "Shoe Dog",
+      "author": "Phil Knight",
+      "topic": "fintech",
+      "idea": "Nike nearly failed more than once because fast growth ate cash faster than it arrived, and banks hesitated to lend. Profitable on paper is not the same as cash in hand."
+    },
+    {
+      "title": "Billion Dollar Whale",
+      "author": "Tom Wright and Bradley Hope",
+      "topic": "fintech",
+      "idea": "The 1MDB story: billions moved through shell companies and respected banks while few asked hard questions. Prestige and polish are not proof, so ask where the money really comes from."
+    },
+    {
+      "title": "The Future Is Faster Than You Think",
+      "author": "Peter Diamandis and Steven Kotler",
+      "topic": "ai",
+      "idea": "Technologies like AI, sensors and networks combine and speed each other up, so change in finance and payments can arrive faster than most people expect."
+    },
+    {
+      "title": "Superagency",
+      "author": "Reid Hoffman and Greg Beato",
+      "topic": "ai",
+      "idea": "An optimistic case for AI: if people get a say in how it is built and used, it can increase individual agency rather than reduce it."
+    },
+    {
+      "title": "Ultralearning",
+      "author": "Scott H. Young",
+      "topic": "personal-finance",
+      "idea": "Learn a skill with an intense, focused project, practise exactly what you want to get good at, and get quick feedback. Good for upskilling in the AI era."
+    },
+    {
+      "title": "How Not to Be Wrong",
+      "author": "Jordan Ellenberg",
+      "topic": "personal-finance",
+      "idea": "Maths is common sense in disguise. Use it to see through confident claims, especially ones that sound scientific but ignore how likely or how big an effect really is."
+    },
+    {
+      "title": "Rule #1",
+      "author": "Phil Town",
+      "topic": "personal-finance",
+      "idea": "Look for businesses you understand, with a durable advantage, run by honest management, bought at a sensible price. The idea is to avoid permanent loss."
+    },
+    {
+      "title": "Trillion Dollar Coach",
+      "author": "Eric Schmidt, Jonathan Rosenberg and Alan Eagle",
+      "topic": "personal-finance",
+      "idea": "Bill Campbell's leadership idea: put people first. Teams do their best work when someone has their back and gives honest feedback."
+    }
+  ]
+}
