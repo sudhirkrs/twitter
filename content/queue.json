@@ -1054,7 +1054,7 @@
       "parts": [
         "Your salary slip has a line item called Gratuity, but many employees never see it.\n\nBy law, you are eligible for gratuity only after completing 5 continuous years with an employer.\n\nIf you switch jobs at 4 years and 9 months, you forfeit that entire payout."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d44-am",
@@ -1070,7 +1070,7 @@
         "4. Partial payments do not save you.\n\nIf your bill is 50,000 and you pay 49,000, most banks charge interest on the full 50,000 from the date of each purchase, not just the unpaid 1,000.\n\nAlways pay the Total Amount Due in full.",
         "Set up an auto-debit for the total due amount from your primary bank account, scheduled 3 days before the deadline.\n\nFollow @Sudhirkrs17 for practical personal finance and payments breakdowns."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d44-pm",
@@ -1081,7 +1081,7 @@
       "parts": [
         "One idea from Sapiens by Yuval Noah Harari:\n\n\"Money is the most universal and most efficient system of mutual trust ever devised.\"\n\nA rupee note is just paper. It works entirely because strangers trust that other people will accept it."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d45-am",
@@ -1097,7 +1097,7 @@
         "4. Check co-pay and modern treatment limits.\n\nAsk: \"Are there mandatory co-pays by age or hospital tier, and are robotic surgeries capped?\"\n\nA 20% co-pay means you pay 20% of every approved bill out of pocket.",
         "AI can translate dry insurance legalese into plain English, so you can fix gaps with a super top-up before an emergency hits.\n\nFollow @Sudhirkrs17 for practical guides on AI, money, and personal finance."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d45-pm",
@@ -1108,7 +1108,7 @@
       "parts": [
         "Health insurance reality check: do you rely only on your company health cover, or do you have a personal policy too?"
       ],
-      "status": "draft",
+      "status": "approved",
       "poll": {
         "options": [
           "Only employer cover",
