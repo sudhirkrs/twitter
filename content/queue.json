@@ -1027,6 +1027,185 @@
         "What is one piece of money advice your parents gave you that turned out to be completely outdated today?"
       ],
       "status": "approved"
+    },
+    {
+      "id": "d43-am",
+      "day": 43,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Buying insurance to grow your wealth is one of the costliest money mistakes salaried Indians make.\n\nEndowment plans and ULIPs try to do two jobs at once and fail at both.\n\nHere is how to fix your life cover properly:",
+        "1. The core rule: keep insurance and investment strictly separate.\n\nInsurance is risk protection for your family if you die prematurely. Investment is wealth creation for your goals.\n\nMashing them together gives you poor cover and mediocre returns.",
+        "2. Why traditional life insurance plans fall short.\n\nAn endowment policy charging 30,000 per year might offer just 5 to 10 lakh in life cover.\n\nIf you have dependents, a 10 lakh payout will not sustain a family for more than two years.",
+        "3. Enter pure term insurance.\n\nA healthy 28-year-old can get 1 crore of pure term cover for roughly 8,000 to 12,000 per year.\n\nThere is no maturity payout if you survive. That is a feature, not a bug, because it keeps the premium tiny.",
+        "4. How to calculate the cover you need.\n\nA practical baseline is 10 to 15 times your annual take-home salary, plus any outstanding loans like a home loan.\n\nIf you earn 10 lakh annually, look at 1 to 1.5 crore cover up to age 60, when your dependents are settled.",
+        "5. Invest the saved premium.\n\nInstead of paying 50,000 yearly for an endowment plan, pay 10,000 for a pure term plan.\n\nDirect the remaining 40,000 into a low-cost index fund SIP. Over 20 years, that compounding creates real wealth.",
+        "Buy pure term insurance for protection, invest the rest for growth, and review your cover when you get married or take a loan.\n\nFollow @Sudhirkrs17 for practical personal finance and fintech breakdowns."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d43-pm",
+      "day": 43,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Your salary slip has a line item called Gratuity, but many employees never see it.\n\nBy law, you are eligible for gratuity only after completing 5 continuous years with an employer.\n\nIf you switch jobs at 4 years and 9 months, you forfeit that entire payout."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d44-am",
+      "day": 44,
+      "slot": "am",
+      "pillar": "fintech",
+      "type": "thread",
+      "parts": [
+        "Your credit card billing cycle has two dates, and mixing them up costs thousands in hidden interest.\n\nHere is the exact timeline of statement date, due date, and how interest free periods actually work:",
+        "1. Statement Date vs Due Date.\n\nYour statement date is when your bill is generated for the previous 30 days.\n\nYour payment due date usually falls 15 to 20 days after the statement date. That gap is where your grace period lives.",
+        "2. How to get the full 50 days of credit.\n\nIf your bill generates on the 1st of every month, a purchase on the 2nd will only appear on next month's bill, giving you 30 days plus 20 days to pay.\n\nA purchase on the 31st gives you barely 20 days.",
+        "3. The minimum due trap.\n\nPaying the minimum amount due prevents a late fee, but wipes out your interest-free period entirely.\n\nEvery new purchase you make immediately starts accruing interest at 36% to 42% annually from day one.",
+        "4. Partial payments do not save you.\n\nIf your bill is 50,000 and you pay 49,000, most banks charge interest on the full 50,000 from the date of each purchase, not just the unpaid 1,000.\n\nAlways pay the Total Amount Due in full.",
+        "Set up an auto-debit for the total due amount from your primary bank account, scheduled 3 days before the deadline.\n\nFollow @Sudhirkrs17 for practical personal finance and payments breakdowns."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d44-pm",
+      "day": 44,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "One idea from Sapiens by Yuval Noah Harari:\n\n\"Money is the most universal and most efficient system of mutual trust ever devised.\"\n\nA rupee note is just paper. It works entirely because strangers trust that other people will accept it."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d45-am",
+      "day": 45,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "thread",
+      "parts": [
+        "AI can read your 40-page health insurance policy wording in seconds and highlight what your insurer won't cover.\n\nHere is a 4-step framework to audit your insurance policy before you get a hospital bill:",
+        "1. Download the policy wording, not the brochure.\n\nThe sales brochure shows features in bright colors. The policy wording PDF contains the actual exclusions, sub-limits, and definitions that claim settlement teams use.",
+        "2. Prompt the AI for room rent capping.\n\nAsk: \"Based on this document, is there a room rent cap or proportionate deduction clause?\"\n\nIf your plan caps room rent at 1% of sum insured, a higher room category slashes all associated doctor and surgical claims.",
+        "3. Search for specific disease waiting periods.\n\nAsk: \"List all pre-existing disease waiting periods and specific treatments that have a 1-year or 2-year waiting clause.\"\n\nConditions like cataracts, hernias, and joint replacements often have hidden waiting windows.",
+        "4. Check co-pay and modern treatment limits.\n\nAsk: \"Are there mandatory co-pays by age or hospital tier, and are robotic surgeries capped?\"\n\nA 20% co-pay means you pay 20% of every approved bill out of pocket.",
+        "AI can translate dry insurance legalese into plain English, so you can fix gaps with a super top-up before an emergency hits.\n\nFollow @Sudhirkrs17 for practical guides on AI, money, and personal finance."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d45-pm",
+      "day": 45,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "poll",
+      "parts": [
+        "Health insurance reality check: do you rely only on your company health cover, or do you have a personal policy too?"
+      ],
+      "status": "draft",
+      "poll": {
+        "options": [
+          "Only employer cover",
+          "Personal policy only",
+          "Both employer + personal",
+          "No health insurance yet"
+        ],
+        "duration_minutes": 1440
+      }
+    },
+    {
+      "id": "d46-am",
+      "day": 46,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "A super top-up health insurance policy is the cheapest way to expand your medical cover.\n\nInstead of paying heavy premiums for a 25 lakh base policy, take a 5 lakh base plan and attach a 20 lakh super top-up with a 5 lakh deductible.\n\nIt can cut annual premiums in half."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d46-pm",
+      "day": 46,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "What is one monthly subscription you cancelled recently that you thought you could never live without, but haven't missed at all?"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d47-am",
+      "day": 47,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "A nominee is not an heir under Indian financial law.\n\nYour bank account nominee is simply a trustee responsible for collecting funds upon your death and handing them over to legal heirs.\n\nWithout a valid will, nomination alone does not give absolute legal ownership."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d47-pm",
+      "day": 47,
+      "slot": "pm",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "Card tokenisation quietly made online shopping safer in India.\n\nInstead of merchants saving your 16-digit card number and expiry date, they store an encrypted token unique to their app.\n\nEven if the merchant's server gets breached, your actual card details stay safe."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d48-am",
+      "day": 48,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Prepaying a home loan early in the tenure saves massively more interest than prepaying near the end.\n\nIn the first 5 years of a 20-year loan, most of your monthly EMI goes towards interest rather than principal.\n\nEvery rupee prepaid early attacks the principal directly."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d48-pm",
+      "day": 48,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "In The Checklist Manifesto, Atul Gawande shows how simple checklists stop smart experts from missing basic steps.\n\nThe same applies to personal finance: an annual 10-point checklist covering nominations, insurance, and tax forms beats relying on memory."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d49-am",
+      "day": 49,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "Paste any loan agreement clause into an AI tool and prompt: \"Explain what penalty or fee this imposes on the borrower in plain, simple English.\"\n\nFine print in loan documents hides pre-closure penalties and processing fees that plain language makes obvious."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d49-pm",
+      "day": 49,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "If you could go back to your 22-year-old self on day one of your first job, what is the single financial rule you would tell yourself to follow?"
+      ],
+      "status": "draft"
     }
   ]
 }
