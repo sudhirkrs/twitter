@@ -1128,7 +1128,7 @@
       "parts": [
         "A super top-up health insurance policy is the cheapest way to expand your medical cover.\n\nInstead of paying heavy premiums for a 25 lakh base policy, take a 5 lakh base plan and attach a 20 lakh super top-up with a 5 lakh deductible.\n\nIt can cut annual premiums in half."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d46-pm",
@@ -1139,7 +1139,7 @@
       "parts": [
         "What is one monthly subscription you cancelled recently that you thought you could never live without, but haven't missed at all?"
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d47-am",
@@ -1150,7 +1150,7 @@
       "parts": [
         "A nominee is not an heir under Indian financial law.\n\nYour bank account nominee is simply a trustee responsible for collecting funds upon your death and handing them over to legal heirs.\n\nWithout a valid will, nomination alone does not give absolute legal ownership."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d47-pm",
@@ -1161,7 +1161,7 @@
       "parts": [
         "Card tokenisation quietly made online shopping safer in India.\n\nInstead of merchants saving your 16-digit card number and expiry date, they store an encrypted token unique to their app.\n\nEven if the merchant's server gets breached, your actual card details stay safe."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d48-am",
@@ -1172,7 +1172,7 @@
       "parts": [
         "Prepaying a home loan early in the tenure saves massively more interest than prepaying near the end.\n\nIn the first 5 years of a 20-year loan, most of your monthly EMI goes towards interest rather than principal.\n\nEvery rupee prepaid early attacks the principal directly."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d48-pm",
@@ -1183,7 +1183,7 @@
       "parts": [
         "In The Checklist Manifesto, Atul Gawande shows how simple checklists stop smart experts from missing basic steps.\n\nThe same applies to personal finance: an annual 10-point checklist covering nominations, insurance, and tax forms beats relying on memory."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d49-am",
@@ -1194,7 +1194,7 @@
       "parts": [
         "Paste any loan agreement clause into an AI tool and prompt: \"Explain what penalty or fee this imposes on the borrower in plain, simple English.\"\n\nFine print in loan documents hides pre-closure penalties and processing fees that plain language makes obvious."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d49-pm",
@@ -1205,7 +1205,7 @@
       "parts": [
         "If you could go back to your 22-year-old self on day one of your first job, what is the single financial rule you would tell yourself to follow?"
       ],
-      "status": "draft"
+      "status": "approved"
     }
   ]
 }
