@@ -1214,14 +1214,14 @@
       "pillar": "personal-finance",
       "type": "thread",
       "parts": [
-        "A 1 crore term insurance cover can cost less than 1,000 a month at age 25.\n\nYet millions of salaried Indians buy traditional endowment policies that pay peanuts.\n\nHere is a 5-step checklist to buy term insurance the right way:",
-        "1. Cover amount: aim for 10x to 15x your annual income.\n\nIf you earn 10 lakh a year, your cover should be at least 1 crore to 1.5 crore. This gives your family enough time to replace your earning power without selling off assets in a crisis.",
-        "2. Policy tenure: cover yourself only until retirement.\n\nBuying a policy till age 85 or 100 spikes the premium sharply. By age 60, your kids will be independent, your home loan will be paid, and your retirement corpus should already be in place.",
-        "3. Choose plain vanilla: skip return-of-premium plans.\n\nReturn-of-premium plans charge 2x to 3x higher premiums just to give your money back decades later without inflation adjustment. Take pure term insurance and invest the difference in an index fund.",
-        "4. Disclose every medical detail honestly.\n\nPre-existing conditions, smoking, or family medical history. In insurance, non-disclosure is the number one reason claims get rejected. A slightly higher premium is far better than a rejected claim later.",
-        "Term insurance is meant for protection, not investment. Treat it as a pure expense, just like car insurance.\n\nFollow @Sudhirkrs17 for clear personal finance and money systems every week."
+        "Term insurance: ₹1 crore of cover often costs a healthy 25-year-old non-smoker well under ₹1,000 a month.\n\nYet many salaried Indians buy endowment policies instead. Here is a 4-step checklist to buy term insurance the right way:",
+        "1. Cover amount: aim for roughly 10x to 15x your annual income.\n\nIf you earn ₹10 lakh a year, that means ₹1 crore to ₹1.5 crore. It gives your family time to replace your income without selling assets in a crisis.",
+        "2. Tenure: cover yourself until you expect to stop working.\n\nA policy to age 85 or 100 costs noticeably more. Match the cover to the years others depend on your income.",
+        "3. Choose plain term, skip return-of-premium plans.\n\nReturn-of-premium plans cost much more, often twice as much or higher, to hand your money back decades later without inflation adjustment. Buy pure term and invest the difference separately.",
+        "4. Disclose every medical detail honestly.\n\nPre-existing conditions, smoking, family history. Non-disclosure is a common reason claims get rejected. A slightly higher premium beats a rejected claim.",
+        "Term insurance is protection, not an investment. Treat it like any other insurance cost.\n\nFollow @Sudhirkrs17 for clear personal finance, one money idea at a time."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d50-pm",
@@ -1232,7 +1232,7 @@
       "parts": [
         "In Letters from a Stoic, Seneca wrote:\n\n\"We suffer more often in imagination than in reality.\"\n\nWhen markets fall, people imagine the worst and sell at the bottom. Most financial dread is imagined risk, not realised loss. A simple plan protects you from your own panic."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d51-am",
@@ -1241,9 +1241,9 @@
       "pillar": "payments",
       "type": "tweet",
       "parts": [
-        "UPI Lite solves the biggest annoyance in Indian retail payments: failed transactions under 500 rupees.\n\nIt stores up to 2,000 rupees on your device, bypasses bank core banking servers, and requires no UPI PIN. Fast chai payments without cluttering your bank passbook."
+        "UPI Lite is built for small everyday payments like chai or autos.\n\nYou load a small balance onto your phone, and each payment from it skips your UPI PIN and a trip to your bank. NPCI sets the limits and has changed them, so check the current ones in your app."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d51-pm",
@@ -1254,7 +1254,7 @@
       "parts": [
         "At what age did you finally start your very first mutual fund SIP, and what pushed you to do it?"
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d52-am",
@@ -1270,7 +1270,7 @@
         "Step 4: Benchmark your budget.\n\nFeed your monthly net income and prompt:\n'Comparing my categorised spend against a 50-30-20 budget, where am I overspending and what are 3 practical cuts I can make next month?'\n\nUse AI for clean analysis, not final investment decisions.",
         "The golden rule of AI finance: treat public models like a helpful intern, not a licensed fiduciary. Never share personal identifiers or passwords.\n\nFollow @Sudhirkrs17 for practical ways to manage money and fintech smartly."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d52-pm",
@@ -1279,9 +1279,9 @@
       "pillar": "personal-finance",
       "type": "tweet",
       "parts": [
-        "PPF gives you an EEE tax advantage: exempt on deposit, exempt on interest, and exempt on withdrawal.\n\nInvesting 1.5 lakh a year compounds tax-free with sovereign backing. For anyone in the 30% tax bracket, it remains one of the safest debt instruments in India."
+        "PPF is an EEE product: your deposit, the interest and the withdrawal can all be tax-free.\n\nOne catch: the deposit deduction under Section 80C applies only under the old tax regime. Interest and withdrawal stay tax-free either way. Check your regime first."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d53-am",
@@ -1290,9 +1290,9 @@
       "pillar": "personal-finance",
       "type": "tweet",
       "parts": [
-        "Left your job? Your zero-balance salary account quietly converts to a regular savings account after 3 months without a salary credit.\n\nOnce converted, minimum balance rules apply, and banks start charging non-maintenance fees. Always close or switch old payroll accounts."
+        "Changed jobs? Many banks convert a zero-balance salary account into a regular savings account if no salary arrives for a few months. The exact rule differs by bank.\n\nAfter conversion, minimum balance rules and fees can apply. Check your old payroll account and close or switch it."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d53-pm",
@@ -1303,7 +1303,7 @@
       "parts": [
         "Do you use a RuPay credit card linked to UPI for daily merchant payments?"
       ],
-      "status": "draft",
+      "status": "approved",
       "poll": {
         "options": [
           "Yes, use it daily",
@@ -1321,14 +1321,14 @@
       "pillar": "personal-finance",
       "type": "thread",
       "parts": [
-        "When the RBI cuts or hikes the repo rate, your bank changes your home loan tenure, not your monthly EMI.\n\nMost borrowers never notice, but a 1% rate hike on a 50 lakh home loan can quietly add 5 or more years to your repayment.\n\nHere is how repo rate shifts really work:",
-        "Since October 2019, all floating-rate retail loans in India are linked to an external benchmark, mostly the RBI repo rate.\n\nWhen the repo rate moves, banks are required to pass that change to borrowers within a quarterly reset window.",
-        "Why do banks stretch your tenure instead of increasing your EMI?\n\nBecause increasing your monthly EMI requires fresh NACH mandates and checks on your repayment capacity. Extending the loan tenure by months or years is administratively seamless for the bank.",
-        "The hidden danger of extending tenure:\n\nIf your 20-year loan gets stretched to 27 years, your total interest payout balloons by lakhs. You might celebrate that your monthly cash flow is unaffected, but you end up paying the bank for years longer.",
-        "What you should do instead:\n\nWhen rates rise, ask your lender to increase your EMI rather than extending your tenure.\n\nBetter still, whenever your salary increases, raise your home loan EMI voluntarily. Keeping your tenure short saves huge interest over the life of the loan.",
-        "Track your loan statement at least twice a year to see your updated outstanding principal and remaining months.\n\nFollow @Sudhirkrs17 for clear breakdowns on loans, banking, and smart money habits."
+        "Home loan interest rate changed? Many borrowers never notice what happened to their loan.\n\nOn a floating-rate loan, if your EMI stays the same when the rate rises, the tenure quietly gets longer. Here is how much that can cost:",
+        "Since October 2019, most new floating-rate retail loans in India are linked to an external benchmark such as the RBI repo rate, and the lender resets the rate at set intervals.\n\nWhen the benchmark moves, your rate moves with it at the next reset.",
+        "Example: a ₹50 lakh loan at 8.5% for 20 years has an EMI of about ₹43,400.\n\nIf the rate rises to 9.5% and the EMI stays the same, the loan stretches to about 25.7 years, and you pay roughly ₹30 lakh more in interest.",
+        "The other way: keep the 20-year tenure and the EMI rises to about ₹46,600. That's roughly ₹3,200 more a month, but you stay on track to be debt-free on time.\n\nBoth are valid choices. The danger is not noticing the change.",
+        "RBI rules since 2023 require lenders to tell you about a rate-reset impact and let you choose to raise the EMI, extend the tenure, or both. Check your lender's letters and emails.\n\nWhenever your salary rises, consider raising your EMI too. A shorter tenure saves interest.",
+        "Look at your loan statement twice a year: outstanding principal, interest rate and remaining months.\n\nFollow @Sudhirkrs17 for clear breakdowns on loans, banking and smart money habits."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d54-pm",
@@ -1337,9 +1337,9 @@
       "pillar": "books",
       "type": "tweet",
       "parts": [
-        "In One Up On Wall Street, Peter Lynch wrote:\n\n\"Know what you own, and know why you own it.\"\n\nIf you cannot explain why you own an investment in two simple sentences to a 10-year-old, you are speculating, not investing. Understanding beats complicated jargon every time."
+        "In One Up On Wall Street, Peter Lynch wrote:\n\n\"Know what you own, and know why you own it.\"\n\nA simple test: can you explain in two sentences why you own an investment? If not, you're speculating, not investing."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d55-am",
@@ -1348,9 +1348,9 @@
       "pillar": "payments",
       "type": "tweet",
       "parts": [
-        "Sent money to the wrong UPI number? Panic will not help, but taking these 3 steps within 24 hours will.\n\n1. Note the 12-digit UTR number.\n2. File a complaint on your UPI app and bank immediately.\n3. Raise a dispute on the NPCI portal under Dispute Redressal Mechanism."
+        "Sent money to the wrong UPI ID? Acting fast gives you the best chance.\n\n1. Note the 12-digit UPI reference (UTR) number.\n2. Report it in your UPI app and to your bank now.\n3. If the bank can't resolve it, escalate via NPCI's UPI dispute process."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d55-pm",
@@ -1361,7 +1361,7 @@
       "parts": [
         "Salary negotiation check: did you negotiate the compensation when accepting your current job offer, or take the first number offered?\n\nWhat was the outcome? 👇"
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d56-am",
@@ -1370,9 +1370,9 @@
       "pillar": "ai",
       "type": "tweet",
       "parts": [
-        "Insurer cut your hospital claim? Use AI to cut through the jargon.\n\nPaste the deduction clause and prompt:\n'Explain in plain English why this medical bill was denied, and what documents are needed to appeal this.'\n\nClear reasoning gives your claim dispute a fighting chance."
+        "Insurer cut your hospital claim? An AI assistant can help you understand the reasoning.\n\nRemove your name, policy and ID numbers, paste the deduction clause, and ask:\n'Explain in plain English why this part of the bill was denied, and what documents I need to appeal.'"
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d56-pm",
@@ -1381,9 +1381,9 @@
       "pillar": "personal-finance",
       "type": "tweet",
       "parts": [
-        "Section 80CCD(2) is the most overlooked tax benefit for salaried Indians in the 30% tax bracket.\n\nEmployer contributions to your NPS (up to 10% of basic + DA) reduce taxable income directly, beyond the Section 80C ceiling. Check if your company offers corporate NPS."
+        "Section 80CCD(2) is one of the most overlooked tax benefits for salaried Indians.\n\nYour employer's NPS contribution can be deducted up to a set share of basic + DA, separate from the 80C limit. Check the current limit and whether your company offers corporate NPS."
       ],
-      "status": "draft"
+      "status": "approved"
     }
   ]
 }
