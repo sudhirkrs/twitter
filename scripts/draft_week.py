@@ -21,6 +21,8 @@ import json
 import os
 import re
 import sys
+import time
+import urllib.error
 import urllib.request
 from datetime import date, datetime
 from pathlib import Path
@@ -139,15 +141,31 @@ def build_messages(queue, first_day):
 
 
 def call_llm(messages):
+    """Ask the model. A whole week of posts is a long answer, so allow up to 10 minutes,
+    and retry busy, rate-limited and timed-out requests before giving up with a clear reason."""
     base = os.environ["LLM_BASE_URL"].rstrip("/")
+    timeout = float(os.environ.get("LLM_TIMEOUT", 600))
+    wait = float(os.environ.get("LLM_RETRY_WAIT", 30))
     body = json.dumps({"model": os.environ["LLM_MODEL"].strip().removeprefix("models/"), "messages": messages, "temperature": 0.8}).encode()
-    req = urllib.request.Request(
-        base + "/chat/completions", data=body, method="POST",
-        headers={"Authorization": "Bearer " + os.environ["LLM_API_KEY"], "Content-Type": "application/json"},
-    )
-    with urllib.request.urlopen(req, timeout=180) as resp:
-        data = json.load(resp)
-    return data["choices"][0]["message"]["content"]
+    problem = ""
+    for attempt in range(3):
+        req = urllib.request.Request(
+            base + "/chat/completions", data=body, method="POST",
+            headers={"Authorization": "Bearer " + os.environ["LLM_API_KEY"], "Content-Type": "application/json"},
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return json.load(resp)["choices"][0]["message"]["content"]
+        except urllib.error.HTTPError as e:
+            problem = f"HTTP {e.code}: {e.read().decode(errors='replace')[:300]}"
+            if e.code not in (429, 500, 502, 503, 504):
+                break  # a wrong key or model name won't fix itself
+        except (TimeoutError, urllib.error.URLError, KeyError, IndexError, ValueError) as e:
+            problem = f"no usable answer from the AI service ({type(e).__name__}: {e})"
+        print(f"AI call attempt {attempt + 1} failed: {problem}", file=sys.stderr)
+        if attempt < 2:
+            time.sleep(wait * (attempt + 1))
+    sys.exit(f"The AI service did not answer: {problem}")
 
 
 def parse_posts(text):

@@ -1,6 +1,6 @@
 name: Draft next week
 
-# Every Sunday, asks an AI model (your own key, any OpenAI-compatible
+# Every Sunday and Wednesday, asks an AI model (your own key, any OpenAI-compatible
 # provider) to draft the next 7 days of posts when fewer than 14 days are
 # queued. Drafts are committed as "status": "draft" and must be approved
 # in the Control Panel before they get Open in X links.
@@ -8,7 +8,7 @@ name: Draft next week
 # Needs repository secrets LLM_API_KEY, LLM_BASE_URL and LLM_MODEL.
 on:
   schedule:
-    - cron: "30 3 * * 0"  # Sunday 09:00 IST (GitHub may start it hours late)
+    - cron: "30 3 * * 0,3"  # Sunday and Wednesday 09:00 IST (the Wednesday run retries a failed Sunday)
   workflow_dispatch:
     inputs:
       force:
@@ -38,11 +38,29 @@ jobs:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: |
+          set -o pipefail   # without this, a crash inside "| tee" is reported as success
           if [ "${{ inputs.force }}" = "true" ]; then
-            python scripts/draft_week.py --force | tee draft.log
+            python scripts/draft_week.py --force 2>&1 | tee draft.log
           else
-            python scripts/draft_week.py | tee draft.log
+            python scripts/draft_week.py 2>&1 | tee draft.log
           fi
+      - name: Tell me if drafting failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create drafts --color C27C0E --force >/dev/null
+          {
+            echo "The weekly AI drafting **failed**, so no new posts were added."
+            echo
+            echo '```text'
+            tail -n 8 draft.log 2>/dev/null || echo "(no log)"
+            echo '```'
+            echo
+            echo "Run it again: Actions → **Draft next week** → Run workflow. If it keeps failing, run **Test AI key**."
+            echo "Run details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          } > fail.md
+          gh issue create --title "AI drafting FAILED: new posts are not being added" --body-file fail.md --label drafts --assignee "${{ github.repository_owner }}"
       - name: Commit drafts and notify
         env:
           GH_TOKEN: ${{ github.token }}
