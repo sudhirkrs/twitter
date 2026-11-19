@@ -1206,6 +1206,184 @@
         "If you could go back to your 22-year-old self on day one of your first job, what is the single financial rule you would tell yourself to follow?"
       ],
       "status": "approved"
+    },
+    {
+      "id": "d50-am",
+      "day": 50,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "A 1 crore term insurance cover can cost less than 1,000 a month at age 25.\n\nYet millions of salaried Indians buy traditional endowment policies that pay peanuts.\n\nHere is a 5-step checklist to buy term insurance the right way:",
+        "1. Cover amount: aim for 10x to 15x your annual income.\n\nIf you earn 10 lakh a year, your cover should be at least 1 crore to 1.5 crore. This gives your family enough time to replace your earning power without selling off assets in a crisis.",
+        "2. Policy tenure: cover yourself only until retirement.\n\nBuying a policy till age 85 or 100 spikes the premium sharply. By age 60, your kids will be independent, your home loan will be paid, and your retirement corpus should already be in place.",
+        "3. Choose plain vanilla: skip return-of-premium plans.\n\nReturn-of-premium plans charge 2x to 3x higher premiums just to give your money back decades later without inflation adjustment. Take pure term insurance and invest the difference in an index fund.",
+        "4. Disclose every medical detail honestly.\n\nPre-existing conditions, smoking, or family medical history. In insurance, non-disclosure is the number one reason claims get rejected. A slightly higher premium is far better than a rejected claim later.",
+        "Term insurance is meant for protection, not investment. Treat it as a pure expense, just like car insurance.\n\nFollow @Sudhirkrs17 for clear personal finance and money systems every week."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d50-pm",
+      "day": 50,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "In Letters from a Stoic, Seneca wrote:\n\n\"We suffer more often in imagination than in reality.\"\n\nWhen markets fall, people imagine the worst and sell at the bottom. Most financial dread is imagined risk, not realised loss. A simple plan protects you from your own panic."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d51-am",
+      "day": 51,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "UPI Lite solves the biggest annoyance in Indian retail payments: failed transactions under 500 rupees.\n\nIt stores up to 2,000 rupees on your device, bypasses bank core banking servers, and requires no UPI PIN. Fast chai payments without cluttering your bank passbook."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d51-pm",
+      "day": 51,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "At what age did you finally start your very first mutual fund SIP, and what pushed you to do it?"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d52-am",
+      "day": 52,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "thread",
+      "parts": [
+        "Never upload your bank statements with PAN, account numbers, or address to any public AI tool.\n\nHere is a privacy-first guide to using AI for personal finance without leaking your sensitive identity:",
+        "Step 1: Sanitize your data.\n\nIf you export your bank statement to Excel or CSV, delete columns containing your name, account number, branch, and UPI IDs.\n\nKeep only two columns: Transaction Description and Amount. AI only needs the numbers and categories, not your identity.",
+        "Step 2: Category grouping.\n\nPrompt the AI:\n'Group these expenses into 5 buckets: Housing, Groceries, Food Delivery, Subscriptions, and Shopping. Give total spend and percentage share for each.'\n\nIt turns a messy 300-row statement into an instant spending snapshot.",
+        "Step 3: Spot hidden recurring leaks.\n\nPrompt the AI:\n'Scan these descriptions for recurring monthly charges or repeated micro-payments under 300 rupees. List any active subscription.'\n\nYou will immediately spot apps, gym fees, or services you forgot you were paying for.",
+        "Step 4: Benchmark your budget.\n\nFeed your monthly net income and prompt:\n'Comparing my categorised spend against a 50-30-20 budget, where am I overspending and what are 3 practical cuts I can make next month?'\n\nUse AI for clean analysis, not final investment decisions.",
+        "The golden rule of AI finance: treat public models like a helpful intern, not a licensed fiduciary. Never share personal identifiers or passwords.\n\nFollow @Sudhirkrs17 for practical ways to manage money and fintech smartly."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d52-pm",
+      "day": 52,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "PPF gives you an EEE tax advantage: exempt on deposit, exempt on interest, and exempt on withdrawal.\n\nInvesting 1.5 lakh a year compounds tax-free with sovereign backing. For anyone in the 30% tax bracket, it remains one of the safest debt instruments in India."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d53-am",
+      "day": 53,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Left your job? Your zero-balance salary account quietly converts to a regular savings account after 3 months without a salary credit.\n\nOnce converted, minimum balance rules apply, and banks start charging non-maintenance fees. Always close or switch old payroll accounts."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d53-pm",
+      "day": 53,
+      "slot": "pm",
+      "pillar": "fintech",
+      "type": "poll",
+      "parts": [
+        "Do you use a RuPay credit card linked to UPI for daily merchant payments?"
+      ],
+      "status": "draft",
+      "poll": {
+        "options": [
+          "Yes, use it daily",
+          "Yes, occasionally",
+          "No, prefer bank UPI",
+          "Don't have one yet"
+        ],
+        "duration_minutes": 1440
+      }
+    },
+    {
+      "id": "d54-am",
+      "day": 54,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "When the RBI cuts or hikes the repo rate, your bank changes your home loan tenure, not your monthly EMI.\n\nMost borrowers never notice, but a 1% rate hike on a 50 lakh home loan can quietly add 5 or more years to your repayment.\n\nHere is how repo rate shifts really work:",
+        "Since October 2019, all floating-rate retail loans in India are linked to an external benchmark, mostly the RBI repo rate.\n\nWhen the repo rate moves, banks are required to pass that change to borrowers within a quarterly reset window.",
+        "Why do banks stretch your tenure instead of increasing your EMI?\n\nBecause increasing your monthly EMI requires fresh NACH mandates and checks on your repayment capacity. Extending the loan tenure by months or years is administratively seamless for the bank.",
+        "The hidden danger of extending tenure:\n\nIf your 20-year loan gets stretched to 27 years, your total interest payout balloons by lakhs. You might celebrate that your monthly cash flow is unaffected, but you end up paying the bank for years longer.",
+        "What you should do instead:\n\nWhen rates rise, ask your lender to increase your EMI rather than extending your tenure.\n\nBetter still, whenever your salary increases, raise your home loan EMI voluntarily. Keeping your tenure short saves huge interest over the life of the loan.",
+        "Track your loan statement at least twice a year to see your updated outstanding principal and remaining months.\n\nFollow @Sudhirkrs17 for clear breakdowns on loans, banking, and smart money habits."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d54-pm",
+      "day": 54,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "In One Up On Wall Street, Peter Lynch wrote:\n\n\"Know what you own, and know why you own it.\"\n\nIf you cannot explain why you own an investment in two simple sentences to a 10-year-old, you are speculating, not investing. Understanding beats complicated jargon every time."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d55-am",
+      "day": 55,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "Sent money to the wrong UPI number? Panic will not help, but taking these 3 steps within 24 hours will.\n\n1. Note the 12-digit UTR number.\n2. File a complaint on your UPI app and bank immediately.\n3. Raise a dispute on the NPCI portal under Dispute Redressal Mechanism."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d55-pm",
+      "day": 55,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "Salary negotiation check: did you negotiate the compensation when accepting your current job offer, or take the first number offered?\n\nWhat was the outcome? 👇"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d56-am",
+      "day": 56,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "Insurer cut your hospital claim? Use AI to cut through the jargon.\n\nPaste the deduction clause and prompt:\n'Explain in plain English why this medical bill was denied, and what documents are needed to appeal this.'\n\nClear reasoning gives your claim dispute a fighting chance."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d56-pm",
+      "day": 56,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Section 80CCD(2) is the most overlooked tax benefit for salaried Indians in the 30% tax bracket.\n\nEmployer contributions to your NPS (up to 10% of basic + DA) reduce taxable income directly, beyond the Section 80C ceiling. Check if your company offers corporate NPS."
+      ],
+      "status": "draft"
     }
   ]
 }
