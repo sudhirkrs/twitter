@@ -1384,6 +1384,184 @@
         "Section 80CCD(2) is one of the most overlooked tax benefits for salaried Indians.\n\nYour employer's NPS contribution can be deducted up to a set share of basic + DA, separate from the 80C limit. Check the current limit and whether your company offers corporate NPS."
       ],
       "status": "approved"
+    },
+    {
+      "id": "d57-am",
+      "day": 57,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "2 proven methods exist to pay off multiple loans or credit card dues faster.\n\nHere is how the debt avalanche and debt snowball strategies work, and which one fits your financial mindset 🧵",
+        "Method 1: Debt Avalanche.\n\nPay minimum EMIs on all debts, then put every extra rupee toward the loan with the highest interest rate.\n\nMaths-wise, this saves you the maximum total interest.",
+        "Method 2: Debt Snowball.\n\nPay minimum EMIs on all debts, but focus extra payments on the smallest balance first, regardless of interest.\n\nClearing a small debt quickly gives an immediate psychological win.",
+        "Which one should you pick?\n\nIf you are motivated by numbers and saving money, use Avalanche.\n\nIf you need quick psychological wins to stay disciplined and build momentum, pick Snowball.",
+        "Whichever method you choose, rule number one remains the same: stop adding new debt while paying off existing balances.\n\nAutomation makes sticking to your payoff plan much easier.",
+        "Clearing expensive debt early frees up cash for monthly mutual fund investments and your emergency fund.\n\nFollow @Sudhirkrs17 for clear advice on personal finance, payments, and wealth building."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d57-pm",
+      "day": 57,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "What percentage of your total monthly investment goes into equity mutual funds versus fixed income like FD, PPF, or EPF?"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d58-am",
+      "day": 58,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "UPI AutoPay allows recurring payments like SIPs, OTT subscriptions, and utility bills without typing your PIN every month. Before money is deducted, your bank sends a notification 24 hours prior. You can pause or revoke mandates directly inside your UPI app."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d58-pm",
+      "day": 58,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "In Essentialism, Greg McKeown writes:\n\n\"If you don't prioritize your life, someone else will.\"\n\nDoing fewer financial things well beats chasing every stock tip. Automate your monthly SIP, get term insurance, keep an emergency fund, and ignore the rest."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d59-am",
+      "day": 59,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "A 10% annual increase in your monthly SIP can double your final wealth over a 15-year period.\n\nHere is how a step-up mutual fund SIP turns small salary hikes into serious long-term wealth 🧵",
+        "When you get an annual salary appraisal, your expenses often creep up automatically. This is called lifestyle inflation.\n\nA step-up SIP directs a slice of that pay raise into investments before you spend it.",
+        "If you start an SIP of ₹10,000 per month and step it up by 10% every year, your monthly contribution becomes ₹11,000 in year two, ₹12,100 in year three, and so on.\n\nYou hardly feel the change.",
+        "Why does this work so well?\n\nYour salary naturally grows over time. Keeping your SIP amount flat means you invest a smaller percentage of your income as you earn more.",
+        "Most mutual fund apps let you enable an automated annual step-up feature with a single tap.\n\nSet it to match your expected annual increment percentage.",
+        "Small incremental increases compound into massive wealth over long horizons.\n\nFollow @Sudhirkrs17 for practical insights on personal finance, mutual funds, and smart money habits."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d59-pm",
+      "day": 59,
+      "slot": "pm",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "AI can organise 3 months of bank statement transactions into clean budget categories in under 1 minute. Export your CSV, strip out personal data like name or account number, and ask AI to group spend into needs, wants, and savings. It instantly spots invisible leaks."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d60-am",
+      "day": 60,
+      "slot": "am",
+      "pillar": "fintech",
+      "type": "thread",
+      "parts": [
+        "The Account Aggregator framework lets you share financial data securely with lenders in seconds.\n\nHere is how India's Account Aggregator network works and why it puts you in full control of your financial data 🧵",
+        "An Account Aggregator is an RBI-regulated entity that helps you transfer financial information from one institution to another seamlessly.\n\nNo manual PDF downloads or password sharing.",
+        "How it works:\nWhen you apply for a loan or health insurance, the provider requests data through the aggregator system.\n\nYou receive an explicit consent prompt detailing exactly what data is requested and for how long.",
+        "Key advantage: Encryption and privacy.\n\nThe Account Aggregator acts as an encrypted data pipe. It cannot read, store, or sell your financial data passing through its network.",
+        "You maintain total control.\n\nYou can revoke consent at any time from your aggregator app, stopping institutions from accessing updated bank details or investment records.",
+        "Account Aggregators make loan approvals faster while keeping your data private.\n\nFollow @Sudhirkrs17 for clear updates on Indian fintech, payments, and personal finance."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d60-pm",
+      "day": 60,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "poll",
+      "parts": [
+        "How many months of basic living expenses do you currently hold in your emergency fund?"
+      ],
+      "status": "draft",
+      "poll": {
+        "options": [
+          "Less than 1 month",
+          "1 to 3 months",
+          "3 to 6 months",
+          "6+ months"
+        ],
+        "duration_minutes": 1440
+      }
+    },
+    {
+      "id": "d61-am",
+      "day": 61,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "10 to 15 times your annual take-home salary is the standard rule of thumb for term insurance sum assured. If your annual salary is ₹10 lakh, aim for ₹1 crore to ₹1.5 crore cover. This ensures your family can maintain their lifestyle if you are not around."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d61-pm",
+      "day": 61,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "In Thinking in Bets, Annie Duke explains resulting: judging a decision solely by its outcome rather than the quality of thinking. A solid investment process can yield a temporary loss, while a risky gamble can win. Focus on the process, not just short-term results."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d62-am",
+      "day": 62,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "A simple 3-line text prompt turns AI into a subscription audit assistant. Paste your monthly expense list without private info and prompt: \"Identify all recurring payments, rank them by size, and list 3 questions to evaluate if each is worth keeping.\""
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d62-pm",
+      "day": 62,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "Do you primarily use UPI apps, credit cards, or net banking when making major online purchases over ₹10,000?"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d63-am",
+      "day": 63,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Sovereign Gold Bonds offer 2 major advantages over physical gold for long-term investors. You earn an annual interest payout on your initial investment, and there are no storage fees, making charges, or theft risks compared to gold coins or jewellery."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d63-pm",
+      "day": 63,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "What percentage of your salary do you manage to save or invest every month after paying for all fixed expenses and lifestyle spend?"
+      ],
+      "status": "draft"
     }
   ]
 }
