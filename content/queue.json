@@ -1392,14 +1392,14 @@
       "pillar": "personal-finance",
       "type": "thread",
       "parts": [
-        "2 proven methods exist to pay off multiple loans or credit card dues faster.\n\nHere is how the debt avalanche and debt snowball strategies work, and which one fits your financial mindset 🧵",
+        "Two popular methods exist to pay off several loans or credit card dues faster.\n\nHere is how the debt avalanche and debt snowball work, and which one fits your mindset 🧵",
         "Method 1: Debt Avalanche.\n\nPay minimum EMIs on all debts, then put every extra rupee toward the loan with the highest interest rate.\n\nMaths-wise, this saves you the maximum total interest.",
         "Method 2: Debt Snowball.\n\nPay minimum EMIs on all debts, but focus extra payments on the smallest balance first, regardless of interest.\n\nClearing a small debt quickly gives an immediate psychological win.",
         "Which one should you pick?\n\nIf you are motivated by numbers and saving money, use Avalanche.\n\nIf you need quick psychological wins to stay disciplined and build momentum, pick Snowball.",
         "Whichever method you choose, rule number one remains the same: stop adding new debt while paying off existing balances.\n\nAutomation makes sticking to your payoff plan much easier.",
         "Clearing expensive debt early frees up cash for monthly mutual fund investments and your emergency fund.\n\nFollow @Sudhirkrs17 for clear advice on personal finance, payments, and wealth building."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d57-pm",
@@ -1410,7 +1410,7 @@
       "parts": [
         "What percentage of your total monthly investment goes into equity mutual funds versus fixed income like FD, PPF, or EPF?"
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d58-am",
@@ -1419,9 +1419,9 @@
       "pillar": "payments",
       "type": "tweet",
       "parts": [
-        "UPI AutoPay allows recurring payments like SIPs, OTT subscriptions, and utility bills without typing your PIN every month. Before money is deducted, your bank sends a notification 24 hours prior. You can pause or revoke mandates directly inside your UPI app."
+        "UPI AutoPay handles recurring payments like SIPs, subscriptions and bills without you approving each one.\n\nYour bank sends a notice before each debit, and you can pause or cancel a mandate in your UPI app. Larger amounts can need approval each time, so review your mandates often."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d58-pm",
@@ -1432,7 +1432,7 @@
       "parts": [
         "In Essentialism, Greg McKeown writes:\n\n\"If you don't prioritize your life, someone else will.\"\n\nDoing fewer financial things well beats chasing every stock tip. Automate your monthly SIP, get term insurance, keep an emergency fund, and ignore the rest."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d59-am",
@@ -1441,14 +1441,14 @@
       "pillar": "personal-finance",
       "type": "thread",
       "parts": [
-        "A 10% annual increase in your monthly SIP can double your final wealth over a 15-year period.\n\nHere is how a step-up mutual fund SIP turns small salary hikes into serious long-term wealth 🧵",
+        "Raise your SIP by 10% every year and the pot can grow about 70% bigger.\n\nExample: ₹10,000 a month for 15 years at an assumed 12% gives about ₹50 lakh. With a 10% yearly step-up it is about ₹87 lakh. Here is how a step-up SIP works 🧵",
         "When you get an annual salary appraisal, your expenses often creep up automatically. This is called lifestyle inflation.\n\nA step-up SIP directs a slice of that pay raise into investments before you spend it.",
-        "If you start an SIP of ₹10,000 per month and step it up by 10% every year, your monthly contribution becomes ₹11,000 in year two, ₹12,100 in year three, and so on.\n\nYou hardly feel the change.",
+        "A ₹10,000 SIP with a 10% yearly step-up becomes ₹11,000 in year two and ₹12,100 in year three. You hardly feel the change.\n\nOver 15 years you invest about ₹38 lakh instead of ₹18 lakh. Returns are not guaranteed, but the habit is.",
         "Why does this work so well?\n\nYour salary naturally grows over time. Keeping your SIP amount flat means you invest a smaller percentage of your income as you earn more.",
-        "Most mutual fund apps let you enable an automated annual step-up feature with a single tap.\n\nSet it to match your expected annual increment percentage.",
+        "Many mutual fund apps and platforms let you set an automatic yearly step-up. Set it close to your usual yearly raise.",
         "Small incremental increases compound into massive wealth over long horizons.\n\nFollow @Sudhirkrs17 for practical insights on personal finance, mutual funds, and smart money habits."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d59-pm",
@@ -1457,9 +1457,9 @@
       "pillar": "ai",
       "type": "tweet",
       "parts": [
-        "AI can organise 3 months of bank statement transactions into clean budget categories in under 1 minute. Export your CSV, strip out personal data like name or account number, and ask AI to group spend into needs, wants, and savings. It instantly spots invisible leaks."
+        "AI can sort 3 months of bank transactions into budget categories in a minute or two.\n\nExport your statement as a CSV, delete your name, account number and address, and ask the AI to group spending into needs, wants and savings. It can help you spot forgotten leaks."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d60-am",
@@ -1468,14 +1468,14 @@
       "pillar": "fintech",
       "type": "thread",
       "parts": [
-        "The Account Aggregator framework lets you share financial data securely with lenders in seconds.\n\nHere is how India's Account Aggregator network works and why it puts you in full control of your financial data 🧵",
+        "The Account Aggregator framework lets you share financial data with lenders quickly, with your consent.\n\nHere is how India's Account Aggregator network works and why it keeps you in control of your data 🧵",
         "An Account Aggregator is an RBI-regulated entity that helps you transfer financial information from one institution to another seamlessly.\n\nNo manual PDF downloads or password sharing.",
         "How it works:\nWhen you apply for a loan or health insurance, the provider requests data through the aggregator system.\n\nYou receive an explicit consent prompt detailing exactly what data is requested and for how long.",
-        "Key advantage: Encryption and privacy.\n\nThe Account Aggregator acts as an encrypted data pipe. It cannot read, store, or sell your financial data passing through its network.",
+        "Key point: privacy by design.\n\nAn Account Aggregator is built to pass data along in encrypted form without reading, storing or selling it. Only the institution you approved sees the data.",
         "You maintain total control.\n\nYou can revoke consent at any time from your aggregator app, stopping institutions from accessing updated bank details or investment records.",
         "Account Aggregators make loan approvals faster while keeping your data private.\n\nFollow @Sudhirkrs17 for clear updates on Indian fintech, payments, and personal finance."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d60-pm",
@@ -1484,15 +1484,15 @@
       "pillar": "personal-finance",
       "type": "poll",
       "parts": [
-        "How many months of basic living expenses do you currently hold in your emergency fund?"
+        "What was your biggest money mistake in your 20s?"
       ],
-      "status": "draft",
+      "status": "approved",
       "poll": {
         "options": [
-          "Less than 1 month",
-          "1 to 3 months",
-          "3 to 6 months",
-          "6+ months"
+          "Late SIP start",
+          "Credit card debt",
+          "No insurance",
+          "Lifestyle spending"
         ],
         "duration_minutes": 1440
       }
@@ -1504,9 +1504,9 @@
       "pillar": "personal-finance",
       "type": "tweet",
       "parts": [
-        "10 to 15 times your annual take-home salary is the standard rule of thumb for term insurance sum assured. If your annual salary is ₹10 lakh, aim for ₹1 crore to ₹1.5 crore cover. This ensures your family can maintain their lifestyle if you are not around."
+        "Health insurance cover running low? A super top-up plan can raise it at a much lower premium than a bigger base plan.\n\nYou pick a deductible, say ₹5 lakh. Your base plan or you pay up to that, and the super top-up covers the rest of one claim above it. Read the terms first."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d61-pm",
@@ -1517,7 +1517,7 @@
       "parts": [
         "In Thinking in Bets, Annie Duke explains resulting: judging a decision solely by its outcome rather than the quality of thinking. A solid investment process can yield a temporary loss, while a risky gamble can win. Focus on the process, not just short-term results."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d62-am",
@@ -1526,9 +1526,9 @@
       "pillar": "ai",
       "type": "tweet",
       "parts": [
-        "A simple 3-line text prompt turns AI into a subscription audit assistant. Paste your monthly expense list without private info and prompt: \"Identify all recurring payments, rank them by size, and list 3 questions to evaluate if each is worth keeping.\""
+        "A simple prompt turns AI into a subscription audit assistant. Paste your monthly expense list without private info and prompt: \"Identify all recurring payments, rank them by size, and list 3 questions to evaluate if each is worth keeping.\""
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d62-pm",
@@ -1537,9 +1537,9 @@
       "pillar": "engagement",
       "type": "tweet",
       "parts": [
-        "Do you primarily use UPI apps, credit cards, or net banking when making major online purchases over ₹10,000?"
+        "Hot take: paying your credit card bill in full every month matters far more than which card has the best rewards.\n\nRewards are a few percent. Interest on unpaid dues can be around 3.5% a month.\n\nAgree or disagree? 👇"
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d63-am",
@@ -1548,20 +1548,20 @@
       "pillar": "personal-finance",
       "type": "tweet",
       "parts": [
-        "Sovereign Gold Bonds offer 2 major advantages over physical gold for long-term investors. You earn an annual interest payout on your initial investment, and there are no storage fees, making charges, or theft risks compared to gold coins or jewellery."
+        "Buying gold as an investment? Jewellery comes with making charges and storage worries.\n\nGold ETFs and gold funds are held digitally, so there is no making charge or locker. They carry a small yearly fee, and gold prices still go up and down. Keep it a small part of your money."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d63-pm",
       "day": 63,
       "slot": "pm",
-      "pillar": "engagement",
+      "pillar": "personal-finance",
       "type": "tweet",
       "parts": [
-        "What percentage of your salary do you manage to save or invest every month after paying for all fixed expenses and lifestyle spend?"
+        "Did you know you can get one free full credit report every year from each credit bureau in India?\n\nCIBIL, Experian, Equifax and CRIF High Mark all provide it. Check for loans you don't recognise and for wrong late-payment marks. Errors are fixable if you spot them."
       ],
-      "status": "draft"
+      "status": "approved"
     }
   ]
 }
