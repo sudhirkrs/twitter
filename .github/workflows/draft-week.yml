@@ -1,6 +1,6 @@
 name: Draft next week
 
-# Every Sunday and Wednesday, asks an AI model (your own key, any OpenAI-compatible
+# Twice a day (it does nothing while 14+ days are already queued), asks an AI model (your own key, any OpenAI-compatible
 # provider) to draft the next 7 days of posts when fewer than 14 days are
 # queued. Drafts are committed as "status": "draft" and must be approved
 # in the Control Panel before they get Open in X links.
@@ -8,7 +8,8 @@ name: Draft next week
 # Needs repository secrets LLM_API_KEY, LLM_BASE_URL and LLM_MODEL.
 on:
   schedule:
-    - cron: "30 3 * * 0,3"  # Sunday and Wednesday 09:00 IST (the Wednesday run retries a failed Sunday)
+    - cron: "30 3 * * *"   # 09:00 IST
+    - cron: "30 11 * * *"  # 17:00 IST: a retry if the morning run failed (the AI is sometimes overloaded)
   workflow_dispatch:
     inputs:
       force:
@@ -60,7 +61,20 @@ jobs:
             echo "Run it again: Actions → **Draft next week** → Run workflow. If it keeps failing, run **Test AI key**."
             echo "Run details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           } > fail.md
-          gh issue create --title "AI drafting FAILED: new posts are not being added" --body-file fail.md --label drafts --assignee "${{ github.repository_owner }}"
+          existing=$(gh issue list --label drafts --state open --json number,title --jq '.[] | select(.title | startswith("AI drafting FAILED")) | .number' | head -1)
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file fail.md   # already reported: add the new attempt, don't open another issue
+          else
+            gh issue create --title "AI drafting FAILED: new posts are not being added" --body-file fail.md --label drafts --assignee "${{ github.repository_owner }}"
+          fi
+      - name: Close old failure notices
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for n in $(gh issue list --label drafts --state open --json number,title --jq '.[] | select(.title | startswith("AI drafting FAILED")) | .number'); do
+            gh issue close "$n" --comment "Drafting works again." || true
+          done
       - name: Commit drafts and notify
         env:
           GH_TOKEN: ${{ github.token }}

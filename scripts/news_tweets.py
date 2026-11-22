@@ -240,11 +240,17 @@ def pick(stories, used, count):
 
 
 class AIUnavailable(Exception):
-    """The AI service failed in a way retrying inside this run won't fix."""
+    """The AI service failed in a way retrying inside this run won't fix.
+    busy=True means overloaded, rate-limited or unreachable, so another model may work."""
+
+    def __init__(self, message, busy=False):
+        super().__init__(message)
+        self.busy = busy
 
 
-def call_llm(messages):
-    body = json.dumps({"model": os.environ["LLM_MODEL"].strip().removeprefix("models/"), "messages": messages, "temperature": 0.7}).encode()
+def _call_model(model, messages):
+    """One model, with short retries for busy/rate-limited responses."""
+    body = json.dumps({"model": model, "messages": messages, "temperature": 0.7}).encode()
     for attempt in range(3):
         req = urllib.request.Request(
             os.environ["LLM_BASE_URL"].rstrip("/") + "/chat/completions", data=body, method="POST",
@@ -254,17 +260,38 @@ def call_llm(messages):
                 return json.load(r)["choices"][0]["message"]["content"]
         except urllib.error.HTTPError as e:
             detail = e.read().decode(errors="replace")[:300].replace("\n", " ")
-            if e.code in (429, 500, 502, 503, 504) and attempt < 2:
+            busy = e.code in (429, 500, 502, 503, 504)
+            if busy and attempt < 2:
                 time.sleep(float(os.environ.get("LLM_RETRY_WAIT", 15)) * (attempt + 1))  # busy or rate-limited: wait and try again
                 continue
             reasons = {401: "the API key was rejected", 403: "the API key isn't allowed to do this",
-                       404: "the model name isn't available (run Test AI key)", 429: "the free daily limit is used up or the service is busy"}
-            raise AIUnavailable(f"HTTP {e.code}: {reasons.get(e.code, 'the AI service returned an error')}. {detail}")
+                       404: "the model name isn't available (run Test AI key)", 429: "the free daily limit is used up or the service is busy",
+                       503: "the AI model is overloaded"}
+            raise AIUnavailable(f"HTTP {e.code}: {reasons.get(e.code, 'the AI service returned an error')}. {detail}", busy=busy)
         except (urllib.error.URLError, TimeoutError, KeyError, IndexError, ValueError) as e:
             if attempt < 2:
                 time.sleep(float(os.environ.get("LLM_RETRY_WAIT", 10)))
                 continue
-            raise AIUnavailable(f"could not get an answer from the AI service: {e}")
+            raise AIUnavailable(f"could not get an answer from the AI service: {e}", busy=True)
+
+
+def call_llm(messages):
+    """Configured model first; if it is overloaded or unreachable, try other fast models."""
+    from llm_models import fallback_models
+    primary = os.environ["LLM_MODEL"].strip().removeprefix("models/")
+    try:
+        return _call_model(primary, messages)
+    except AIUnavailable as first:
+        if not first.busy:
+            raise
+        for model in fallback_models(primary, limit=3):
+            try:
+                reply = _call_model(model, messages)
+                print(f"Used fallback model {model} because {primary} was unavailable.", file=sys.stderr)
+                return reply
+            except AIUnavailable:
+                continue
+        raise
 
 
 def write_tweets(stories):
