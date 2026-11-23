@@ -1602,7 +1602,7 @@
         "3. Transaction count limit:\nMost banks cap you at 20 UPI transactions within 24 hours.\n\nIf you paid for 20 small things (chai, auto, groceries), your 21st transfer will decline until the window resets, even if you only spent ₹500 in total.",
         "Need to move more than ₹1 lakh quickly?\nSkip UPI and use IMPS or NEFT through your bank's app. IMPS runs 24x7 with higher limits and avoids UPI channel bottlenecks.\n\nFollow @Sudhirkrs17 for practical payment and money guides."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d65-pm",
@@ -1613,7 +1613,7 @@
       "parts": [
         "In Shoe Dog, Phil Knight shares a vital lesson: profitable on paper is not cash in hand.\n\nNike nearly failed because fast growth ate cash faster than it arrived, and banks hesitated to lend.\n\nFor businesses and personal budgets alike: cash flow is survival."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d66-am",
@@ -1624,7 +1624,7 @@
       "parts": [
         "When your credit card bill arrives each month, what is your standard payment habit?"
       ],
-      "status": "draft",
+      "status": "approved",
       "poll": {
         "options": [
           "Pay total due in full",
@@ -1644,7 +1644,7 @@
       "parts": [
         "A 1% room rent cap on health insurance can cut your claim payout by 40%.\n\nIf you pick a room above your sub-limit, the insurer can deduct doctor fees, nursing, and surgery costs proportionately.\n\nCheck your policy document for room rent capping before renewing."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d67-am",
@@ -1659,7 +1659,7 @@
         "How to fix it:\n1. Pay down a chunk of your balance 2 to 3 days before your statement is generated.\n2. Ask your bank for a credit limit increase. A higher limit drops your utilisation percentage automatically on the same spending.",
         "3. Spread expenses across two cards instead of maxing out one.\n\nKeeping utilisation under 30% is one of the fastest ways to recover a slipping credit score within 60 days.\n\nFollow @Sudhirkrs17 for practical personal finance and credit tips."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d67-pm",
@@ -1670,7 +1670,7 @@
       "parts": [
         "What is one purchase under ₹5,000 you made this year that genuinely improved your everyday quality of life?\n\nNot an investment or a gadget for work, just something simple that made daily life easier."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d68-am",
@@ -1681,7 +1681,7 @@
       "parts": [
         "5 continuous years at one employer unlocks your gratuity payout under Indian law.\n\nCalculation:\n(15 x Last Basic Salary x Years of service) / 26\n\nIf you plan to switch jobs at 4 years and 9 months, check your joining date. A few weeks can mean a big gratuity payout."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d68-pm",
@@ -1692,7 +1692,7 @@
       "parts": [
         "Withdrawing cash from an ATM using your credit card has zero interest-free days.\n\nInterest kicks in the minute cash exits the machine, often at 36% to 45% annualised, plus a 2.5% cash advance fee.\n\nNever use a credit card at an ATM except in a true emergency."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d69-am",
@@ -1703,7 +1703,7 @@
       "parts": [
         "Torn between the Old and New Tax Regime?\n\nUse this prompt:\n'Compare tax liability under the Old and New Tax Regime for an income of 15 lakhs with 2.5 lakhs in deductions. Show the exact difference in take-home pay.'\n\nQuick clarity before you submit tax declarations to HR."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d69-pm",
@@ -1714,7 +1714,7 @@
       "parts": [
         "In Principles: Life and Work, Ray Dalio wrote:\n\n\"Pain + Reflection = Progress.\"\n\nWhen you lose money on an investment or make a bad financial decision, treat it as data. Write down what went wrong, find the root cause, and update your process so you never repeat it."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d70-am",
@@ -1725,7 +1725,7 @@
       "parts": [
         "Leaving idle cash in a standard savings account earns barely 2.7% to 3% in major banks.\n\nInflation quietly erodes that cash.\n\nEnabling an auto-sweep facility automatically moves surplus balance into fixed deposits, earning better returns while keeping money liquid."
       ],
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "d70-pm",
@@ -1736,7 +1736,7 @@
       "parts": [
         "If your company gave you the option to receive your 12% EPF contribution as direct cash in hand every month, would you take the cash or keep it in EPF?"
       ],
-      "status": "draft"
+      "status": "approved"
     }
   ]
 }
