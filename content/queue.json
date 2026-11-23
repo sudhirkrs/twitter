@@ -1562,6 +1562,181 @@
         "Did you know you can get one free full credit report every year from each credit bureau in India?\n\nCIBIL, Experian, Equifax and CRIF High Mark all provide it. Check for loans you don't recognise and for wrong late-payment marks. Errors are fixable if you spot them."
       ],
       "status": "approved"
+    },
+    {
+      "id": "d64-am",
+      "day": 64,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "The word 'Direct' on your mutual fund can save you lakhs of rupees over 20 years.\n\nIf you bought funds through a bank relationship manager or an app that earns commission, you are likely in a 'Regular' plan.\n\nHere is why that tiny word matters:",
+        "Every mutual fund has an expense ratio: an annual fee deducted from your returns.\n\nRegular plans pay an ongoing commission of around 0.5% to 1.5% every year to the distributor.\n\nDirect plans cut out the distributor, so that fee stays in your investment.",
+        "A 1% difference sounds small in year one.\n\nOn a ₹10,000 monthly SIP compounding at 12% over 25 years:\n- Direct plan: ~₹1.9 crore\n- Regular plan: ~₹1.5 crore\n\nThat 1% intermediary commission cost you around ₹40 lakhs of your own wealth.",
+        "How to check:\nOpen your fund statement or app right now. Look at the fund name.\n\nIf it says 'ICICI Prudential Bluechip Fund - Regular - Growth', you are paying distributor fees.\n\nIf it says 'Direct - Growth', you are keeping 100% of your earnings.",
+        "Switching is simple:\nYou can start new SIPs in the Direct plan immediately.\n\nFor existing holdings, switching counts as a sale, so check if any exit load or capital gains tax applies before moving.\n\nFollow @Sudhirkrs17 for clear personal finance breakdowns."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d64-pm",
+      "day": 64,
+      "slot": "pm",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "Ask AI to decode your salary slip before accepting a job offer.\n\nPaste your earnings breakup without personal details and prompt:\n'Explain which allowances are fully taxable, which have exemptions, and how this impacts take-home pay.'\n\nClear answers in 30 seconds."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d65-am",
+      "day": 65,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "thread",
+      "parts": [
+        "UPI has a standard ₹1 lakh daily limit, but your bank might block you at ₹25,000.\n\nEver had a high-value UPI payment decline even when your bank account had plenty of money?\n\nHere are the 4 limits that govern every transaction:",
+        "1. NPCI limit:\nNPCI caps normal peer-to-peer UPI transfers at ₹1 lakh per day.\n\nFor specific categories like medical, education, and capital market IPO bids, NPCI allows higher limits up to ₹5 lakhs. But that only applies to verified merchants.",
+        "2. Bank limit:\nYour own bank sets its own daily cap, often lower than NPCI.\n\nSome banks cap daily UPI transfers at ₹25,000 or ₹50,000 for safety, especially on new accounts or right after setting a new UPI PIN. Check your bank's net banking page for its limit.",
+        "3. Transaction count limit:\nMost banks cap you at 20 UPI transactions within 24 hours.\n\nIf you paid for 20 small things (chai, auto, groceries), your 21st transfer will decline until the window resets, even if you only spent ₹500 in total.",
+        "Need to move more than ₹1 lakh quickly?\nSkip UPI and use IMPS or NEFT through your bank's app. IMPS runs 24x7 with higher limits and avoids UPI channel bottlenecks.\n\nFollow @Sudhirkrs17 for practical payment and money guides."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d65-pm",
+      "day": 65,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "In Shoe Dog, Phil Knight shares a vital lesson: profitable on paper is not cash in hand.\n\nNike nearly failed because fast growth ate cash faster than it arrived, and banks hesitated to lend.\n\nFor businesses and personal budgets alike: cash flow is survival."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d66-am",
+      "day": 66,
+      "slot": "am",
+      "pillar": "fintech",
+      "type": "poll",
+      "parts": [
+        "When your credit card bill arrives each month, what is your standard payment habit?"
+      ],
+      "status": "draft",
+      "poll": {
+        "options": [
+          "Pay total due in full",
+          "Pay minimum amount due",
+          "Convert bill into EMI",
+          "Do not use credit cards"
+        ],
+        "duration_minutes": 1440
+      }
+    },
+    {
+      "id": "d66-pm",
+      "day": 66,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "A 1% room rent cap on health insurance can cut your claim payout by 40%.\n\nIf you pick a room above your sub-limit, the insurer can deduct doctor fees, nursing, and surgery costs proportionately.\n\nCheck your policy document for room rent capping before renewing."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d67-am",
+      "day": 67,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Using more than 30% of your credit card limit can drag your CIBIL score down, even if you pay on time.\n\nYou pay your bill before the due date, yet your score drops 15 points.\n\nHere is why your credit utilisation ratio is quietly hurting you:",
+        "What is credit utilisation?\nIt is the percentage of your total credit limit that you spend.\n\nIf your card has a ₹1 lakh limit and your statement balance is ₹45,000, your utilisation is 45%.\n\nBureaus treat utilisation above 30% as credit-hungry behaviour.",
+        "The timing trap:\nBanks report your balance to CIBIL on the statement generation date, not on your payment due date.\n\nEven if you clear the entire bill 10 days later, the high balance was already reported to the bureau.",
+        "How to fix it:\n1. Pay down a chunk of your balance 2 to 3 days before your statement is generated.\n2. Ask your bank for a credit limit increase. A higher limit drops your utilisation percentage automatically on the same spending.",
+        "3. Spread expenses across two cards instead of maxing out one.\n\nKeeping utilisation under 30% is one of the fastest ways to recover a slipping credit score within 60 days.\n\nFollow @Sudhirkrs17 for practical personal finance and credit tips."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d67-pm",
+      "day": 67,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "What is one purchase under ₹5,000 you made this year that genuinely improved your everyday quality of life?\n\nNot an investment or a gadget for work, just something simple that made daily life easier."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d68-am",
+      "day": 68,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "5 continuous years at one employer unlocks your gratuity payout under Indian law.\n\nCalculation:\n(15 x Last Basic Salary x Years of service) / 26\n\nIf you plan to switch jobs at 4 years and 9 months, check your joining date. A few weeks can mean a big gratuity payout."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d68-pm",
+      "day": 68,
+      "slot": "pm",
+      "pillar": "fintech",
+      "type": "tweet",
+      "parts": [
+        "Withdrawing cash from an ATM using your credit card has zero interest-free days.\n\nInterest kicks in the minute cash exits the machine, often at 36% to 45% annualised, plus a 2.5% cash advance fee.\n\nNever use a credit card at an ATM except in a true emergency."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d69-am",
+      "day": 69,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "Torn between the Old and New Tax Regime?\n\nUse this prompt:\n'Compare tax liability under the Old and New Tax Regime for an income of 15 lakhs with 2.5 lakhs in deductions. Show the exact difference in take-home pay.'\n\nQuick clarity before you submit tax declarations to HR."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d69-pm",
+      "day": 69,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "In Principles: Life and Work, Ray Dalio wrote:\n\n\"Pain + Reflection = Progress.\"\n\nWhen you lose money on an investment or make a bad financial decision, treat it as data. Write down what went wrong, find the root cause, and update your process so you never repeat it."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d70-am",
+      "day": 70,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Leaving idle cash in a standard savings account earns barely 2.7% to 3% in major banks.\n\nInflation quietly erodes that cash.\n\nEnabling an auto-sweep facility automatically moves surplus balance into fixed deposits, earning better returns while keeping money liquid."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d70-pm",
+      "day": 70,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "If your company gave you the option to receive your 12% EPF contribution as direct cash in hand every month, would you take the cash or keep it in EPF?"
+      ],
+      "status": "draft"
     }
   ]
 }
