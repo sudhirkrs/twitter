@@ -1737,6 +1737,184 @@
         "If your company gave you the option to receive your 12% EPF contribution as direct cash in hand every month, would you take the cash or keep it in EPF?"
       ],
       "status": "approved"
+    },
+    {
+      "id": "d71-am",
+      "day": 71,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Buying term insurance? A ₹1 crore cover costs far less in your 20s than in your 30s. Here is how to pick the right term plan without getting tricked 🧵",
+        "1. Calculate the right cover amount. A simple standard rule is 10 to 15 times your annual salary, plus your total existing debt like home loans.",
+        "2. Choose pure term insurance. Avoid plans that promise your money back at the end. Money-back plans charge much higher premiums for poor returns.",
+        "3. Disclose all medical history upfront. Hiding smoking habits or past illnesses gives the insurer a valid reason to reject a claim later.",
+        "4. Pick a claim payout option carefully. A lump sum works for responsible families, while monthly payouts help if dependents can't manage large cash.",
+        "Follow @Sudhirkrs17 for practical tips on managing your money, taxes and investments."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d71-pm",
+      "day": 71,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "Income drop or falling markets? In Man's Search for Meaning, Viktor Frankl wrote:\n\n\"Everything can be taken from a man but one thing: the last of the human freedoms—to choose one's attitude in any given set of circumstances, to choose one's own way.\""
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d72-am",
+      "day": 72,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "Did you know the standard UPI daily limit is ₹1 lakh, but NPCI allows up to ₹5 lakh for hospital and educational payments?\n\nCheck with your bank app before transferring large sums during an emergency."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d72-pm",
+      "day": 72,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "poll",
+      "parts": [
+        "How many months of basic living expenses do you currently have saved in your emergency fund?"
+      ],
+      "status": "draft",
+      "poll": {
+        "options": [
+          "Less than 1 month",
+          "1 to 3 months",
+          "3 to 6 months",
+          "6+ months"
+        ],
+        "duration_minutes": 1440
+      }
+    },
+    {
+      "id": "d73-am",
+      "day": 73,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Switching jobs this month? Moving your EPF balance properly can save you from a surprise tax bill later. Here is what to do 🧵",
+        "1. Never withdraw your EPF balance when changing jobs. Withdrawing before 5 years of continuous service makes the interest amount taxable.",
+        "2. Transfer your old EPF to your new employer's account using your UAN. You can trigger this online via the EPFO portal in a few clicks.",
+        "3. Make sure your UAN is linked with your Aadhaar and bank details. Incorrect KYC details are the main reason EPF transfers get stuck.",
+        "4. Verify that your previous employer updated your Date of Exit on the portal. Without this, your online transfer request will fail.",
+        "Follow @Sudhirkrs17 for simple guides on managing salary, EPF, and taxes."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d73-pm",
+      "day": 73,
+      "slot": "pm",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "AI can help you compare health insurance policy documents in 2 minutes.\n\nPaste the PDF text of two plans and ask: \"Compare room rent capping, waiting periods for pre-existing diseases, and co-pay clauses between these two policies.\""
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d74-am",
+      "day": 74,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Prepaying your home loan EMI versus investing in a mutual fund SIP: how do you decide?\n\nIf your home loan interest rate is 8.5% and your expected investment return is higher, investing makes mathematical sense. But paying off debt brings peace of mind."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d74-pm",
+      "day": 74,
+      "slot": "pm",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "How often do you use tap-and-pay on your credit card for daily purchases?\n\nWith limits raised up to ₹5,000 without a PIN, card tapping is often faster than scanning a UPI QR code at retail counters. What is your preferred way to pay?"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d75-am",
+      "day": 75,
+      "slot": "am",
+      "pillar": "personal-finance",
+      "type": "thread",
+      "parts": [
+        "Paying high interest on your home loan? A home loan balance transfer could save you lakhs. Here is how it works 🧵",
+        "1. Check your current home loan interest rate. If other lenders offer a rate that is 0.5% to 1% lower, a transfer might be worth evaluating.",
+        "2. Factor in switching costs. New lenders charge processing fees, legal fees, and valuation charges. Calculate if the interest savings outweigh these fees.",
+        "3. First ask your existing bank for a rate reset. Most banks lower your rate for a small fee, saving you the hassle of moving your loan documents.",
+        "4. Keep your loan tenure the same after transferring. Reducing the rate while keeping tenure constant lowers your total interest paid.",
+        "Follow @Sudhirkrs17 for actionable money tips, home loan advice, and wealth-building ideas."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d75-pm",
+      "day": 75,
+      "slot": "pm",
+      "pillar": "books",
+      "type": "tweet",
+      "parts": [
+        "In Factfulness, Hans Rosling shows that most people are far more pessimistic about the world than real data shows.\n\nBefore making financial decisions based on bad news in the headlines, check the actual numbers instead of relying on gut feelings."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d76-am",
+      "day": 76,
+      "slot": "am",
+      "pillar": "ai",
+      "type": "tweet",
+      "parts": [
+        "Want to renegotiate your annual salary? Use AI to prepare your case.\n\nPrompt it with your role, key projects completed this year, and market benchmarks. Ask it to generate 3 professional talking points highlighting your value for your appraisal review."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d76-pm",
+      "day": 76,
+      "slot": "pm",
+      "pillar": "personal-finance",
+      "type": "tweet",
+      "parts": [
+        "Section 80D allows a tax deduction of up to ₹5,000 for preventive health checkups every financial year.\n\nThis limit is within your total Section 80D health insurance cap and applies even if you pay in cash. Keep the diagnostic bill for tax filing."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d77-am",
+      "day": 77,
+      "slot": "am",
+      "pillar": "payments",
+      "type": "tweet",
+      "parts": [
+        "Credit card reward points devalued recently? You are not alone.\n\nBanks frequently change reward redemption rates or add cap limits. Don't hoard your reward points like long-term investments. Redeem them regularly for cash credit or vouchers."
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "d77-pm",
+      "day": 77,
+      "slot": "pm",
+      "pillar": "engagement",
+      "type": "tweet",
+      "parts": [
+        "What is your single biggest money goal for the upcoming financial year?\n\nWhether it is building an emergency fund, starting your first SIP, or closing a credit card loan—reply below and let's keep each other accountable!"
+      ],
+      "status": "draft"
     }
   ]
 }
